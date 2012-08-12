@@ -1,5 +1,5 @@
 
-<div id="gene" style="display:none">
+<div id="gene" class="respanel" style="display:none">
 <form id="querystep4" method="POST">
 
 	<table>
