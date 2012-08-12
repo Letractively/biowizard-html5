@@ -1,4 +1,4 @@
-<div id="protein" style="display:none">
+<div id="protein" class="respanel" style="display:none">
 <form id="querysteprot" method="POST">
 
 	<table>

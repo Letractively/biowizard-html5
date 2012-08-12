@@ -1,5 +1,5 @@
 
-<div id="articlestep2" style="display:none">
+<div id="articlestep2" class="respanel" style="display:none">
 <form id="querystep2" method="POST">
 
 	<table>

@@ -1,4 +1,4 @@
-<div id="association" style="display:none">
+<div id="association" class="respanel" style="display:none">
 <form id="querystep2" method="POST">
 
 	<table>
