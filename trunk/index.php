@@ -41,7 +41,8 @@ $('.button').click(function(){
   					include('gengennav.php'); ?>
 	</div>
 	<div id="mainframe" style="width:1060px">
-    <?php 
+    <div style="height:90%">
+	<?php 
 	include('step1.php');
     include('association.php');
 	include('insertdisease.php');
@@ -49,7 +50,8 @@ $('.button').click(function(){
     include('insertprot.php');
 	include('insertarticles.php');	
 	?>
-      <div style="position:relative; bottom:10; right:0">
+    </div>
+      <div style=" position:relative; margin-bottom:10; right:0">
  	<button  id="nextbutton" name="step1" class="buttoncontrols" style="float:right; width:70px; height:30px;display:none" onClick="next()"> next </button>
     <button id="prevbutton"  name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;display:none" onclick="prev()"> prev </button>
     </div>
