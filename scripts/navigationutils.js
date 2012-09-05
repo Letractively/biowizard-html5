@@ -129,3 +129,4 @@ function DisGen(){
 		document.getElementById("Dg").style.borderTop="#1b435e";
 		
 }
+

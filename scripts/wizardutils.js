@@ -1,6 +1,9 @@
 function next(){
 	var name = document.getElementById("nextbutton").getAttribute("name");
 	var type = document.getElementById("choicestep1").name;	
+	for(i=0;i< document.getElementsByClassName("result").length; i++)
+		document.getElementsByClassName("result").item(i).style.display = "none";
+
 	for(i=0;i< document.getElementsByClassName("respanel").length; i++)
 		document.getElementsByClassName("respanel").item(i).style.display = "none";
 	for(i=0;i<document.getElementsByClassName("navitem").length;i++){
@@ -70,6 +73,10 @@ function prev(){
 		
 	var name = document.getElementById("prevbutton").getAttribute("name");
 	var type = document.getElementById("choicestep1").name;	
+	
+	for(i=0;i< document.getElementsByClassName("result").length; i++)
+		document.getElementsByClassName("result").item(i).style.display = "none";
+
 	for(i=0;i< document.getElementsByClassName("respanel").length; i++)
 		document.getElementsByClassName("respanel").item(i).style.display = "none";
 	for(i=0;i<document.getElementsByClassName("navitem").length;i++){
@@ -172,5 +179,4 @@ function showstep5(type){
 
 }
 
-	
 

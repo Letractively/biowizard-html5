@@ -70,8 +70,8 @@
 </form>
 	<br>
     <br>
-	<div class="loading-bar" id="loadingBar" style="display:none; margin-left:5px">
-		<div class="amount green" style="width: 100%">
+	<div class="result" id="loadingBar" style="display:none; margin-left:5px">
+		<div class="amount " style="width: 100%">
 			<div class="loaded" >
 				Please Wait ...
 			</div>

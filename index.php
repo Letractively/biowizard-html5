@@ -7,21 +7,27 @@
 @import url('css/theme.css'); 
 @import url('css/buttons.css');
 @import url('css/LoadingBar.css'); 
-
 </style>
+
 <script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="scripts/wizardutils.js"> </script>
+<script type="text/javascript" src="scripts/internalrequests.js"> </script>
 <script type="text/javascript">
+
 $(document).ready(function(){
 $('.button').click(function(){
 	$('#navigationmenu').show( "slow");
 	$('#mainframe').animate({
 		width:"70%"
 		});
-		$('.buttoncontrols').show("fast"	);
-		$('#prevbutton').hide();
+		$('#nextbutton').show("fast");
 });
 
+$('.buildButton').click(function(){
+	if(document.getElementById("queryTerms").value != ""){
+	$('.result').show("fast");}
+	});
+	
 });
 </script>
 

@@ -1,14 +1,13 @@
 
 <div id="articlestep2" class="respanel" style="display:none">
-<form id="querystep2" method="POST">
-
+<form name="querystep2">
 	<table>
     <tr>
     <td width="100">
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text" style="width:360px"/>
+    <input type="text" id="queryTerms" name="nome" style="width:360px"/>
     </td>
     </tr>
     <tr>
@@ -86,26 +85,25 @@
     <input type="checkbox" id="check2" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
     </td> 
     <td>
-    <input type="button" id="buildstep2" class="buildButton" value="Build Dictionary" />
+    <input type="button" id="buildstep2" class="buildButton" value="Build Dictionary" onclick="builddictionary()"/>
     </td>
     </tr>
     </table>
-
 </form>
 	<br>
     <br>
-	<div class="loading-bar" id="loadingBar" style="display:none; margin-left:5px">
+	<div class="result" id="loadingBar" style="display:none; margin-left:5px;">
 		<div class="amount green" style="width: 100%">
-			<div class="loaded" >
+			<div id="loaded" class="loaded" >
 				Please Wait ...
 			</div>
-			<div class="lines"></div>
+			<div id="line" class="lines"></div>
 		</div>
 	</div>
      <br>
     <div class="result" style="display:none; margin-top:15px; margin-left:5px">
-    <label> RESULT: </label>
-    <input type="button" id="editButtonstep2" class="result" style="display:none" value="Edit Dictionary">
+    <label id="resultlabel" style="display:none"> </label>
+    <input type="button" id="editButtonstep2" style="display:none" value="Edit Dictionary">
 </div>
 </div>
 </html>
