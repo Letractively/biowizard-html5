@@ -1,6 +1,6 @@
 
 <div id="gene" class="respanel" style="display:none">
-<form id="querystep4" method="POST">
+<form name="queryGene">
 
 	<table>
     <tr>
@@ -8,7 +8,7 @@
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text" style="width:360px"/>
+    <input type="text" name="nome" class="elem" style="width:360px"/>
     </td>
     </tr>
     <tr>
@@ -16,7 +16,7 @@
    	<label> Fields: </label>
     </td>
     <td>
-    <select class="step4">
+    <select class="step4 elem" name="fields">
     	<option value="All Fields"> All Fields </option>
 		<option value="Base Position"> Base Position </option>
   		<option value="Chromosome"> Chromosome </option>
@@ -55,7 +55,7 @@
     <label> Organism: </label>
     </td>
     <td width="400">
-    <input type="text" style="width:360px"/>
+    <input type="text" name="organism" class="elem" style="width:360px"/>
     </td>
     </tr>
     <tr>
@@ -64,11 +64,11 @@
     </td>
     <td>
    
-    <input type="number" name="spinnerMin" id="spinnerMin" min="0" max="10000" step="1" value="0" style="width:50px"/>
+    <input type="number" name="spinnerMin" id="spinnerMin" class="elem" min="0" max="10000" step="1" value="0" style="width:50px"/>
     &nbsp
     <label> Max: </label>
     
-    <input type="number" name="spinnerMax" id="spinnerMax" min="0" max="10000" step="1" value="100" style="width:50px"/>
+    <input type="number" name="spinnerMax" id="spinnerMax" class="elem" min="0" max="10000" step="1" value="100" style="width:50px"/>
     &nbsp
     &nbsp
     
@@ -78,16 +78,16 @@
     <label> Database: </label>
     </td>
     <td>
-    <select >
-		<option value="Entrez Gene"> Entrez Gene </option>
+    <select class="elem">
+		<option value="Entrez Gene" > Entrez Gene </option>
 	</select>
     &nbsp
     &nbsp
     &nbsp
-    <input type="checkbox" id="check2" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
+    <input type="checkbox" id="check2" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
     </td> 
     <td>
-    <input type="button" id="buildstep4" class="buildButton" value="Build Dictionary" />
+    <input type="button" id="buildstep4" class="buildButton elem" value="Build Dictionary" onclick="buildGenesDictionary()"/>
     </td>
     </tr>
     </table>
@@ -97,16 +97,16 @@
     <br>
 	<div class="result" id="loadingBar" style="display:none; margin-left:5px">
 		<div class="amount green" style="width: 100%">
-			<div class="loaded" >
+			<div id="loadedGene" class="loaded" >
 				Please Wait ...
 			</div>
-			<div class="lines"></div>
+			<div id="lineGene" class="lines"></div>
 		</div>
 	</div>
      <br>
     <div class="result" style="display:none; margin-top:15px; margin-left:5px">
-    <label> RESULT: </label>
-    <input type="button" id="editButtonstep4" class="result" style="display:none" value="Edit Dictionary">
+    <label id="resultlabelGene" style="display:none"> </label>
+    <input type="button" id="editButtonstep4" style="display:none" value="Edit Dictionary">
     </div>
 </div>
 </html>

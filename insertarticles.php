@@ -1,13 +1,13 @@
 
 <div id="articlestep2" class="respanel" style="display:none">
-<form name="querystep2">
+<form name="queryArticles" >
 	<table>
     <tr>
     <td width="100">
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text" id="queryTerms" name="nome" style="width:360px"/>
+    <input type="text" id="queryTerms" name="nome" class="elem" style="width:360px"/>
     </td>
     </tr>
     <tr>
@@ -15,7 +15,7 @@
    	<label> Fields: </label>
     </td>
     <td>
-    <select class="step2">
+    <select class="step2 elem" name="fields" >
 		<option value="Title/Abstract"> Title/Abstract </option>
   		<option value="All Fields"> All Fields </option>
         <option value="Affiliation"> Affiliation </option>
@@ -60,11 +60,11 @@
     </td>
     <td>
    
-    <input type="number" name="spinnerMin" id="spinnerMin" min="0" max="10000" step="1" value="0" style="width:50px"/>
+    <input type="number" name="spinnerMin" id="spinnerMin" class="elem" min="0" max="10000" step="1" value="0" style="width:50px"/>
     &nbsp
     <label> Max: </label>
     
-    <input type="number" name="spinnerMax" id="spinnerMax" min="0" max="10000" step="1" value="100" style="width:50px"/>
+    <input type="number" name="spinnerMax" id="spinnerMax" class="elem" min="0" max="10000" step="1" value="100" style="width:50px"/>
     &nbsp
     &nbsp
     </td>
@@ -75,17 +75,17 @@
     <label> Database: </label>
     </td>
     <td>
-    <select >
+    <select class="elem">
 		<option value="Pubmed"> Pubmed </option>
   		<option value="OxfordJournals"> Oxford Journals</option>
 	</select>
     &nbsp
     &nbsp
     &nbsp
-    <input type="checkbox" id="check2" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
+    <input type="checkbox" id="check2" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
     </td> 
     <td>
-    <input type="button" id="buildstep2" class="buildButton" value="Build Dictionary" onclick="builddictionary()"/>
+    <input type="button" id="buildstep2" class="buildButton elem"  value="Build Dictionary" onclick="buildArticlesDictionary()"/>
     </td>
     </tr>
     </table>
@@ -107,3 +107,4 @@
 </div>
 </div>
 </html>
+
