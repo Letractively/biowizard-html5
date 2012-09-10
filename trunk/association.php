@@ -1,5 +1,5 @@
 <div id="association" class="respanel" style="display:none">
-<form id="querystep2" method="POST">
+<form id="querystep2">
 
 	<table>
     <tr>
@@ -7,7 +7,7 @@
     <label style="width:200"> Vector Space Models threshold: </label>
     </td>
     <td width="250">
-    <input type="text" style="width:360px;text-align:right" value="0.0001"/>
+    <input type="text" class="elem" style="width:360px;text-align:right" value="0.0001"/>
     </td>
     </tr>
     <tr>
@@ -15,7 +15,7 @@
     <label style="width:200"> Number of clusters: </label>
     </td>
     <td width="250">
-    <input type="number" style="width:360px;text-align:right" value="25" name="numClust" id="numClust" min="0" max="10000" step="1" />
+    <input type="number" style="width:360px;text-align:right" value="25" name="numClust" id="numClust" class="elem" min="0" max="10000" step="1" />
     </td>
     </tr>
     <tr>
@@ -23,7 +23,7 @@
     <label> Iteration in clustering: </label>
     </td>
     <td width="250">
-    <input type="number" style="width:360px;text-align:right" value="150" name="iterClust" id="iterClust" min="0" max="10000" step="1" />
+    <input type="number" style="width:360px;text-align:right" value="150" name="iterClust" id="iterClust" class="elem" min="0" max="10000" step="1" />
     </td>
     </tr>
     <tr>
@@ -31,7 +31,7 @@
    	<label style="width:200"> Clustering alghorithm: </label>
     </td>
     <td>
-    <select class="association" style="width:365px">
+    <select class="association" style="width:365px" class="elem">
     	<option value="K-Means"> K-Means </option>
 		<option value="Hierarchical"> Hierarchical </option>
 	</select>
@@ -41,7 +41,7 @@
     <td>
     </td>
     <td>
-    <input type="button" id="startAss" class="buildButton" value="Start" />
+    <input type="button" id="startAss" class="elem" class="buildButton" value="Start" />
     </td>
     </tr>
     </table>
@@ -59,8 +59,6 @@
 	</div>
      <br>
     <div class="result" style="display:none; margin-top:15px; margin-left:5px">
-    <label> RESULT: </label>
-    <input type="button" id="editButtonstep2" class="result" style="display:none" value="Edit Dictionary">
 </div>
 </div>
 </html>

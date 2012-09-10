@@ -25,7 +25,8 @@ $('.button').click(function(){
 
 $('.buildButton').click(function(){
 	if(document.getElementById("queryTerms").value != ""){
-	$('.result').show("fast");}
+	$('.result').show("fast");
+	}
 	});
 	
 });
