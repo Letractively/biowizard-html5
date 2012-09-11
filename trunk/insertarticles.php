@@ -1,13 +1,13 @@
 
 <div id="articlestep2" class="respanel" style="display:none">
-<form name="queryArticles" >
+<form name="queryArticles"  id="queryArticles">
 	<table>
     <tr>
     <td width="100">
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text" id="queryTerms" name="nome" class="elem" style="width:360px"/>
+    <input type="text" id="textArticles" name="nome" class="elem required" style="width:360px" />
     </td>
     </tr>
     <tr>
@@ -85,7 +85,7 @@
     <input type="checkbox" id="check2" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
     </td> 
     <td>
-    <input type="button" id="buildstep2" class="buildButton elem"  value="Build Dictionary" onclick="buildArticlesDictionary()"/>
+    <input type="button" id="buildArticles" class="buildButton elem"  value="Build Dictionary" onclick="buildArticlesDictionary()"/>
     </td>
     </tr>
     </table>

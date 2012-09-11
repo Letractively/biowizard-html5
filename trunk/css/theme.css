@@ -2,7 +2,7 @@
 /* CSS Document */
 
 body {
-	font-family: "lucida grande", tahoma, verdana, arial, sans-serif; 
+	font-family: "Arial Black", Gadget, sans-serif
 	/* IE10 */
 	background-image: -ms-linear-gradient(top right, #7c7c7c 0%, #3e3b3b 100%); 
 	/* Mozilla Firefox */
@@ -67,3 +67,6 @@ body {
 	width: 100%;
 }
 	   
+.focus {
+  border: 3px solid #F40000;
+}

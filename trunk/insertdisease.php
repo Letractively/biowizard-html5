@@ -8,7 +8,7 @@
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text"  name="nome" class="elem" style="width:360px"/>
+    <input type="text" id="textDisease" name="nome" class="elem" style="width:360px" />
     </td>
     </tr>
     <tr>
