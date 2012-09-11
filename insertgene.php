@@ -8,7 +8,7 @@
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text" name="nome" class="elem" style="width:360px"/>
+    <input type="text" id="textGene" name="nome" class="elem" style="width:360px" />
     </td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@
     <label> Organism: </label>
     </td>
     <td width="400">
-    <input type="text" name="organism" class="elem" style="width:360px"/>
+    <input type="text" name="organism" class="elem" style="width:360px" />
     </td>
     </tr>
     <tr>

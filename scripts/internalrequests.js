@@ -41,7 +41,15 @@ function buildArticlesDictionary() {
 	var sMin = document.queryArticles.spinnerMin.value;
 	var sMax = document.queryArticles.spinnerMax.value;
 	var check= document.queryArticles.checkData.checked;
-	if(nome != ""){
+	if(nome == ""){
+		//document.getElementById("textArticles").required="true";
+		//document.queryArticles.nome.focus();
+		document.getElementById("textArticles").className="focus";
+		}
+		else{
+		document.getElementById("textArticles").className="";
+		for(i=0;i< document.getElementsByClassName("result").length; i++)
+		document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
 		document.getElementById("prevbutton").style.display = "none";
 		document.getElementById("resultlabel").innerHTML = "";
@@ -84,7 +92,13 @@ function buildDiseasesDictionary() {
 	var sMax = document.queryDisease.spinnerMax.value;
 	var checkSearch= document.queryDisease.checkSearch.checked;
 	var checkData= document.queryDisease.checkData.checked;
-	if(nome != ""){
+	if(nome == ""){
+		document.getElementById("textDisease").className="focus";
+		}
+		else{
+		document.getElementById("textDisease").className="";
+		for(i=0;i< document.getElementsByClassName("result").length; i++)
+		document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
 		document.getElementById("prevbutton").style.display = "none";
 		document.getElementById("resultlabelDisease").innerHTML = "";
@@ -128,7 +142,13 @@ function buildGenesDictionary() {
 	var sMin = document.queryGene.spinnerMin.value;
 	var sMax = document.queryGene.spinnerMax.value;
 	var checkData= document.queryGene.checkData.checked;
-	if(nome != ""){
+	if(nome == ""){
+		document.getElementById("textGene").className="focus";
+		}
+		else{
+		document.getElementById("textGene").className="";
+		for(i=0;i< document.getElementsByClassName("result").length; i++)
+		document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
 		document.getElementById("prevbutton").style.display = "none";
 		document.getElementById("resultlabelGene").innerHTML = "";
@@ -173,7 +193,13 @@ function buildProteinsDictionary() {
 	var sMax = document.queryProtein.spinnerMax.value;
 	var checkSearch= document.queryProtein.checkSearch.checked;
 	var checkData= document.queryProtein.checkData.checked;
-	if(nome != ""){
+	if(nome == ""){
+		document.getElementById("textProtein").className="focus";
+		}
+		else{
+		document.getElementById("textProtein").className="";
+		for(i=0;i< document.getElementsByClassName("result").length; i++)
+		document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
 		document.getElementById("prevbutton").style.display = "none";
 		document.getElementById("resultlabelProtein").innerHTML = "";
