@@ -4,15 +4,16 @@
 <style type="text/css">
 .desc{
 	padding-left:15px;
-	font-size:15px;
+	font-size:17px;
 }
 .rowpad{
 	margin-top::10px;
 	}
 </style>
 <div id="choicestep1" align="center" >
-<div align="left">Select an association type:</div>
-<br /><br />
+<div align="left"> <font  style="font-size:22px" >Select an association type:</font></div>
+<br />
+<br/>
 <form id="introduction" method="POST">
 <table  align="center" cellspacing="8px" >
     	<tr class="rowpad">

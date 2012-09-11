@@ -22,6 +22,7 @@ function myHandlerArt() {
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabel");
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
+		document.getElementById("nextbutton").style.visibility = "";
 		document.getElementById("line").style.webkitAnimationPlayState="paused";
 		document.getElementById("line").style.MozAnimationPlayState="paused";
 		document.getElementById("line").style.oAnimationPlayState="paused";
@@ -49,7 +50,7 @@ function buildArticlesDictionary() {
 		else{
 		document.getElementById("textArticles").className="";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
-		document.getElementsByClassName('result').item(i).style.display = "";
+			document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
 		document.getElementById("prevbutton").style.display = "none";
 		document.getElementById("resultlabel").innerHTML = "";
@@ -72,6 +73,7 @@ function myHandlerDis() {
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabelDisease");;
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
+		document.getElementById("nextbutton").style.visibility = "";
 		document.getElementById("lineDisease").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineDisease").style.MozAnimationPlayState="paused";
 		document.getElementById("lineDisease").style.oAnimationPlayState="paused";
@@ -122,6 +124,7 @@ function myHandlerGene() {
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabelGene");;
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
+		document.getElementById("nextbutton").style.visibility = "";
 		document.getElementById("lineGene").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineGene").style.MozAnimationPlayState="paused";
 		document.getElementById("lineGene").style.oAnimationPlayState="paused";
@@ -173,6 +176,7 @@ function myHandlerProt() {
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabelProtein");;
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
+		document.getElementById("nextbutton").style.visibility = "";
 		document.getElementById("lineProtein").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineProtein").style.MozAnimationPlayState="paused";
 		document.getElementById("lineProtein").style.oAnimationPlayState="paused";
@@ -215,4 +219,46 @@ function buildProteinsDictionary() {
     myRequest.open("GET","provaProtein.php?nome="+escape(nome)+"&fields="+escape(fields)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
 	myRequest.send(null);
 }
+}
+
+function myHandlerAsso() {
+	var tmp;
+    if (myRequest.readyState == 4 && myRequest.status == 200) {
+        e = document.getElementById("resultlabelAssociation");;
+		e.innerHTML =   "RESULT: " + myRequest.responseText;
+		document.getElementById("nextbutton").style.visibility = "";
+		document.getElementById("lineAssociation").style.webkitAnimationPlayState="paused";
+		document.getElementById("lineAssociation").style.MozAnimationPlayState="paused";
+		document.getElementById("lineAssociation").style.oAnimationPlayState="paused";
+		document.getElementById("lineAssociation").style.msAnimationPlayState="paused";
+		document.getElementById("loadedAssociation").innerHTML="Clustering Completed";
+		document.getElementById("resultlabelAssociation").style.display = "";
+		document.getElementById("nextbutton").style.display = "";
+		document.getElementById("prevbutton").style.display = "";
+		for(i=0;i< document.getElementsByClassName("elem").length; i++)
+		document.getElementsByClassName('elem').item(i).disabled=false;		
+    }
+}
+
+function startAssociation(){
+    var vector = document.queryAssociation.vector.value;
+	var number = document.queryAssociation.number.value;
+	var iteration = document.queryAssociation.iteration.value;
+	var cluster = document.queryAssociation.cluster.options[document.queryAssociation.cluster.selectedIndex].value;
+		for(i=0;i< document.getElementsByClassName("result").length; i++)
+		document.getElementsByClassName('result').item(i).style.display = "";
+		document.getElementById("nextbutton").style.display = "none";
+		document.getElementById("prevbutton").style.display = "none";
+		document.getElementById("resultlabelAssociation").innerHTML = "";
+		document.getElementById("lineAssociation").style.webkitAnimationPlayState="running";
+		document.getElementById("lineAssociation").style.MozAnimationPlayState="running";
+		document.getElementById("lineAssociation").style.oAnimationPlayState="running";
+		document.getElementById("lineAssociation").style.msAnimationPlayState="running";
+		document.getElementById("loadedAssociation").innerHTML = "Clustering in progress...";
+		for(i=0;i< document.getElementsByClassName("elem").length; i++)
+		document.getElementsByClassName('elem').item(i).disabled=true;
+    var r = Math.random();
+    myRequest = CreateXmlHttpReq(myHandlerAsso);
+    myRequest.open("GET","provaAssociation.php?vector="+escape(vector)+"&number="+escape(number)+"&iteration="+escape(iteration)+"&cluster="+escape(cluster)+"&rand="+escape(r));
+	myRequest.send(null);
 }
