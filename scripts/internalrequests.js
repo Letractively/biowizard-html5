@@ -48,7 +48,7 @@ function buildArticlesDictionary() {
 		document.getElementById("textArticles").className="focus";
 		}
 		else{
-		document.getElementById("textArticles").className="";
+		document.getElementById("textArticles").className="elem";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 			document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
@@ -98,7 +98,7 @@ function buildDiseasesDictionary() {
 		document.getElementById("textDisease").className="focus";
 		}
 		else{
-		document.getElementById("textDisease").className="";
+		document.getElementById("textDisease").className="elem";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 		document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
@@ -149,7 +149,7 @@ function buildGenesDictionary() {
 		document.getElementById("textGene").className="focus";
 		}
 		else{
-		document.getElementById("textGene").className="";
+		document.getElementById("textGene").className="elem";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 		document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
@@ -201,7 +201,7 @@ function buildProteinsDictionary() {
 		document.getElementById("textProtein").className="focus";
 		}
 		else{
-		document.getElementById("textProtein").className="";
+		document.getElementById("textProtein").className="elem";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 		document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.display = "none";
