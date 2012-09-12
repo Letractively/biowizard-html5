@@ -1,7 +1,7 @@
 
 <div id="articlestep2" class="respanel" style="display:none">
-<form name="queryArticles"  id="queryArticles">
-	<table>
+<form name="queryArticles"  id="queryArticles" >
+	<table class="panelForm">
     <tr>
     <td width="100">
     <label> Query Terms: </label>
@@ -59,7 +59,6 @@
     <label> Starting from: </label>
     </td>
     <td>
-   
     <input type="number" name="spinnerMin" id="spinnerMin" class="elem" min="0" max="10000" step="1" value="0" style="width:50px"/>
     &nbsp
     <label> Max: </label>
@@ -81,9 +80,15 @@
 	</select>
     &nbsp
     &nbsp
-    &nbsp
     <input type="checkbox" id="check2" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
     </td> 
+    <!--<td>
+    <input type="button" id="buildArticles" class="buildButton elem"  value="Build Dictionary" onclick="buildArticlesDictionary()"/>
+    </td> -->
+    </tr>
+    <tr>
+    <td colspan="2">
+	</td>
     <td>
     <input type="button" id="buildArticles" class="buildButton elem"  value="Build Dictionary" onclick="buildArticlesDictionary()"/>
     </td>

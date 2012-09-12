@@ -44,7 +44,7 @@ $('.button').click(function(){
 
 
 <div id="containerframe">
-<div id="navigationmenu" align="center" style="display:none">
+<div id="navigationmenu" style="display:none">
 		   <?php
     			include('propronav.php');
   				include('dispronav.php');

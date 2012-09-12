@@ -25,8 +25,8 @@
    width:200px;
    }
 .button:hover {
-   border-top-color: #28597a;
-   background: #28597a;
+   border-top-color: #3d6987;
+   background: #3d6987;
    color: #ccc;
    }
 .button:active {
@@ -58,8 +58,8 @@
    width:200px;
    }
 .buttoncontrols:hover {
-   border-top-color: #28597a;
-   background: #28597a;
+   border-top-color: #3d6987;
+   background: #3d6987;
    color: #ccc;
    }
 .buttoncontrols:active {
@@ -107,8 +107,8 @@
    vertical-align: middle;
    }
 .buildButton:hover {
-   border-top-color: #28597a;
-   background: #28597a;
+   border-top-color: #3d6987;
+   background: #3d6987;
    color: #ccc;
    }
 .buildButton:active {
