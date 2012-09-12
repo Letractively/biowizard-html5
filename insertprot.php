@@ -1,7 +1,7 @@
 <div id="protein" class="respanel" style="display:none">
 <form id="querysteprot" name="queryProtein">
 
-	<table>
+	<table class="panelForm">
     <tr>
     <td width="100">
     <label> Query Terms: </label>
@@ -46,23 +46,36 @@
     <label> Database: </label>
     </td>
     <td>
+    <table class="intraTable">
+    <tr>
+    <td style="width:100px" align="left">
     <select  class="elem">
 		<option value="Mesh"> UniProt </option>
 	</select>
-    &nbsp
-    &nbsp
-    &nbsp
-    <input type="checkbox" name="checkSearch" id="check2" class="elem" value="Search data within articles" /> <label for = "check2">Search data within articles</label>
-    </td> 
-    <td>
-    <input type="button" id="buildstep2" class="buildButton elem" value="Build Dictionary" onclick="buildProteinsDictionary()" />
     </td>
+    <td>
+    <input type="checkbox" name="checkSearch" id="check2" class="elem" value="Search data within articles" /> <label for = "check2">Search data within articles</label>
+    </td>
+    </tr>
+    </table>
+    </td> 
     </tr>
     <tr>
     <td>
     </td>
-    <td style="padding-left:100px">
+    <td>
+    <table class="intraTable">
+    <tr>
+    <td style="width:100px">
+    </td>
+    <td>
     <input type="checkbox" name="checkData" id="check2" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
+    </td>
+    </tr>
+    </table>
+    </td>
+    <td>
+    <input type="button" id="buildstep2" class="buildButton elem" value="Build Dictionary" onclick="buildProteinsDictionary()" />
     </td>
     </tr>
     </table>

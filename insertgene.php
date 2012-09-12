@@ -2,7 +2,7 @@
 <div id="gene" class="respanel" style="display:none">
 <form name="queryGene">
 
-	<table>
+	<table class="panelForm">
     <tr>
     <td width="100">
     <label> Query Terms: </label>
@@ -85,7 +85,11 @@
     &nbsp
     &nbsp
     <input type="checkbox" id="check2" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
-    </td> 
+    </td>
+    </tr>
+    <tr>
+    <td colspan="2">
+	</td>
     <td>
     <input type="button" id="buildstep4" class="buildButton elem" value="Build Dictionary" onclick="buildGenesDictionary()"/>
     </td>

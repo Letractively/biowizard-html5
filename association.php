@@ -1,7 +1,7 @@
 <div id="association" class="respanel" style="display:none">
 <form name="queryAssociation">
 
-	<table>
+	<table class="panelForm">
     <tr>
     <td width="250">
     <label style="width:200"> Vector Space Models threshold: </label>
@@ -40,7 +40,7 @@
     <tr>
     <td>
     </td>
-    <td>
+    <td align="right">
     <input type="button" id="startAss" class="buildButton elem" value="Start" onclick="startAssociation()" />
     </td>
     </tr>
