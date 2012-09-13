@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+session_destroy();
+
+?>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,14 +31,6 @@ $('.button').click(function(){
 		$('#nextbutton').show("fast");
 });
 
-/*$('.buildButton').click(function(){
-	if(document.getElementById("queryTerms").value != ""){
-	$('.result').show("fast");
-	}
-	});
-	*/
-	
-
 });
 </script>
 
@@ -49,7 +49,7 @@ $('.button').click(function(){
     			include('propronav.php');
   				include('dispronav.php');
   				include('disgennav.php');
-  					include('gengennav.php'); ?>
+				include('gengennav.php'); ?>
 	</div>
 	<div id="mainframe" style="width:1060px">
     <div style="height:90%">

@@ -21,16 +21,17 @@ function myHandlerArt() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabel");
-		e.innerHTML =   "RESULT: " + myRequest.responseText;
-		document.getElementById("nextbutton").style.visibility = "";
+		e.innerHTML =   "RESULT: \n Founded" + myRequest.responseText+" Articles";
 		document.getElementById("line").style.webkitAnimationPlayState="paused";
 		document.getElementById("line").style.MozAnimationPlayState="paused";
 		document.getElementById("line").style.oAnimationPlayState="paused";
 		document.getElementById("line").style.msAnimationPlayState="paused";
 		document.getElementById("loaded").innerHTML="Completed";
 		document.getElementById("resultlabel").style.display = "";
-		document.getElementById("nextbutton").style.display = "";
-		document.getElementById("prevbutton").style.display = "";
+		
+		if((myRequest.responseText) != '0')
+			document.getElementById("nextbutton").style.visibility = "" ;
+		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;
     }
@@ -51,8 +52,8 @@ function buildArticlesDictionary() {
 		document.getElementById("textArticles").className="elem";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 			document.getElementsByClassName('result').item(i).style.display = "";
-		document.getElementById("nextbutton").style.display = "none";
-		document.getElementById("prevbutton").style.display = "none";
+		document.getElementById("nextbutton").style.visibility = "hidden";
+		document.getElementById("prevbutton").style.visibility = "hidden";
 		document.getElementById("resultlabel").innerHTML = "";
 		document.getElementById("line").style.webkitAnimationPlayState="running";
 		document.getElementById("line").style.MozAnimationPlayState="running";
@@ -63,7 +64,7 @@ function buildArticlesDictionary() {
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();
     myRequest = CreateXmlHttpReq(myHandlerArt);
-    myRequest.open("GET","prova.php?nome="+escape(nome)+"&fields="+escape(fields)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&check="+escape(check)+"&rand="+escape(r));
+    myRequest.open("GET","buildarticleclient.php?nome="+escape(nome)+"["+escape(fields)+"]&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&check="+escape(check)+"&rand="+escape(r));
 	myRequest.send(null);
 }
 }
@@ -71,17 +72,18 @@ function buildArticlesDictionary() {
 function myHandlerDis() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
-        e = document.getElementById("resultlabelDisease");;
+        e = document.getElementById("resultlabelDisease");
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
-		document.getElementById("nextbutton").style.visibility = "";
 		document.getElementById("lineDisease").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineDisease").style.MozAnimationPlayState="paused";
 		document.getElementById("lineDisease").style.oAnimationPlayState="paused";
 		document.getElementById("lineDisease").style.msAnimationPlayState="paused";
 		document.getElementById("loadedDisease").innerHTML="Completed";
 		document.getElementById("resultlabelDisease").style.display = "";
-		document.getElementById("nextbutton").style.display = "";
-		document.getElementById("prevbutton").style.display = "";
+		
+		if((myRequest.responseText) != '0')
+			document.getElementById("nextbutton").style.visibility = "" ;
+		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;		
     }
@@ -101,8 +103,8 @@ function buildDiseasesDictionary() {
 		document.getElementById("textDisease").className="elem";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 		document.getElementsByClassName('result').item(i).style.display = "";
-		document.getElementById("nextbutton").style.display = "none";
-		document.getElementById("prevbutton").style.display = "none";
+		document.getElementById("nextbutton").style.visibility = "hidden";
+		document.getElementById("prevbutton").style.visibility = "hidden";
 		document.getElementById("resultlabelDisease").innerHTML = "";
 		document.getElementById("lineDisease").style.webkitAnimationPlayState="running";
 		document.getElementById("lineDisease").style.MozAnimationPlayState="running";
@@ -122,17 +124,19 @@ function buildDiseasesDictionary() {
 function myHandlerGene() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
-        e = document.getElementById("resultlabelGene");;
+        e = document.getElementById("resultlabelGene");
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
-		document.getElementById("nextbutton").style.visibility = "";
 		document.getElementById("lineGene").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineGene").style.MozAnimationPlayState="paused";
 		document.getElementById("lineGene").style.oAnimationPlayState="paused";
 		document.getElementById("lineGene").style.msAnimationPlayState="paused";
 		document.getElementById("loadedGene").innerHTML="Completed";
 		document.getElementById("resultlabelGene").style.display = "";
-		document.getElementById("nextbutton").style.display = "";
-		document.getElementById("prevbutton").style.display = "";
+		
+		if((myRequest.responseText) != '0')
+			document.getElementById("nextbutton").style.visibility = "" ;
+
+		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;
     }
@@ -152,8 +156,8 @@ function buildGenesDictionary() {
 		document.getElementById("textGene").className="elem";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 		document.getElementsByClassName('result').item(i).style.display = "";
-		document.getElementById("nextbutton").style.display = "none";
-		document.getElementById("prevbutton").style.display = "none";
+		document.getElementById("nextbutton").style.visibility = "hidden";
+		document.getElementById("prevbutton").style.visibility = "hidden";
 		document.getElementById("resultlabelGene").innerHTML = "";
 		document.getElementById("lineGene").style.webkitAnimationPlayState="running";
 		document.getElementById("lineGene").style.MozAnimationPlayState="running";
@@ -176,15 +180,17 @@ function myHandlerProt() {
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabelProtein");;
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
-		document.getElementById("nextbutton").style.visibility = "";
 		document.getElementById("lineProtein").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineProtein").style.MozAnimationPlayState="paused";
 		document.getElementById("lineProtein").style.oAnimationPlayState="paused";
 		document.getElementById("lineProtein").style.msAnimationPlayState="paused";
 		document.getElementById("loadedProtein").innerHTML="Completed";
 		document.getElementById("resultlabelProtein").style.display = "";
-		document.getElementById("nextbutton").style.display = "";
-		document.getElementById("prevbutton").style.display = "";
+		
+		if((myRequest.responseText) != '0')
+			document.getElementById("nextbutton").style.visibility = "" ;
+
+		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;		
     }
@@ -204,8 +210,8 @@ function buildProteinsDictionary() {
 		document.getElementById("textProtein").className="elem";
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 		document.getElementsByClassName('result').item(i).style.display = "";
-		document.getElementById("nextbutton").style.display = "none";
-		document.getElementById("prevbutton").style.display = "none";
+		document.getElementById("nextbutton").style.visibility = "hidden";
+		document.getElementById("prevbutton").style.visibility = "hidden";
 		document.getElementById("resultlabelProtein").innerHTML = "";
 		document.getElementById("lineProtein").style.webkitAnimationPlayState="running";
 		document.getElementById("lineProtein").style.MozAnimationPlayState="running";
@@ -224,17 +230,19 @@ function buildProteinsDictionary() {
 function myHandlerAsso() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
-        e = document.getElementById("resultlabelAssociation");;
+        e = document.getElementById("resultlabelAssociation");
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
-		document.getElementById("nextbutton").style.visibility = "";
 		document.getElementById("lineAssociation").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineAssociation").style.MozAnimationPlayState="paused";
 		document.getElementById("lineAssociation").style.oAnimationPlayState="paused";
 		document.getElementById("lineAssociation").style.msAnimationPlayState="paused";
 		document.getElementById("loadedAssociation").innerHTML="Clustering Completed";
 		document.getElementById("resultlabelAssociation").style.display = "";
-		document.getElementById("nextbutton").style.display = "";
-		document.getElementById("prevbutton").style.display = "";
+		
+		if((myRequest.responseText) != '0')
+			document.getElementById("nextbutton").style.visibility = "" ;
+
+		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;		
     }
@@ -247,8 +255,8 @@ function startAssociation(){
 	var cluster = document.queryAssociation.cluster.options[document.queryAssociation.cluster.selectedIndex].value;
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 		document.getElementsByClassName('result').item(i).style.display = "";
-		document.getElementById("nextbutton").style.display = "none";
-		document.getElementById("prevbutton").style.display = "none";
+		document.getElementById("nextbutton").style.visibility = "hidden";
+		document.getElementById("prevbutton").style.visibility = "hidden";
 		document.getElementById("resultlabelAssociation").innerHTML = "";
 		document.getElementById("lineAssociation").style.webkitAnimationPlayState="running";
 		document.getElementById("lineAssociation").style.MozAnimationPlayState="running";
