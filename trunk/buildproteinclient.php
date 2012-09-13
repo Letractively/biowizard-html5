@@ -2,20 +2,29 @@
 	$getProteinResponse = new stdClass();
 	session_start();
     $n = utf8_encode($_GET['nome']);
-	$f=($_GET['fields']);
 	$cs=($_GET['checkSearch']);
 	$cd=($_GET['checkData']);
 	$sMin=($_GET['sMin']);
 	$sMax=($_GET['sMax']);
+	$field=($_GET['fields']);
+	
+	if($field == "All Fields") $field = 0;
+	if($field == "Full Text") $field = 1;
+	if($field == "Go Term") $field = 2;
+	if($field == "Keywords") $field = 3;
+	if($field == "Organism") $field = 4;
+	if($field == "Protein Name") $field = 5;
+	if($field == "ID List") $field = 6;
 	
 	$getProteins = new stdClass();
 	$getProteins->retmax = $sMax;
 	$getProteins->query = $n;
 	$getProteins->retstart = $sMin;
+	$getProteins->searchtype = $field;
 	
 	$client = new SoapClient("http://localhost:8080/BioWizard-ws/BioWizardWS?wsdl");
 	
-	if($c == 'true' || !isset($_SESSION['ProteinList'])){
+	if($cd == 'true' || !isset($_SESSION['ProteinList'])){
 		$getProteinResponse = ($client->getProteins($getProteins));
 	if((count(@$getProteinResponse->return)) != 0){
 		$_SESSION['ProteinList'] = $getProteinResponse;

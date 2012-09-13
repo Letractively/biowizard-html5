@@ -72,6 +72,7 @@ function buildArticlesDictionary() {
 function myHandlerDis() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
+		alert("handler")
         e = document.getElementById("resultlabelDisease");
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
 		document.getElementById("lineDisease").style.webkitAnimationPlayState="paused";
@@ -222,7 +223,7 @@ function buildProteinsDictionary() {
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();
     myRequest = CreateXmlHttpReq(myHandlerProt);
-    myRequest.open("GET","buildproteinclient.php?nome="+escape(nome)+"["+escape(fields)+"]&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
+    myRequest.open("GET","buildproteinclient.php?nome="+escape(nome)+"&fields="+escape(fields)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
 	myRequest.send(null);
 }
 }

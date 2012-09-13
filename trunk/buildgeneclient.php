@@ -2,7 +2,6 @@
     $getGeneResponse = new stdClass();
 	session_start();
 	$n = utf8_encode($_GET['nome']);
-	$f=($_GET['fields']);
 	$o =($_GET['organism']);
 	$cd=($_GET['checkData']);
 	$sMin=($_GET['sMin']);
@@ -17,7 +16,7 @@
 	
 	$client = new SoapClient("http://localhost:8080/BioWizard-ws/BioWizardWS?wsdl");
 	
-	if($c == 'true' || !isset($_SESSION['GeneList'])){
+	if($cd == 'true' || !isset($_SESSION['GeneList'])){
 		$getGeneResponse = ($client->getGenes($getGenes));
 	if((count(@$getGeneResponse->return)) != 0){
 		$_SESSION['GeneList'] = $getGeneResponse;

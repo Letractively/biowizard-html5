@@ -2,7 +2,6 @@
 	$getDiseaseResponse = new stdClass();
 	session_start();	
     $n = utf8_encode($_GET['nome']);
-	$f=($_GET['fields']);
 	$cs=($_GET['checkSearch']);
 	$cd=($_GET['checkData']);
 	$sMin=($_GET['sMin']);
@@ -16,7 +15,7 @@
 	
     $client = new SoapClient("http://localhost:8080/BioWizard-ws/BioWizardWS?wsdl");
 
-	if($c == 'true' || !isset($_SESSION['DiseaseList'])){
+	if($cd == 'true' || !isset($_SESSION['DiseaseList'])){
 		$getDiseaseResponse = ($client->getDisease($getDiseases));
 		if((count(@$getDiseaseResponse->return)) != 0){
 			$_SESSION['DiseaseList'] = $getDiseaseResponse;
