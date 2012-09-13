@@ -115,7 +115,7 @@ function buildDiseasesDictionary() {
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();
     myRequest = CreateXmlHttpReq(myHandlerDis);
-    myRequest.open("GET","provaDisease.php?nome="+escape(nome)+"&fields="+escape(fields)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
+    myRequest.open("GET","builddiseaseclient.php?nome="+escape(nome)+"["+escape(fields)+"]&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
 	myRequest.send(null);
 }
 }
@@ -168,7 +168,7 @@ function buildGenesDictionary() {
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();
     myRequest = CreateXmlHttpReq(myHandlerGene);
-    myRequest.open("GET","provaGene.php?nome="+escape(nome)+"&fields="+escape(fields)+"&organism="+escape(organism)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkData="+escape(checkData)+"&rand="+escape(r));
+    myRequest.open("GET","buildgeneclient.php?nome="+escape(nome)+"["+escape(fields)+"]&organism="+escape(organism)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkData="+escape(checkData)+"&rand="+escape(r));
 	myRequest.send(null);
 }
 }
@@ -222,7 +222,7 @@ function buildProteinsDictionary() {
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();
     myRequest = CreateXmlHttpReq(myHandlerProt);
-    myRequest.open("GET","provaProtein.php?nome="+escape(nome)+"&fields="+escape(fields)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
+    myRequest.open("GET","buildproteinclient.php?nome="+escape(nome)+"["+escape(fields)+"]&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
 	myRequest.send(null);
 }
 }
