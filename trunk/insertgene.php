@@ -54,7 +54,7 @@
     <td width="100">
     <label> Organism: </label>
     </td>
-    <td width="400">
+    <td >
     <input type="text" name="organism" class="elem" style="width:360px" />
     </td>
     </tr>
@@ -92,6 +92,9 @@
 	</td>
     <td>
     <input type="button" id="buildstep4" class="buildButton elem" value="Build Dictionary" onclick="buildGenesDictionary()"/>
+    </td>
+    <td>
+    <input type="button" id="editGenes" class="buildButton elem" value="Edit Dictionary" onclick="editDictionary('gene')" style="visibility:hidden" />
     </td>
     </tr>
     </table>

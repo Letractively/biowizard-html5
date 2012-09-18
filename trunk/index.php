@@ -14,7 +14,8 @@ session_destroy();
 <style type="text/css">
 @import url('css/theme.css'); 
 @import url('css/buttons.css');
-@import url('css/LoadingBar.css'); 
+@import url('css/LoadingBar.css');
+@import url('css/tabs.css');
 </style>
 
 <script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
@@ -60,6 +61,7 @@ $('.button').click(function(){
 	include('insertgene.php');
     include('insertprot.php');
 	include('insertarticles.php');	
+	include('clustering.php');
 	?>
     </div>
       <div style=" position:relative; margin-bottom:10; right:0">

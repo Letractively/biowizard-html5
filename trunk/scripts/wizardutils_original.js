@@ -63,7 +63,7 @@ if(name == "step4"){
 			document.getElementsByClassName("5phase").item(i).style.fontWeight='bold';
 	}
 	
-	showstep5(type);
+		showstep5(type);
 
 }
 	
@@ -75,10 +75,9 @@ if(name == "step5"){
 			document.getElementsByClassName("6phase").item(i).style.color=selectednavcolor;	
 			document.getElementsByClassName("6phase").item(i).style.fontWeight='bold';	
 	}
-	showstep6(type);
 }
 
-		document.getElementById("nextbutton").style.visibility = "";
+
 }
 
 	
@@ -195,19 +194,7 @@ function showstep5(type){
 
 	if(type == "disprotype" || type == "disgentype")
 		document.getElementById("association").style.display = "";
-	else{
-		document.getElementById("clustering").style.display = "";
-		document.getElementById("nextbutton").style.visibility = "hidden";
-	}
 
-}
-
-
-function showstep6(type){
-	
-	if(type == "disprotype" || type == "disgentype")
-		document.getElementById("clustering").style.display = "";
-		document.getElementById("nextbutton").style.visibility = "hidden";
 }
 
 
