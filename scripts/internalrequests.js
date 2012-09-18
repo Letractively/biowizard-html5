@@ -1,4 +1,7 @@
 var myRequest = null;
+var printingtype = null;
+
+
 
 function CreateXmlHttpReq(handler) {
   var xmlhttp = null;
@@ -29,8 +32,10 @@ function myHandlerArt() {
 		document.getElementById("loaded").innerHTML="Completed";
 		document.getElementById("resultlabel").style.display = "";
 		
-		if((myRequest.responseText) != '0')
+		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
+			document.getElementById("editArticles").style.visibility = "" ;
+		}
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;
@@ -69,10 +74,49 @@ function buildArticlesDictionary() {
 }
 }
 
+function openDictionary(){
+	 if (myRequest.readyState == 4 && myRequest.status == 200) {
+		var popEdit=window.open("","Dictionary","menubar=0,toolbar=0, width=400, height=400, resizable=0");
+		//popEdit.document.write('<input type="checkbox" value="ciao"/> ciao');		
+		var localdictionary = JSON.parse(myRequest.responseText);
+		if(printingtype == 'article')
+			var temphtml = '<table><tr><td>id</td><td>title</td><td>Abstract</td></tr>';
+		else
+			var temphtml = '<table><tr><td>id</td><td>name</td></tr>';
+		
+		for(i=0;i<localdictionary.length;i++){
+					
+
+			if(printingtype == 'article')
+				temphtml = temphtml + "<tr><td>" + localdictionary[i].id + "</td><td>"+ localdictionary[i].title + "</td><td>" + localdictionary[i].abstractText+"</td></tr>";
+			else
+				temphtml = temphtml + "<tr><td>" + localdictionary[i].id + "</td><td>"+ localdictionary[i].name + "</td></tr>";
+			
+			}
+	temphtml = temphtml + "</table>";
+	
+	popEdit.document.write(temphtml);
+	
+	
+	 }
+}
+
+function editDictionary(type){
+	var r = Math.random();
+	printingtype=type;
+    myRequest = CreateXmlHttpReq(openDictionary);
+    myRequest.open("GET","printDictionary.php?type="+printingtype+"&rand="+r);
+	myRequest.send(null);
+
+	
+	
+}
+	
+	
+
 function myHandlerDis() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
-		alert("handler")
         e = document.getElementById("resultlabelDisease");
 		e.innerHTML =   "RESULT: " + myRequest.responseText;
 		document.getElementById("lineDisease").style.webkitAnimationPlayState="paused";
@@ -82,8 +126,10 @@ function myHandlerDis() {
 		document.getElementById("loadedDisease").innerHTML="Completed";
 		document.getElementById("resultlabelDisease").style.display = "";
 		
-		if((myRequest.responseText) != '0')
+		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
+			document.getElementById("editDiseases").style.visibility = "" ;
+		}
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;		
@@ -134,8 +180,10 @@ function myHandlerGene() {
 		document.getElementById("loadedGene").innerHTML="Completed";
 		document.getElementById("resultlabelGene").style.display = "";
 		
-		if((myRequest.responseText) != '0')
+		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
+			document.getElementById("editGenes").style.visibility = "" ;
+		}
 
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
@@ -188,8 +236,10 @@ function myHandlerProt() {
 		document.getElementById("loadedProtein").innerHTML="Completed";
 		document.getElementById("resultlabelProtein").style.display = "";
 		
-		if((myRequest.responseText) != '0')
+		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
+			document.getElementById("editProteins").style.visibility = "" ;
+		}
 
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)

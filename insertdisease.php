@@ -78,6 +78,9 @@
     <td>
     <input type="button" id="buildstep2" class="buildButton elem" value="Build Dictionary" onclick="buildDiseasesDictionary()" />
     </td>
+    <td>
+    <input type="button" id="editDiseases" class="buildButton elem" value="Edit Dictionary" onclick="editDictionary('disease')" style="visibility:hidden" />
+    </td>
     </tr>
     </table>
 
