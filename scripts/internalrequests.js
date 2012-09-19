@@ -76,26 +76,20 @@ function buildArticlesDictionary() {
 
 function openDictionary(){
 	 if (myRequest.readyState == 4 && myRequest.status == 200) {
-		var popEdit=window.open("","Dictionary","menubar=0,toolbar=0, width=400, height=400, resizable=0");
-		//popEdit.document.write('<input type="checkbox" value="ciao"/> ciao');		
+	/*	var popEdit=window.open("temp.php","Dictionary","menubar=0,toolbar=0, width=500, height=400, resizable=0,scrollbars=1");
+		//popEdit.document.write('<input type="checkbox" value="ciao"/> ciao');	*/	
 		var localdictionary = JSON.parse(myRequest.responseText);
-		if(printingtype == 'article')
-			var temphtml = '<table><tr><td>id</td><td>title</td><td>Abstract</td></tr>';
-		else
-			var temphtml = '<table><tr><td>id</td><td>name</td></tr>';
-		
+		if(printingtype != 'article')
+			 document.getElementById('titlelabel').innerHTML="Name"; 
+			 var temphtml = "";
 		for(i=0;i<localdictionary.length;i++){
-					
-
-			if(printingtype == 'article')
-				temphtml = temphtml + "<tr><td>" + localdictionary[i].id + "</td><td>"+ localdictionary[i].title + "</td><td>" + localdictionary[i].abstractText+"</td></tr>";
-			else
+			if(printingtype == 'article'){
+				temphtml = temphtml + "<tr><td><input type=checkbox name='localdictionary[i].id' class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
+			}else
 				temphtml = temphtml + "<tr><td>" + localdictionary[i].id + "</td><td>"+ localdictionary[i].name + "</td></tr>";
 			
 			}
-	temphtml = temphtml + "</table>";
-	
-	popEdit.document.write(temphtml);
+	document.getElementById('editTable').innerHTML=temphtml;
 	
 	
 	 }
