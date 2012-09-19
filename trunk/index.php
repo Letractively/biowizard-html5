@@ -27,9 +27,20 @@ $(document).ready(function(){
 $('.button').click(function(){
 	$('#navigationmenu').show( "slow");
 	$('#mainframe').animate({
-		width:"70%"
+		width:"74%"
 		});
 		$('#nextbutton').show("fast");
+	
+	$('#editArticles').click(function(){
+		$('.respanel').hide("slow");
+		$('#editDictionary').show("slow");
+		$('#deleteEdit').show("fast");
+	});
+	
+	$('#deleteEdit').click(function(){
+		$('#editDictionary').hide("slow");
+		//$('.respanel').show("slow");
+		});
 });
 
 });
@@ -52,8 +63,8 @@ $('.button').click(function(){
   				include('disgennav.php');
 				include('gengennav.php'); ?>
 	</div>
-	<div id="mainframe" style="width:1060px">
-    <div style="height:90%">
+	<div id="mainframe" style="width:1160px">
+    <div style="height:90%" >
 	<?php 
 	include('step1.php');
     include('association.php');
@@ -62,9 +73,12 @@ $('.button').click(function(){
     include('insertprot.php');
 	include('insertarticles.php');	
 	include('clustering.php');
+	include('editPanel.php');
 	?>
     </div>
-      <div style=" position:relative; margin-bottom:10; right:0">
+    
+      <div style=" position:relative;right:0; padding-top:20px">
+    <input id="deleteEdit" class="buttoncontrols" type="button" value="Delete" style="float:left; width:70px; height:30px;margin-left:20px;display:none"/>
  	<button  id="nextbutton" name="step1" class="buttoncontrols" style="float:right; width:70px; height:30px;display:none" onClick="next()"> next </button>
     <button id="prevbutton"  name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;display:none" onclick="prev()"> prev </button>
     </div>

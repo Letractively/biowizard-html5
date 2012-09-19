@@ -10,7 +10,7 @@
 	margin-top::10px;
 	}
 </style>
-<div id="choicestep1" align="center" >
+<div id="choicestep1" >
 <div align="left"> <font  style="font-size:22px" >Select an association type:</font></div>
 <br />
 <br/>

@@ -3,7 +3,7 @@
 <form name="queryArticles"  id="queryArticles" >
 	<table class="panelForm">
     <tr>
-    <td width="100">
+    <td width="150">
     <label> Query Terms: </label>
     </td>
     <td width="200">
