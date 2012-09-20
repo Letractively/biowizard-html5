@@ -30,20 +30,20 @@ $('.button').click(function(){
 		width:"74%"
 		});
 		$('#nextbutton').show("fast");
-	
+	});
+
 	$('.editbutton').click(function(){
 		$('.respanel').hide("slow");
+		
+		$('.editcontrols').show("slow");
+		$('#prevbutton').hide("slow");
+		$('#nextbutton').hide("slow");
 		$('#editDictionary').show("slow");
-		$('#deleteEdit').show("fast");
-		$('#back').show("fast");
-		$('#prevbutton').hide("fast");
-		$('#nextbutton').hide("fast");
 	});
 	
 	$('#back').click(function(){
 		$('#editDictionary').hide("fast");
-		$('#back').hide("fast");
-		$('#deleteEdit').hide("fast");
+		$('.editcontrols').hide("fast");
 		$('#prevbutton').show("fast");
 		$('#nextbutton').show("fast");
 		if(printingtype=="article"){
@@ -59,9 +59,6 @@ $('.button').click(function(){
 			$('#protein').show('slow');
 			}
 		});
-
-});
-
 });
 </script>
 
@@ -97,8 +94,8 @@ $('.button').click(function(){
     </div>
     
       <div style=" position:relative;right:0; padding-top:20px">
-    <input id="deleteEdit" class="buttoncontrols" type="button" value="Delete" style="float:left; width:70px;height:30px;margin-left:20px;display:none" onclick="deletinglines()"/>
-    <input id="back" class="buttoncontrols" type="button" value="Back" style="float:left; width:70px; height:30px;margin-left:5px;display:none" onclick="" />
+    <input id="deleteEdit" class="buttoncontrols editcontrols" type="button" value="Delete" style="float:left; width:70px;height:30px;margin-left:20px;display:none" onclick="deletinglines()"/>
+    <input id="back" class="buttoncontrols editcontrols" type="button" value="Back" style="float:left; width:70px; height:30px;margin-left:5px;display:none" onclick="" />
  	<button  id="nextbutton" name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;margin-left:5px;display:none" onClick="next()"> next </button>
     <button id="prevbutton"  name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;display:none" onclick="prev()"> prev </button>
     </div>

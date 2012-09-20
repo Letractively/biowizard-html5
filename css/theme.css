@@ -74,8 +74,9 @@ body {
 .respanel{
 	alignment-adjust:central;
 	padding-top:35px;
+	padding-left:28px;
 	margin-left:16px;
-	margin-right:0px;
+	/*margin-right:0px;*/
 	margin-bottom:20px;
 	font-size:19px;
 	
@@ -87,7 +88,10 @@ table.panelForm{
 	border-spacing:10px;
 	}
 
-table.intraTable{
-	border-spacing:0px;
+.titleForm{
+	padding-left:10px;
+	padding-bottom:20px;
+	font-size:20px;
+	font-weight:800;
 	}
 	
