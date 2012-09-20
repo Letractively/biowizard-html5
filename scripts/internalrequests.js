@@ -86,7 +86,7 @@ function openDictionary(){
 			if(printingtype == 'article'){
 				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
 			}else
-				temphtml = temphtml + "<tr><td>" + localdictionary[i].id + "</td><td>"+ localdictionary[i].name + "</td></tr>";
+				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
 			
 			}
 	document.getElementById('editTable').innerHTML=temphtml;
@@ -328,13 +328,22 @@ function deletinglines(){
 			j++;
 		}
 		var tmp = 'deletelines.php?';
+		if(printingtype=='article')
+			tmp=tmp+'dictype=ArticleList&';
+		if(printingtype=='disease')
+			tmp=tmp+'dictype=DiseaseList&';
+		if(printingtype=='protein')
+			tmp=tmp+'dictype=ProteinList&';
+		if(printingtype=='gene')
+			tmp=tmp+'dictype=GeneList&';
+		
 	for(i=0; i<delitem.length;i++){
 		tmp=tmp+'delitem[]='+delitem[i];
 		if(i!=(delitem.length - 1))
 			tmp=tmp+'&';
 	}
-	myRequest = CreateXmlHttpReq(logprinter);
-	//alert(tmp);	
+	
+	myRequest = CreateXmlHttpReq(logprinter);	
     myRequest.open("GET",tmp);
 	myRequest.send(null);
 	
@@ -349,6 +358,5 @@ function logprinter(){
 		}
 	
 	}
-
 
 

@@ -4,7 +4,7 @@
 
 	<table class="panelForm">
     <tr>
-    <td width="100">
+    <td width="150">
     <label> Query Terms: </label>
     </td>
     <td width="200">
@@ -94,7 +94,7 @@
     <input type="button" id="buildstep4" class="buildButton elem" value="Build Dictionary" onclick="buildGenesDictionary()"/>
     </td>
     <td>
-    <input type="button" id="editGenes" class="buildButton elem" value="Edit Dictionary" onclick="editDictionary('gene')" style="visibility:hidden" />
+    <input type="button" id="editGenes" class="buildButton elem editbutton" value="Edit Dictionary" onclick="editDictionary('gene')" style="visibility:hidden" />
     </td>
     </tr>
     </table>

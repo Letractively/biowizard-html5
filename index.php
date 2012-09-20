@@ -31,11 +31,34 @@ $('.button').click(function(){
 		});
 		$('#nextbutton').show("fast");
 	
-	$('#editArticles').click(function(){
+	$('.editbutton').click(function(){
 		$('.respanel').hide("slow");
 		$('#editDictionary').show("slow");
 		$('#deleteEdit').show("fast");
+		$('#back').show("fast");
+		$('#prevbutton').hide("fast");
+		$('#nextbutton').hide("fast");
 	});
+	
+	$('#back').click(function(){
+		$('#editDictionary').hide("fast");
+		$('#back').hide("fast");
+		$('#deleteEdit').hide("fast");
+		$('#prevbutton').show("fast");
+		$('#nextbutton').show("fast");
+		if(printingtype=="article"){
+			$('#articlestep2').show('slow');
+		}
+		else if(printingtype=="disease"){
+			$('#disease').show('slow');
+			}
+		else if(printingtype=="gene"){
+			$('#gene').show('slow');
+			}
+		else if(printingtype=="protein"){
+			$('#protein').show('slow');
+			}
+		});
 
 });
 
@@ -74,8 +97,9 @@ $('.button').click(function(){
     </div>
     
       <div style=" position:relative;right:0; padding-top:20px">
-    <input id="deleteEdit" class="buttoncontrols" type="button" value="Delete" style="float:left; width:70px; height:30px;margin-left:20px;display:none" onclick="deletinglines()"/>
- 	<button  id="nextbutton" name="step1" class="buttoncontrols" style="float:right; width:70px; height:30px;display:none" onClick="next()"> next </button>
+    <input id="deleteEdit" class="buttoncontrols" type="button" value="Delete" style="float:left; width:70px;height:30px;margin-left:20px;display:none" onclick="deletinglines()"/>
+    <input id="back" class="buttoncontrols" type="button" value="Back" style="float:left; width:70px; height:30px;margin-left:5px;display:none" onclick="" />
+ 	<button  id="nextbutton" name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;margin-left:5px;display:none" onClick="next()"> next </button>
     <button id="prevbutton"  name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;display:none" onclick="prev()"> prev </button>
     </div>
     </div>
