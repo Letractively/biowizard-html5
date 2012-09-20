@@ -1,4 +1,5 @@
 <div id="protein" class="respanel" style="display:none">
+<div class="panelForm titleForm">Please complete the form below:</div>
 <form id="querysteprot" name="queryProtein">
 
 	<table class="panelForm">
@@ -87,7 +88,7 @@
 	<br>
     <br>
 	<div class="result" id="loadingBar" style="display:none; margin-left:5px">
-		<div class="amount green" style="width: 100%">
+		<div class="amount green" style="width: 94%">
 			<div id="loadedProtein" class="loaded" >
 				Please Wait ...
 			</div>

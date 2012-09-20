@@ -1,4 +1,5 @@
 <div id="association" class="respanel" style="display:none">
+<div class="panelForm titleForm">Please complete the form below:</div>
 <form name="queryAssociation">
 
 	<table class="panelForm">
@@ -31,7 +32,7 @@
    	<label style="width:200"> Clustering alghorithm: </label>
     </td>
     <td>
-    <select class="association" name="cluster" style="width:365px" class="elem">
+    <select class="association elem" name="cluster" style="width:365px" class="elem">
     	<option value="K-Means"> K-Means </option>
 		<option value="Hierarchical"> Hierarchical </option>
 	</select>

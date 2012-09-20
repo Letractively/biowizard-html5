@@ -1,5 +1,6 @@
 
 <div id="gene" class="respanel" style="display:none">
+<div class="panelForm titleForm">Please complete the form below:</div>
 <form name="queryGene">
 
 	<table class="panelForm">
@@ -103,7 +104,7 @@
 	<br>
     <br>
 	<div class="result" id="loadingBar" style="display:none; margin-left:5px">
-		<div class="amount green" style="width: 100%">
+		<div class="amount green" style="width: 94%">
 			<div id="loadedGene" class="loaded" >
 				Please Wait ...
 			</div>

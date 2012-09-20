@@ -1,5 +1,6 @@
 
 <div id="articlestep2" class="respanel" style="display:none">
+<div class="panelForm titleForm">Please complete the form below:</div>
 <form name="queryArticles"  id="queryArticles" >
 	<table class="panelForm">
     <tr>
@@ -101,7 +102,7 @@
 	<br>
     <br>
 	<div class="result" id="loadingBar" style="display:none; margin-left:5px;">
-		<div class="amount green" style="width: 100%">
+		<div class="amount green" style="width: 94%">
 			<div id="loaded" class="loaded" >
 				Please Wait ...
 			</div>
