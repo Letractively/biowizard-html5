@@ -1,10 +1,10 @@
 <?php
 session_start();
-
+$type = $_GET['dictype'];
 $delitem = $_GET['delitem'];
 
 $list = array();
-$bound = count($_SESSION['ArticleList']->return);
+$bound = count($_SESSION[$type]->return);
 
 for($i = 0; $i<count($delitem);$i++)
 	echo $delitem[$i].'\n';
@@ -13,9 +13,9 @@ for($i = 0; $i<count($delitem);$i++)
 $i=0;
 while($i<count($delitem)){
 	for($j = 0 ;$j < $bound; $j++){
-			if(isset($_SESSION['ArticleList']->return[$j]) && $delitem[$i] ==  $_SESSION['ArticleList']->return[$j]->id){
+			if(isset($_SESSION[$type]->return[$j]) && $delitem[$i] ==  $_SESSION[$type]->return[$j]->id){
 			 echo("devo cancellare".$delitem[$i]);
-			 unset($_SESSION['ArticleList']->return[$j]);break;		
+			 unset($_SESSION[$type]->return[$j]);break;		
 		}
 		
 	}	
@@ -23,10 +23,10 @@ while($i<count($delitem)){
 }
 
 for($i=0; $i<$bound; $i++)
-	if(isset($_SESSION['ArticleList']->return[$i]))
-		$list[] = $_SESSION['ArticleList']->return[$i];
+	if(isset($_SESSION[$type]->return[$i]))
+		$list[] = $_SESSION[$type]->return[$i];
 		
 		
-$_SESSION['ArticleList']->return=$list;
+$_SESSION[$type]->return=$list;
 
 ?>

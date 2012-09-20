@@ -93,7 +93,7 @@
     <input type="button" id="buildArticles" class="buildButton elem"  value="Build Dictionary" onclick="buildArticlesDictionary()"/>
     </td>
     <td>
-    <input type="button" id="editArticles" class="buildButton elem" value="Edit Dictionary" onclick="editDictionary('article')" style="visibility:hidden" />
+    <input type="button" id="editArticles" class="buildButton elem editbutton" value="Edit Dictionary" onclick="editDictionary('article')" style="visibility:hidden" />
     </td>
     </tr>
     </table>
