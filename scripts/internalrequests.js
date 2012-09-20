@@ -84,7 +84,7 @@ function openDictionary(){
 			 var temphtml = "";
 		for(i=0;i<localdictionary.length;i++){
 			if(printingtype == 'article'){
-				temphtml = temphtml + "<tr><td><input type=checkbox name='localdictionary[i].id' class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
+				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
 			}else
 				temphtml = temphtml + "<tr><td>" + localdictionary[i].id + "</td><td>"+ localdictionary[i].name + "</td></tr>";
 			
@@ -315,3 +315,40 @@ function startAssociation(){
     myRequest.open("GET","provaAssociation.php?vector="+escape(vector)+"&number="+escape(number)+"&iteration="+escape(iteration)+"&cluster="+escape(cluster)+"&rand="+escape(r));
 	myRequest.send(null);
 }
+
+
+
+
+function deletinglines(){
+	var j=0;	
+	delitem = new Array();
+	for(i = 0;i< document.getElementsByClassName("checkEdit").length; i++)
+		if(document.getElementsByClassName('checkEdit').item(i).checked.toString()=='true'){
+			delitem[j]=document.getElementsByClassName('checkEdit').item(i).name;
+			j++;
+		}
+		var tmp = 'deletelines.php?';
+	for(i=0; i<delitem.length;i++){
+		tmp=tmp+'delitem[]='+delitem[i];
+		if(i!=(delitem.length - 1))
+			tmp=tmp+'&';
+	}
+	myRequest = CreateXmlHttpReq(logprinter);
+	//alert(tmp);	
+    myRequest.open("GET",tmp);
+	myRequest.send(null);
+	
+}
+
+function logprinter(){
+	
+	    if (myRequest.readyState == 4 && myRequest.status == 200) {
+			
+						editDictionary(printingtype);
+	
+		}
+	
+	}
+
+
+
