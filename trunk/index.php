@@ -36,11 +36,7 @@ $('.button').click(function(){
 		$('#editDictionary').show("slow");
 		$('#deleteEdit').show("fast");
 	});
-	
-	$('#deleteEdit').click(function(){
-		$('#editDictionary').hide("slow");
-		//$('.respanel').show("slow");
-		});
+
 });
 
 });
@@ -78,7 +74,7 @@ $('.button').click(function(){
     </div>
     
       <div style=" position:relative;right:0; padding-top:20px">
-    <input id="deleteEdit" class="buttoncontrols" type="button" value="Delete" style="float:left; width:70px; height:30px;margin-left:20px;display:none"/>
+    <input id="deleteEdit" class="buttoncontrols" type="button" value="Delete" style="float:left; width:70px; height:30px;margin-left:20px;display:none" onclick="deletinglines()"/>
  	<button  id="nextbutton" name="step1" class="buttoncontrols" style="float:right; width:70px; height:30px;display:none" onClick="next()"> next </button>
     <button id="prevbutton"  name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;display:none" onclick="prev()"> prev </button>
     </div>
