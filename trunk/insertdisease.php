@@ -56,7 +56,7 @@
 	</select>
     </td>
     <td>
-    <input type="checkbox" id="check2" name="checkSearch" class="elem" value="Search data within articles" /> <label for = "check2">Search data within articles</label>
+    <input type="checkbox" id="check1dis" name="checkSearch" class="elem" value="Search data within articles" /> <label for = "check1dis">Search data within articles</label>
     </td>
     </tr>
     </table>
@@ -71,7 +71,7 @@
     <td style="width:100px">
     </td>
     <td>
-    <input type="checkbox" id="check2" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
+    <input type="checkbox" id="check2dis" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2dis">Overwrite previous data</label>
     </td>
     </tr>
     </table>

@@ -83,12 +83,21 @@ function openDictionary(){
 			 document.getElementById('titlelabel').innerHTML="Name"; 
 			 var temphtml = "";
 		for(i=0;i<localdictionary.length;i++){
+			if(i%2==1){
 			if(printingtype == 'article'){
 				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
-			}else
+			}else{
 				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
-			
 			}
+			}
+			else{
+			if(printingtype == 'article'){
+				temphtml = temphtml + "<tr style='color:#009900;'><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
+			}else{
+				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
+			}
+				}
+		}
 	document.getElementById('editTable').innerHTML=temphtml;
 	
 	

@@ -71,6 +71,7 @@ if(name == "step4"){
 if(name == "step5"){		
 		document.getElementById("nextbutton").name = "step6";
 		document.getElementById("prevbutton").name = "step6";
+		document.getElementById("nextbutton").style.visibility = "hidden";
 		for(i=0;i< document.getElementsByClassName("6phase").length;i++){
 			document.getElementsByClassName("6phase").item(i).style.color=selectednavcolor;	
 			document.getElementsByClassName("6phase").item(i).style.fontWeight='bold';	

@@ -85,7 +85,7 @@
     &nbsp
     &nbsp
     &nbsp
-    <input type="checkbox" id="check2" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
+    <input type="checkbox" id="check1gen" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check1gen">Overwrite previous data</label>
     </td>
     </tr>
     <tr>

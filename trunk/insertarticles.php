@@ -81,11 +81,8 @@
 	</select>
     &nbsp
     &nbsp
-    <input type="checkbox" id="check2" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2">Overwrite previous data</label>
+    <input type="checkbox" id="check1art" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check1art">Overwrite previous data</label>
     </td> 
-    <!--<td>
-    <input type="button" id="buildArticles" class="buildButton elem"  value="Build Dictionary" onclick="buildArticlesDictionary()"/>
-    </td> -->
     </tr>
     <tr>
     <td colspan="2">
