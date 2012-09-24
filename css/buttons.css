@@ -23,6 +23,7 @@
    text-decoration: none;
    vertical-align: middle;
    width:200px;
+   cursor:pointer;
    }
 .button:hover {
    border-top-color: #3d6987;
@@ -56,6 +57,7 @@
    text-decoration: none;
    vertical-align: middle;
    width:200px;
+   cursor:pointer;
    }
 .buttoncontrols:hover {
    border-top-color: #3d6987;
@@ -105,6 +107,7 @@
    color: white;
    text-decoration: none;
    vertical-align: middle;
+   cursor:pointer;
    }
 .buildButton:hover {
    border-top-color: #3d6987;

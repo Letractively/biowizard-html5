@@ -79,7 +79,7 @@ $('.button').click(function(){
   				include('disgennav.php');
 				include('gengennav.php'); ?>
 	</div>
-	<div id="mainframe" style="width:1160px">
+	<div id="mainframe" style="width:96.7%">
     <div style="height:90%" >
 	<?php 
 	include('step1.php');

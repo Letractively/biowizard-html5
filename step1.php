@@ -14,7 +14,7 @@
 <div align="left"> <font  style="font-size:22px" >Select an association type:</font></div>
 <br />
 <br/>
-<form id="introduction" method="POST">
+<form id="introduction">
 <table  align="center" cellspacing="8px" >
     	<tr class="rowpad">
         <td >
