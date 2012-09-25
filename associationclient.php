@@ -24,20 +24,25 @@
 		$associationParameters->diseaseDict = $_SESSION['DiseaseList']->return;
 		$associationParameters->geneDict = $_SESSION['GeneList']->return;	
 		$associationResponse=$client->clusteringDataDG($associationParameters);
+		$_SESSION['first']='DiseaseList';
+		$_SESSION['second']='GeneList';
 	}
 	if($type == 'proprotype'){	
 		$associationParameters->proteinDict = $_SESSION['ProteinList']->return;	
-		echo 'propro';
 		$associationResponse=$client->clusteringDataPP($associationParameters);
+		$_SESSION['first']='ProteinList';
 	}
 	if($type == 'gengentype'){	
 		$associationParameters->geneDict = $_SESSION['GeneList']->return;	
 		$associationResponse=$client->clusteringDataGG($associationParameters);
+		$_SESSION['first']='GeneList';
 	}
 	if($type == 'disprotype'){	
 		$associationParameters->diseaseDict = $_SESSION['DiseaseList']->return;
 		$associationParameters->proteinDict = $_SESSION['ProteinList']->return;	
 		$associationResponse=$client->clusteringDataDP($associationParameters);
+	    $_SESSION['first']='DiseaseList';
+		$_SESSION['second']='ProteinList';
 	}	
 	$_SESSION['associationResponse'] = $associationResponse;
 	$_SESSION['clientclustering'] = $client;

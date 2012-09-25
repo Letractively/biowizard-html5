@@ -292,9 +292,15 @@ function myHandlerAsso() {
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;	
-		alert(myRequest.responseText);			
+		//alert(myRequest.responseText);
+		doc = window.open();
+		doc.document.write(myRequest.responseText);
+		var features = JSON.parse(myRequest.responseText);
+			
     }
 }
+
+
 function startAssociation(){
 	var maintype = document.getElementById("choicestep1").name;
     var vector = document.queryAssociation.vector.value;
