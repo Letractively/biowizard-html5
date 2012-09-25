@@ -51,7 +51,7 @@
 	<br>
     <br>
 	<div class="result" id="loadingBar" style="display:none; margin-left:5px">
-		<div class="amount green" style="width: 100%">
+		<div class="amount green" style="width: 94%">
 			<div id="loadedAssociation" class="loaded" >
 				Clustering in progress...
 			</div>

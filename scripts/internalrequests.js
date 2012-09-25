@@ -1,8 +1,6 @@
 var myRequest = null;
 var printingtype = null;
 
-
-
 function CreateXmlHttpReq(handler) {
   var xmlhttp = null;
   try {
@@ -249,7 +247,6 @@ function myHandlerProt() {
 		document.getElementsByClassName('elem').item(i).disabled=false;		
     }
 }
-
 function buildProteinsDictionary() {
     var nome = document.queryProtein.nome.value;
 	var fields = document.queryProtein.fields.options[document.queryProtein.fields.selectedIndex].value;
@@ -284,25 +281,22 @@ function buildProteinsDictionary() {
 function myHandlerAsso() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
-        e = document.getElementById("resultlabelAssociation");
-		e.innerHTML =   "RESULT: " + myRequest.responseText;
-		document.getElementById("lineAssociation").style.webkitAnimationPlayState="paused";
+        document.getElementById("lineAssociation").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineAssociation").style.MozAnimationPlayState="paused";
 		document.getElementById("lineAssociation").style.oAnimationPlayState="paused";
 		document.getElementById("lineAssociation").style.msAnimationPlayState="paused";
 		document.getElementById("loadedAssociation").innerHTML="Clustering Completed";
 		document.getElementById("resultlabelAssociation").style.display = "";
-		
 		if((myRequest.responseText) != '0')
 			document.getElementById("nextbutton").style.visibility = "" ;
-
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
-		document.getElementsByClassName('elem').item(i).disabled=false;		
+		document.getElementsByClassName('elem').item(i).disabled=false;	
+		alert(myRequest.responseText);			
     }
 }
-
 function startAssociation(){
+	var maintype = document.getElementById("choicestep1").name;
     var vector = document.queryAssociation.vector.value;
 	var number = document.queryAssociation.number.value;
 	var iteration = document.queryAssociation.iteration.value;
@@ -320,9 +314,10 @@ function startAssociation(){
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();
-    myRequest = CreateXmlHttpReq(myHandlerAsso);
-    myRequest.open("GET","provaAssociation.php?vector="+escape(vector)+"&number="+escape(number)+"&iteration="+escape(iteration)+"&cluster="+escape(cluster)+"&rand="+escape(r));
+	myRequest = CreateXmlHttpReq(myHandlerAsso);	
+    myRequest.open("GET","associationclient.php?type="+maintype+"&vsmt="+vector+"&clusternumber="+number+"&iterationnumber="+iteration+"&calghorithm="+cluster+"&rand="+ r );
 	myRequest.send(null);
+
 }
 
 
@@ -365,7 +360,13 @@ function logprinter(){
 						editDictionary(printingtype);
 	
 		}
+		
+}
+		
+
+
+
 	
-	}
+
 
 
