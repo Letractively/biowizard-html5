@@ -76,6 +76,9 @@ function pressed(tab){
 <label>Feature threshold:</label>
 <input type="number" style="width:50px"/>
 <label>%</label>
+&nbsp;
+&nbsp;
+<input type="button" class="buildButton" value="Refresh" onclick=""/>
 </div>
 </div>
 
