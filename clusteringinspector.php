@@ -28,11 +28,12 @@ if(!isset($_GET['threshold']))
 		
 		
 		
-		
+		$j=0;
 		for($i=0;$i<$bound;$i++)
 			if(isset($results[$i]->featureList)){
-					$finalresults[$i] = $results[$i];	
-					$finalresults[$i]->name = $localdict[$i]->name;		
+					$finalresults[$j] = $results[$i];	
+					$finalresults[$j]->name = $localdict[$i]->name;
+					$j++;		
 				}
 		echo json_encode($finalresults);			
 	

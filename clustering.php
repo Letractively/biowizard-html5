@@ -25,15 +25,15 @@ function pressed(tab){
 <div>
 <div style="float:left;">
 <h5>Selected Dataset Features:</h5>
-<textarea class="textTab1" readonly="readonly">
+<div id="textarea1" class="textTab1" readonly="readonly">
 
-</textarea>
+</div>
 </div>
 <div style="float:right;">
 <h5>Associated Features:</h5>
-<textarea class="textTab1" readonly="readonly">
+<div id="textarea2" class="textTab1" readonly="readonly">
 
-</textarea>
+</div>
 </div>
 </div>
 </section>
