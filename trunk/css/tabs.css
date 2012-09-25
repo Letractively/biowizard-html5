@@ -4,13 +4,19 @@
 	width: 328px;
 	resize: none;
 	border-color:#999;
+	border-width:medium;
+	background-color:#FFF;
+	overflow:auto;
 }
 
 .textTab2{
 	height:130px;
 	width: 328px;
 	resize: none;
+	border:2px;
 	border-color:#999;
+	background-color:#FFF;
+	overflow:auto;
 }
 
 textarea#textDocuments{

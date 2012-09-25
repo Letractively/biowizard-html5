@@ -296,7 +296,12 @@ function myHandlerAsso() {
 		doc = window.open();
 		doc.document.write(myRequest.responseText);
 		var features = JSON.parse(myRequest.responseText);
-			
+		
+		var temp=""
+		for(i=0; i<features.length; i++){
+			temp=temp+"<a>"+features[i].entryID+" Name:"+features[i].name+"</a><br/>";
+			}
+		document.getElementById("textarea1").innerHTML=temp;
     }
 }
 
