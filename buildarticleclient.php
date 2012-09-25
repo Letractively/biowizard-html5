@@ -40,7 +40,7 @@ else{
 
 
 	
-	
+/*	
 
 $xmlarticles='<?xml version="1.0" encoding="UTF-8"?>
 <java version="1.7.0_01" class="java.beans.XMLDecoder">
@@ -66,5 +66,5 @@ $xmlarticles=$xmlarticles.'
 </java>';
 $var=fopen("dict.xml","w");
 fwrite($var, $xmlarticles);
-fclose($var);
+fclose($var);*/
 ?>

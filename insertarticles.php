@@ -1,5 +1,6 @@
 
 <div id="articlestep2" class="respanel" style="display:none">
+<div style="float:right">Articles Dictionary Building</div>
 <div class="panelForm titleForm">Please complete the form below:</div>
 <form name="queryArticles"  id="queryArticles" >
 	<table class="panelForm">

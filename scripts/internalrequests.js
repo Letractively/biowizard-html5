@@ -85,16 +85,16 @@ function openDictionary(){
 		for(i=0;i<localdictionary.length;i++){
 			if(i%2==1){
 			if(printingtype == 'article'){
-				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
+				temphtml = temphtml + "<tr><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' style='cursor:pointer;'>" + localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
 			}else{
-				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
+				temphtml = temphtml + "<tr><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
 			}
 			}
 			else{
 			if(printingtype == 'article'){
-				temphtml = temphtml + "<tr style='color:#009900;'><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
+				temphtml = temphtml + "<tr style='color:#009900;'><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
 			}else{
-				temphtml = temphtml + "<tr><td><input type=checkbox name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'>" + localdictionary[i].id + "</td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
+				temphtml = temphtml + "<tr style='color:#009900;'><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
 			}
 				}
 		}
@@ -269,9 +269,9 @@ function buildProteinsDictionary() {
 		document.getElementById("resultlabelProtein").innerHTML = "";
 		document.getElementById("lineProtein").style.webkitAnimationPlayState="running";
 		document.getElementById("lineProtein").style.MozAnimationPlayState="running";
-		document.getElementById("lineDisease").style.oAnimationPlayState="running";
-		document.getElementById("lineDisease").style.msAnimationPlayState="running";
-		document.getElementById("loadedDisease").innerHTML = "Please Wait ...";
+		document.getElementById("lineProtein").style.oAnimationPlayState="running";
+		document.getElementById("lineProtein").style.msAnimationPlayState="running";
+		document.getElementById("loadedProtein").innerHTML = "Please Wait ...";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();

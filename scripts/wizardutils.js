@@ -164,7 +164,6 @@ function showstep3(type){
 		
 	if(type == "proprotype"){
 		document.getElementById("protein").style.display = "";
-		alert(porci);
 	}
 	if(type == "disgentype" || type == "disprotype")
 		document.getElementById("disease").style.display = "";

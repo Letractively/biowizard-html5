@@ -79,10 +79,12 @@ body {
 	/*margin-right:0px;*/
 	margin-bottom:20px;
 	font-size:19px;
-	
-	
-
 }
+
+	div#choicestep1{
+	padding-top:35px;
+	padding-left:28px;
+	}
 
 table.panelForm{
 	border-spacing:10px;
