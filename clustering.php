@@ -42,15 +42,15 @@ function pressed(tab){
 <div>
 <div style="float:left;">
 <h5>Clusters:</h5>
-<textarea class="textTab2" readonly="readonly"></textarea>
+<div class="textTab2" readonly="readonly"></div>
 </div>
 <div style="float:right;">
 <h5>Features:</h5>
-<textarea class="textTab2" readonly="readonly"></textarea>
+<div class="textTab2" readonly="readonly"></div>
 </div>
 <div style="padding-top:10px">
 <h5>Documents:</h5>
-<textarea id="textDocuments" readonly="readonly"></textarea>
+<div id="textDocuments" readonly="readonly"></div>
 </div>
 </div>
 </section>
@@ -69,12 +69,13 @@ function pressed(tab){
 <div>
 <label>Dataset:</label>
 <select style="width:100px">
-	<option value=""></option>
+	<option value="first">1</option>
+    <option value="second">2</option>
 </select>
 &nbsp;
 &nbsp;
 <label>Feature threshold:</label>
-<input type="number" style="width:50px"/>
+<input type="number" style="width:50px" value = "75"/>
 <label>%</label>
 &nbsp;
 &nbsp;

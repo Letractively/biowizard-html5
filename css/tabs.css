@@ -19,11 +19,13 @@
 	overflow:auto;
 }
 
-textarea#textDocuments{
+div#textDocuments{
 	height:120px;
 	width: 694px;
 	resize:none;
 	border-color:#999;
+	background-color:#FFF;
+	overflow:auto;
 }
 	
 h5{
