@@ -66,22 +66,26 @@ body {
  div#containerframe{
 	overflow: auto;
 	width: 100%;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
 }
 	   
 .focus {
   border: 3px solid #F40000;
 }
+
 .respanel{
 	alignment-adjust:central;
-	padding-top:35px;
+	padding-top:16px;
 	padding-left:28px;
 	margin-left:16px;
-	/*margin-right:0px;*/
-	margin-bottom:20px;
+	margin-bottom:12px;
 	font-size:19px;
+
 }
 
-	div#choicestep1{
+.step1{
 	padding-top:35px;
 	padding-left:28px;
 	}
@@ -91,9 +95,14 @@ table.panelForm{
 	}
 
 .titleForm{
+	padding-top:1px;
 	padding-left:10px;
-	padding-bottom:20px;
+	padding-bottom:10px;
 	font-size:20px;
 	font-weight:800;
 	}
 	
+.titlePanel{
+	float:right;
+	font-size:18px;
+	}

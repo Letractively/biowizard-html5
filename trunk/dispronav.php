@@ -14,12 +14,12 @@
 </tr>
 <tr>
 <td class="3phase navitem">
-3. Disease Dictionary Building
+3. Diseases Dictionary Building
 </td>
 </tr>
 <tr>
 <td class="4phase navitem">
-4. Protein Dictionary Building
+4. Proteins Dictionary Building
 </td>
 </tr>
 <tr>

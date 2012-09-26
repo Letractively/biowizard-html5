@@ -1,4 +1,6 @@
 <div id="association" class="respanel" style="display:none">
+<div class="titlePanel">Association Discovery</div>
+<div class="oLine"><br /><hr style="border-style:outset"/><br /></div>
 <div class="panelForm titleForm">Please complete the form below:</div>
 <form name="queryAssociation">
 

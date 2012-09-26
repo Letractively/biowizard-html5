@@ -1,6 +1,7 @@
 
 <div id="articlestep2" class="respanel" style="display:none">
-<div style="float:right">Articles Dictionary Building</div>
+<div class="titlePanel">Articles Dictionary Building</div>
+<div class="oLine"><br /><hr style="border-style:outset"/><br /></div>
 <div class="panelForm titleForm">Please complete the form below:</div>
 <form name="queryArticles"  id="queryArticles" >
 	<table class="panelForm">
@@ -110,7 +111,6 @@
      <br>
     <div class="result" style="display:none; margin-top:15px; margin-left:5px">
     <label id="resultlabel" style="display:none"> </label>
-    <input type="button" id="editButtonstep2" style="display:none" value="Edit Dictionary">
 </div>
 </div>
 </html>
