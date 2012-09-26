@@ -295,11 +295,10 @@ function myHandlerAsso() {
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;	
 		//alert(myRequest.responseText);
-		doc = window.open();
-		doc.document.write(myRequest.responseText);
+		//doc = window.open();
+		//doc.document.write(myRequest.responseText);
 		features = JSON.parse(myRequest.responseText);
 		classInspector();
-		//alert(features.length);
 		var temp=""
 		for(i=0; i<features.length; i++){
 			temp=temp+"<a style='cursor:pointer;' onclick=associationFeatures("+features[i].entryID+") >"+features[i].entryID+" Name:"+features[i].name+"</a><br/>";
@@ -319,19 +318,19 @@ function myHandlerClust(){
 		for(i=0; i<clusters.length; i++){
 			if(clusters[i].articleList!=null){
 				if(isArray(clusters[i].articleList)){
-					temp = temp+"<a style='cursor:pointer;'>Cluster: "+ i + " ("+clusters[i].articleList.length+ " documents)</a><br/>";
+					temp = temp+"<a onclick='getClusterFeaturesById("+ i +")'style='cursor:pointer;'>Cluster: "+ i + " ("+clusters[i].articleList.length+ " documents)</a><br/>";
 					/*for(j=0; j<clusters[i].articleList.length; j++){
 						tempdoc = tempdoc+"<a>Id: "+ clusters[i].articleList[j].id + " Title: "+ clusters[i].articleList[j].title +" </a>"
 					}*/
 					}
 				else
 					{
-					temp= temp+"<a style='cursor:pointer;' >Cluster: "+ i + " ( 1 document)</a><br/>";
+					temp= temp+"<a onclick='getClusterFeaturesById("+ i +")' style='cursor:pointer;' >Cluster: "+ i + " ( 1 document)</a><br/>";
 					}
 					}
 			else{
-				temp= temp+"<a style='cursor:pointer;' >Cluster: "+ i + " ( 0 document)</a><br/>";
-					
+				commands = 'document.getElementById("textDocuments").innerHTML="";document.getElementById("textarea4").innerHTML="";';
+				temp= temp+"<a onclick='"+commands+"' style='cursor:pointer;' >Cluster: "+ i + " ( 0 document)</a><br/>";
 				}
 			}
 		}
@@ -341,6 +340,33 @@ function myHandlerClust(){
 		document.getElementById("textarea3").innerHTML=temp;
 		}
 	}
+	
+	
+function getClusterFeaturesById(index){
+	tempdoc = "";
+	for(j=0; j<clusters[index].articleList.length; j++){
+						tempdoc = tempdoc+"<a>Id: "+ clusters[index].articleList[j].id + " Title: "+ clusters[index].articleList[j].title +" </a><br>";
+	}
+    document.getElementById("textDocuments").innerHTML = tempdoc;
+	
+	
+	myRequest = CreateXmlHttpReq(ClusterFeatureHandler);
+	myRequest.open("GET","getfeature.php?index="+index);
+	myRequest.send(null);
+}
+
+
+function ClusterFeatureHandler(){
+	
+	if (myRequest.readyState == 4 && myRequest.status == 200) {		
+		list = "";
+		clusterfeatures = JSON.parse(myRequest.responseText)
+		for(i=0; i<clusterfeatures.length; i++)
+		  list = list + "id: "+ clusterfeatures[i].entry.id +"; Name: "+clusterfeatures[i].entry.name+ "; Frequency:"+clusterfeatures[i].frequence+"<br>";
+		document.getElementById("textarea4").innerHTML = list;
+		
+	}
+}
 
 
 function classInspector(){
@@ -351,18 +377,13 @@ function classInspector(){
 
 
 function associationFeatures(id){
-	/*alert(id);*/
 	var temp="";
-	featureList=null;
-	
+	featureList=null;	
 	for(i=0; i<features.length; i++){
 		if(features[i].entryID == id){
 			featureList = features[i].featureList;
-		//	alert(id);
 			}
-		}
-	//alert(featureList.length);
-	
+		}	
 	if(isArray(featureList))
 		for(i=0; i<featureList.length; i++){
 				temp=temp+"<a>ID: "+featureList[i].entry.id+" Name: "+ featureList[i].entry.name +" Frequence: "+featureList[i].frequence+"</a><br>";
@@ -371,8 +392,7 @@ function associationFeatures(id){
 		temp = temp + "<a>ID: "+featureList.entry.id+" Name: "+ featureList.entry.name +" Frequence: "+featureList.frequence+"</a><br>";
 	}
 		
-	document.getElementById('textarea2').innerHTML=temp;
-	
+	document.getElementById('textarea2').innerHTML=temp;	
 	
 	}
 
