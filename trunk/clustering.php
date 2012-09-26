@@ -44,11 +44,11 @@ function pressed(tab){
 <div>
 <div style="float:left;">
 <h5>Clusters:</h5>
-<div class="textTab2" readonly="readonly"></div>
+<div id="textarea3" class="textTab2" readonly="readonly"></div>
 </div>
 <div style="float:right;">
 <h5>Features:</h5>
-<div class="textTab2" readonly="readonly"></div>
+<div id="textarea4" class="textTab2" readonly="readonly"></div>
 </div>
 <div style="padding-top:10px">
 <h5>Documents:</h5>
