@@ -23,7 +23,7 @@ function myHandlerArt() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabel");
-		e.innerHTML =   "RESULT: \n Founded" + myRequest.responseText+" Articles";
+		e.innerHTML =   "RESULT: \n Founded " + myRequest.responseText+" Articles";
 		document.getElementById("line").style.webkitAnimationPlayState="paused";
 		document.getElementById("line").style.MozAnimationPlayState="paused";
 		document.getElementById("line").style.oAnimationPlayState="paused";

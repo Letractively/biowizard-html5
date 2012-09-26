@@ -1,5 +1,7 @@
 
 <div id="disease" class="respanel" style="display:none">
+<div class="titlePanel">Diseases Dictionary Building</div>
+<div class="oLine"><br /><hr style="border-style:outset"/><br /></div>
 <div class="panelForm titleForm">Please complete the form below:</div>
 <form name="queryDisease">
 
@@ -99,7 +101,6 @@
      <br>
     <div class="result" style="display:none; margin-top:15px; margin-left:5px">
     <label id="resultlabelDisease" style="display:none"> </label>
-    <input type="button" id="editButtonstep2"  style="display:none" value="Edit Dictionary">
 </div>
 </div>
 </html>

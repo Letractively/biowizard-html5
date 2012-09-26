@@ -8,6 +8,8 @@ function pressed(tab){
 
 
 <div id="clustering" class="respanel" style="display:none">
+<div class="titlePanel">Clustering Inspector</div>
+<div class="oLine"><br /><hr style="border-style:outset"/></div>
 <div>
 <article class="tabtab applegreen left">
 <nav>
@@ -65,8 +67,8 @@ function pressed(tab){
 
 </article>
 </div>
-<br />
-<div>
+
+<div style="padding-top:12px">
 <label>Dataset:</label>
 <select style="width:100px">
 	<option value="first">1</option>

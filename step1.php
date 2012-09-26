@@ -10,7 +10,9 @@
 	margin-top::10px;
 	}
 </style>
-<div id="choicestep1" >
+<div id="choicestep1" class="step1" >
+<div class="titlePanel" id="intro" style="display:none">Introduction</div>
+<div class="oLine" style="display:none"><br /><hr style="border-style:outset"/><br /></div>
 <div align="left"> <font  style="font-size:22px" >Select an association type:</font></div>
 <br />
 <br/>

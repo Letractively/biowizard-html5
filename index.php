@@ -30,6 +30,10 @@ $('.button').click(function(){
 		width:"74%"
 		});
 		$('#nextbutton').show("fast");
+		$('.oLine').show('fast');
+		$('#intro').show('fast');
+		document.getElementById('choicestep1').className='';
+		document.getElementById('choicestep1').className='respanel';
 	});
 
 	$('.editbutton').click(function(){
@@ -92,8 +96,8 @@ $('.button').click(function(){
 	include('editPanel.php');
 	?>
     </div>
-    
-      <div style=" position:relative;right:0; padding-top:20px">
+    <div class="oLine" style="display:none"><hr style="border-style:groove"/></div>
+      <div style=" position:relative;right:0; padding-top:8px">
     <input id="deleteEdit" class="buttoncontrols editcontrols" type="button" value="Delete" style="float:left; width:70px;height:30px;margin-left:20px;display:none" onclick="deletinglines()"/>
     <input id="back" class="buttoncontrols editcontrols" type="button" value="Back" style="float:left; width:70px; height:30px;margin-left:5px;display:none" onclick="" />
  	<button  id="nextbutton" name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;margin-left:5px;display:none" onClick="next()"> next </button>
