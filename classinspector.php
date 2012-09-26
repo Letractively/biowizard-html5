@@ -6,5 +6,5 @@ $getClusterDocumentspar = new stdClass();
 $getClusterDocumentspar->whichDict = $_SESSION['whichDict'];
 $getClusterDocumentsresponse = $client->getClusterDocuments($getClusterDocumentspar);
 echo json_encode($getClusterDocumentsresponse->return);
-var_dump($getClusterDocumentsresponse->return);
+
 ?>

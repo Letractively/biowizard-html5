@@ -1,6 +1,7 @@
 var myRequest = null;
 var printingtype = null;
 var features = null;
+var clusters = null;
 
 function CreateXmlHttpReq(handler) {
   var xmlhttp = null;
@@ -297,6 +298,7 @@ function myHandlerAsso() {
 		doc = window.open();
 		doc.document.write(myRequest.responseText);
 		features = JSON.parse(myRequest.responseText);
+		classInspector();
 		//alert(features.length);
 		var temp=""
 		for(i=0; i<features.length; i++){
@@ -306,6 +308,46 @@ function myHandlerAsso() {
     }
 }
 
+
+function myHandlerClust(){
+	if (myRequest.readyState == 4 && myRequest.status == 200) {
+		
+		clusters = JSON.parse(myRequest.responseText);
+		var temp="";
+		
+		if(isArray(clusters)){
+		for(i=0; i<clusters.length; i++){
+			if(clusters[i].articleList!=null){
+				if(isArray(clusters[i].articleList)){
+					temp = temp+"<a style='cursor:pointer;'>Cluster: "+ i + " ("+clusters[i].articleList.length+ " documents)</a><br/>";
+					/*for(j=0; j<clusters[i].articleList.length; j++){
+						tempdoc = tempdoc+"<a>Id: "+ clusters[i].articleList[j].id + " Title: "+ clusters[i].articleList[j].title +" </a>"
+					}*/
+					}
+				else
+					{
+					temp= temp+"<a style='cursor:pointer;' >Cluster: "+ i + " ( 1 document)</a><br/>";
+					}
+					}
+			else{
+				temp= temp+"<a style='cursor:pointer;' >Cluster: "+ i + " ( 0 document)</a><br/>";
+					
+				}
+			}
+		}
+		else{
+		temp = "<a style='cursor:pointer;' >Cluster: 0 ("+clusters[0].articleList.length+ " documents)</a>";
+		}
+		document.getElementById("textarea3").innerHTML=temp;
+		}
+	}
+
+
+function classInspector(){
+	myRequest = CreateXmlHttpReq(myHandlerClust);
+	myRequest.open("GET","classinspector.php");
+	myRequest.send(null);
+	}
 
 
 function associationFeatures(id){
