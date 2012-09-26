@@ -1,5 +1,6 @@
 var myRequest = null;
 var printingtype = null;
+var features = null;
 
 function CreateXmlHttpReq(handler) {
   var xmlhttp = null;
@@ -295,16 +296,43 @@ function myHandlerAsso() {
 		//alert(myRequest.responseText);
 		doc = window.open();
 		doc.document.write(myRequest.responseText);
-		var features = JSON.parse(myRequest.responseText);
-		
+		features = JSON.parse(myRequest.responseText);
+		//alert(features.length);
 		var temp=""
 		for(i=0; i<features.length; i++){
-			temp=temp+"<a>"+features[i].entryID+" Name:"+features[i].name+"</a><br/>";
+			temp=temp+"<a style='cursor:pointer;' onclick=associationFeatures("+features[i].entryID+") >"+features[i].entryID+" Name:"+features[i].name+"</a><br/>";
 			}
 		document.getElementById("textarea1").innerHTML=temp;
     }
 }
 
+
+
+function associationFeatures(id){
+	/*alert(id);*/
+	var temp="";
+	featureList=null;
+	
+	for(i=0; i<features.length; i++){
+		if(features[i].entryID == id){
+			featureList = features[i].featureList;
+		//	alert(id);
+			}
+		}
+	//alert(featureList.length);
+	
+	if(isArray(featureList))
+		for(i=0; i<featureList.length; i++){
+				temp=temp+"<a>ID: "+featureList[i].entry.id+" Name: "+ featureList[i].entry.name +" Frequence: "+featureList[i].frequence+"</a><br>";
+			}
+	else {
+		temp = temp + "<a>ID: "+featureList.entry.id+" Name: "+ featureList.entry.name +" Frequence: "+featureList.frequence+"</a><br>";
+	}
+		
+	document.getElementById('textarea2').innerHTML=temp;
+	
+	
+	}
 
 function startAssociation(){
 	var maintype = document.getElementById("choicestep1").name;
@@ -378,6 +406,50 @@ function logprinter(){
 
 
 	
+/**
+ * Function : dump()
+ * Arguments: The data - array,hash(associative array),object
+ *    The level - OPTIONAL
+ * Returns  : The textual representation of the array.
+ * This function was inspired by the print_r function of PHP.
+ * This will accept some data as the argument and return a
+ * text that will be a more readable version of the
+ * array/hash/object that is given.
+ * Docs: http://www.openjs.com/scripts/others/dump_function_php_print_r.php
+ */
+function dump(arr,level) {
+	var dumped_text = "";
+	if(!level) level = 0;
+
+	//The padding given at the beginning of the line.
+	var level_padding = "";
+	for(var j=0;j<level+1;j++) level_padding += "    ";
+
+	if(typeof(arr) == 'object') { //Array/Hashes/Objects
+		for(var item in arr) {
+			var value = arr[item];
+
+			if(typeof(value) == 'object') { //If it is an array,
+				dumped_text += level_padding + "'" + item + "' ...\n";
+				dumped_text += dump(value,level+1);
+			} else {
+				dumped_text += level_padding + "'" + item + "' => \"" + value + "\"\n";
+			}
+		}
+	} else { //Stings/Chars/Numbers etc.
+		dumped_text = "===>"+arr+"<===("+typeof(arr)+")";
+	}
+	return dumped_text;
+}
+
+//chk if an object is an array or not.
+function isArray(obj) {
+//returns true is it is an array
+if (obj.constructor.toString().indexOf("Array") == -1)
+	return false;
+else
+	return true;
+}
 
 
 
