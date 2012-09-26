@@ -66,9 +66,6 @@ body {
  div#containerframe{
 	overflow: auto;
 	width: 100%;
-	-moz-box-shadow: 0 0 5px #888;
-	-webkit-box-shadow: 0 0 5px#888;
-	box-shadow: 0 0 5px #888;
 }
 	   
 .focus {
