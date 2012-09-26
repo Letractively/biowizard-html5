@@ -45,6 +45,7 @@
 		$_SESSION['second']='ProteinList';
 	}	
 	$_SESSION['associationResponse'] = $associationResponse;
-	$_SESSION['clientclustering'] = $client;
+	$_SESSION['clientcookieid']= $client->_cookies['JSESSIONID'][0];
+	
 	include_once("clusteringinspector.php");
 ?>
