@@ -367,8 +367,11 @@ function ClusterFeatureHandler(){
 	if (myRequest.readyState == 4 && myRequest.status == 200) {		
 		list = "";
 		clusterfeatures = JSON.parse(myRequest.responseText)
+		if(isArray(clusterfeatures))
 		for(i=0; i<clusterfeatures.length; i++)
 		  list = list + "id: "+ clusterfeatures[i].entry.id +"; Name: "+clusterfeatures[i].entry.name+ "; Frequency:"+clusterfeatures[i].frequence+"<br>";
+		else list = list + "id: "+ clusterfeatures.entry.id +"; Name: "+clusterfeatures.entry.name+ "; Frequency:"+clusterfeatures.frequence+"<br>";
+		
 		document.getElementById("textarea4").innerHTML = list;
 		
 	}
