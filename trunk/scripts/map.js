@@ -1,7 +1,7 @@
-function showMap(inside) {
-
-
 var links = new Array();
+
+
+
 
 function addlink(typesource, namesource, typetarget, nametarget, typelink) {
 
@@ -22,13 +22,68 @@ else
 	t = "d/|" + nametarget;
 
 ty = typelink;
+if(ty == 'none'){
+	ty='unchecked';
+}
+if(ty == 'positive'){
+	ty='checkedPositive';
+}
+if(ty == 'negative'){
+	ty='checkedNegative';
+}
 
 links.push({source: s, target: t, type: ty});
 
 }
 
 
-addlink("Protein", "Proteina2", "Gene", "Gene2", "checkedNegative");  //DA SOSTITUIRE
+function showMap(inside){ 
+//addlink("Protein", "Proteina2", "Gene", "Gene2", "checkedNegative");  //DA SOSTITUIRE
+
+
+links = new Array();
+
+
+
+choicetype = document.getElementById('choicestep1').name;
+
+if(choicetype == 'disprotype'){
+	type1="Disease";
+	type2="Protein";
+}
+if(choicetype == 'proprotype'){
+	type1="Protein";
+	type2="Protein";
+}
+if(choicetype == 'disgentype'){
+	type1="Disease";
+	type2="Gene";
+}
+
+if(choicetype == 'gengentype'){
+	type1="Gene";
+	type2="Gene";
+}
+
+
+
+if(isArray(features))
+	for(i=0; i< features.length;i++){
+		if(isArray(features[i].featureList))
+			for(j=0;j< features[i].featureList.length; j++)
+				addlink(type1, features[i].name , type2, features[i].featureList[j].entry.name , features[i].featureList[j].association);				
+		else		
+				addlink(type1, features[i].name , type2, features[i].featureList.entry.name , features[i].featureList.association);
+	}
+
+else{
+	if(isArray(features.featureList))
+		for(j=0;j< features.featureList.length; j++)
+			addlink(type1, features.name , type2, features.featureList[j].entry.name , features.featureList[j].association);				
+	else		
+			addlink(type1, features.name , type2, features.featureList.entry.name , features.featureList.association);
+	
+}
 
 
 if (inside==1){ //da testare 
@@ -39,15 +94,12 @@ if (inside==1){ //da testare
   height = 300;
 }
 
-
-
 window.onresize = function() {
   width = document.documentElement.clientWidth-25;
   height = document.documentElement.clientHeight-20;
   svg.attr("width", width);
   svg.attr("height", height);
 };
-
 
 
 var nodes = {};
