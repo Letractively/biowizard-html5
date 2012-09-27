@@ -16,11 +16,17 @@ session_destroy();
 @import url('css/buttons.css');
 @import url('css/LoadingBar.css');
 @import url('css/tabs.css');
+@import url('css/tabs.css');
+@import url('css/reveal.css');
+@import url('css/graphicElements.css');
 </style>
 
 <script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="scripts/wizardutils.js"> </script>
 <script type="text/javascript" src="scripts/internalrequests.js"> </script>
+<script type="text/javascript" src="scripts/jquery.reveal.js"> </script>
+<script type="text/javascript" src="scripts/d3.v2.js"> </script>
+<script type="text/javascript" src="scripts/map.js"> </script>
 <script type="text/javascript">
 
 $(document).ready(function(){
