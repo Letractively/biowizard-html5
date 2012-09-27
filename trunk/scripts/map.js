@@ -1,7 +1,10 @@
 var links = new Array();
 
+var pause=false;
 
-
+function pauseGraph(){
+	pause=!pause;
+	}
 
 function addlink(typesource, namesource, typetarget, nametarget, typelink) {
 
@@ -38,10 +41,11 @@ links.push({source: s, target: t, type: ty});
 
 
 function showMap(inside){ 
-//addlink("Protein", "Proteina2", "Gene", "Gene2", "checkedNegative");  //DA SOSTITUIRE
 
 
 links = new Array();
+//addlink("Protein", "Proteina2", "Gene", "Gene3", "checkedNegative");  //DA SOSTITUIRE
+
 
 choicetype = document.getElementById('choicestep1').name;
 
@@ -63,28 +67,30 @@ if(choicetype == 'gengentype'){
 	type2="Gene";
 }
 
-if(isArray(featuresforgraphics))
-	for(i=0; i< featuresforgraphics.length;i++){
-		if(isArray(featuresforgraphics[i].featureList))
-			for(j=0;j< featuresforgraphics[i].featureList.length; j++)
-				addlink(type1, featuresforgraphics[i].name , type2, featuresforgraphics[i].featureList[j].entry.name , featuresforgraphics[i].featureList[j].association);				
+
+
+if(isArray(features))
+	for(i=0; i< features.length;i++){
+		if(isArray(features[i].featureList))
+			for(j=0;j< features[i].featureList.length; j++)
+				addlink(type1, features[i].name , type2, features[i].featureList[j].entry.name , features[i].featureList[j].association);				
 		else		
-				addlink(type1, featuresforgraphics[i].name , type2, featuresforgraphics[i].featureList.entry.name , featuresforgraphics[i].featureList.association);
+				addlink(type1, features[i].name , type2, features[i].featureList.entry.name , features[i].featureList.association);
 	}
 
 else{
-	if(isArray(featuresforgraphics.featureList))
-		for(j=0;j< featuresforgraphics.featureList.length; j++)
-			addlink(type1, featuresforgraphics.name , type2, featuresforgraphics.featureList[j].entry.name , featuresforgraphics.featureList[j].association);				
+	if(isArray(features.featureList))
+		for(j=0;j< features.featureList.length; j++)
+			addlink(type1, features.name , type2, features.featureList[j].entry.name , features.featureList[j].association);				
 	else		
-			addlink(type1, featuresforgraphics.name , type2, featuresforgraphics.featureList.entry.name , featuresforgraphics.featureList.association);
+			addlink(type1, features.name , type2, features.featureList.entry.name , features.featureList.association);
 	
 }
 
 
 if (inside==1){ //da testare 
-  width = 500;
-  height = 300;
+  width = 800;
+  height = 500;
 } else {
   width = 500;
   height = 300;
@@ -111,8 +117,8 @@ var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(78)
-    .charge(-300)
+    .linkDistance(200)
+    .charge(-400)
     .on("tick", tick)
     .start();
 
@@ -174,12 +180,10 @@ text.append("text")
     .text(function(d) { return d.name.split('|')[1]; });
 
 
-var cont = 0;
-
 function tick() {
-
-  if (cont < 200){
-
+	
+  if (!pause){
+	 force.resume();
   path.attr("d", function(d) { return "M" + d.source.x + "," + d.source.y + "A0,0 0 0,1 " + d.target.x + "," + d.target.y; });
 
   circle.attr("transform", function(d) {
@@ -190,11 +194,11 @@ function tick() {
     return "translate(" + d.x + "," + d.y + ")";
   });
 
-  cont++;
+
   }
 
   else {
-
+	
      force.stop();
      path.attr("d", function(d) {
      d.fixed = true;

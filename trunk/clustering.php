@@ -85,8 +85,9 @@ function pressed(tab){
 </div>
 </div>
 <div id="modalView" class="reveal-modal">
+	 <input type="image" src="images/img.jpg" onclick="pauseGraph()">
      <a class="close-reveal-modal bt">&#215;</a>
-     <div id="map"></div>
+     <div style="height:500px" id="map"></div>
 
 <a class="close-reveal-modal txt" href="#tab3" onclick=openWin()> click </a>
 </div>
