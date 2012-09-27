@@ -2,6 +2,7 @@ var myRequest = null;
 var printingtype = null;
 var features = null;
 var clusters = null;
+var featuresforgraphics = null;
 
 function CreateXmlHttpReq(handler) {
   var xmlhttp = null;
@@ -43,6 +44,7 @@ function myHandlerArt() {
 }
 
 function buildArticlesDictionary() {
+	featuresforgraphics = null;
     var nome = document.queryArticles.nome.value;
 	var fields = document.queryArticles.fields.options[document.queryArticles.fields.selectedIndex].value;
 	var sMin = document.queryArticles.spinnerMin.value;
@@ -140,6 +142,7 @@ function myHandlerDis() {
 }
 
 function buildDiseasesDictionary() {
+	featuresforgraphics = null;
     var nome = document.queryDisease.nome.value;
 	var fields = document.queryDisease.fields.options[document.queryDisease.fields.selectedIndex].value;
 	var sMin = document.queryDisease.spinnerMin.value;
@@ -195,6 +198,7 @@ function myHandlerGene() {
 }
 
 function buildGenesDictionary() {
+	featuresforgraphics = null;
     var nome = document.queryGene.nome.value;
 	var fields = document.queryGene.fields.options[document.queryGene.fields.selectedIndex].value;
 	var organism = document.queryGene.organism.value;
@@ -250,6 +254,7 @@ function myHandlerProt() {
     }
 }
 function buildProteinsDictionary() {
+	featuresforgraphics = null;
     var nome = document.queryProtein.nome.value;
 	var fields = document.queryProtein.fields.options[document.queryProtein.fields.selectedIndex].value;
 	var sMin = document.queryProtein.spinnerMin.value;
@@ -294,10 +299,9 @@ function myHandlerAsso() {
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;	
-		//alert(myRequest.responseText);
-		//doc = window.open();
-		//doc.document.write(myRequest.responseText);
 		features = JSON.parse(myRequest.responseText);
+		if(featuresforgraphics == null)
+			featuresforgraphics = features;
 		classInspector();
 		var temp=""
 		for(i=0; i<features.length; i++){
@@ -319,9 +323,6 @@ function myHandlerClust(){
 			if(clusters[i].articleList!=null){
 				if(isArray(clusters[i].articleList)){
 					temp = temp+"<a onclick='getClusterFeaturesById("+ i +")'style='cursor:pointer;'>Cluster: "+ i + " ("+clusters[i].articleList.length+ " documents)</a><br/>";
-					/*for(j=0; j<clusters[i].articleList.length; j++){
-						tempdoc = tempdoc+"<a>Id: "+ clusters[i].articleList[j].id + " Title: "+ clusters[i].articleList[j].title +" </a>"
-					}*/
 					}
 				else
 					{
@@ -404,6 +405,19 @@ function associationFeatures(id){
 	document.getElementById('textarea2').innerHTML=temp;	
 	
 	}
+	
+function refreshClustering(){
+	document.getElementById('textarea2').innerHTML ='';
+	document.getElementById('textarea4').innerHTML ='';
+	document.getElementById('textDocuments').innerHTML ='';
+	whichDict= document.getElementById('whichDict').options[document.getElementById('whichDict').selectedIndex].value;
+	threshold = document.getElementById('threshold').value;
+	var r = Math.random();
+	myRequest = CreateXmlHttpReq(myHandlerAsso);	
+    myRequest.open("GET","clusteringinspector.php?whichDict="+whichDict+"&threshold="+threshold+"&rand="+ r );
+	myRequest.send(null);
+	
+}
 
 function startAssociation(){
 	var maintype = document.getElementById("choicestep1").name;

@@ -43,8 +43,6 @@ function showMap(inside){
 
 links = new Array();
 
-
-
 choicetype = document.getElementById('choicestep1').name;
 
 if(choicetype == 'disprotype'){
@@ -65,23 +63,21 @@ if(choicetype == 'gengentype'){
 	type2="Gene";
 }
 
-
-
-if(isArray(features))
-	for(i=0; i< features.length;i++){
-		if(isArray(features[i].featureList))
-			for(j=0;j< features[i].featureList.length; j++)
-				addlink(type1, features[i].name , type2, features[i].featureList[j].entry.name , features[i].featureList[j].association);				
+if(isArray(featuresforgraphics))
+	for(i=0; i< featuresforgraphics.length;i++){
+		if(isArray(featuresforgraphics[i].featureList))
+			for(j=0;j< featuresforgraphics[i].featureList.length; j++)
+				addlink(type1, featuresforgraphics[i].name , type2, featuresforgraphics[i].featureList[j].entry.name , featuresforgraphics[i].featureList[j].association);				
 		else		
-				addlink(type1, features[i].name , type2, features[i].featureList.entry.name , features[i].featureList.association);
+				addlink(type1, featuresforgraphics[i].name , type2, featuresforgraphics[i].featureList.entry.name , featuresforgraphics[i].featureList.association);
 	}
 
 else{
-	if(isArray(features.featureList))
-		for(j=0;j< features.featureList.length; j++)
-			addlink(type1, features.name , type2, features.featureList[j].entry.name , features.featureList[j].association);				
+	if(isArray(featuresforgraphics.featureList))
+		for(j=0;j< featuresforgraphics.featureList.length; j++)
+			addlink(type1, featuresforgraphics.name , type2, featuresforgraphics.featureList[j].entry.name , featuresforgraphics.featureList[j].association);				
 	else		
-			addlink(type1, features.name , type2, features.featureList.entry.name , features.featureList.association);
+			addlink(type1, featuresforgraphics.name , type2, featuresforgraphics.featureList.entry.name , featuresforgraphics.featureList.association);
 	
 }
 
