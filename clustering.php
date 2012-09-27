@@ -70,18 +70,18 @@ function pressed(tab){
 
 <div style="padding-top:12px">
 <label>Dataset:</label>
-<select style="width:100px">
+<select name= 'whichDict' id = 'whichDict' style="width:100px">
 	<option value="first">1</option>
     <option value="second">2</option>
 </select>
 &nbsp;
 &nbsp;
 <label>Feature threshold:</label>
-<input type="number" style="width:50px" value = "75"/>
+<input id = 'threshold' type="number" style="width:50px" value = "75"/>
 <label>%</label>
 &nbsp;
 &nbsp;
-<input type="button" class="buildButton" value="Refresh" onclick=""/>
+<input type="button" class="buildButton" value="Refresh" onclick="refreshClustering()"/>
 </div>
 </div>
 <div id="modalView" class="reveal-modal">

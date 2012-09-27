@@ -18,6 +18,8 @@ function ProPro(){
         if(document.getElementsByClassName("buttonpushed").length != 0) 
             document.getElementsByClassName("buttonpushed").item(0).className = "button";
         document.getElementById("Pp").className="buttonpushed";    
+		
+		document.getElementById('whichDict').innerHTML='<option value="first">UniProt</option>'
 }
 
 
@@ -42,6 +44,7 @@ function DisPro(){
         if(document.getElementsByClassName("buttonpushed").length != 0) 
             document.getElementsByClassName("buttonpushed").item(0).className = "button";
         document.getElementById("Dp").className="buttonpushed";    
+		document.getElementById('whichDict').innerHTML =' <option value="first">Mesh</option> <option value="second">UniProt</option>';
 }
 
 
@@ -65,6 +68,8 @@ function GenGen(){
         if(document.getElementsByClassName("buttonpushed").length != 0) 
             document.getElementsByClassName("buttonpushed").item(0).className = "button";
         document.getElementById("Gg").className="buttonpushed";
+		
+		document.getElementById('whichDict').innerHTML = '<option value="first">EntrezGene</option>'
 }
 
 
@@ -89,4 +94,6 @@ function DisGen(){
         if(document.getElementsByClassName("buttonpushed").length != 0) 
             document.getElementsByClassName("buttonpushed").item(0).className = "button";
         document.getElementById("Dg").className="buttonpushed";
+		
+		document.getElementById('whichDict').innerHTML='<option value="first">Mesh</option><option value="second">EntrezGene</option>';
 }
