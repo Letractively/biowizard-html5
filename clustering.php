@@ -61,7 +61,7 @@ function pressed(tab){
 <section id="tab3">
 <h5>Legend:</h5>
 <div style="align:left;"> <img src="images/legend.png" /></div>
-<button  id="showmap" class="button" style="float:right; width:110px; height:30px; margin-bottom:10px" onClick=alert("")> Show Map </button>
+<a data-reveal-id="modalView" data-closeonbackgroundclick="false"> <button id="showmap" class="button" style="float:right; width:110px; height:30px; margin-bottom:10px" onclick=showMap(1)> Show Map </button> </a>
 
 </section>
 
@@ -84,6 +84,12 @@ function pressed(tab){
 <input type="button" class="buildButton" value="Refresh" onclick=""/>
 </div>
 </div>
+<div id="modalView" class="reveal-modal">
+     <a class="close-reveal-modal bt">&#215;</a>
+     <div id="map"></div>
+
+<a class="close-reveal-modal txt" href="#tab3" onclick=openWin()> click </a>
+</div>
 
 <script type="text/javascript">
 if(window.location.hash){
@@ -94,5 +100,11 @@ if(window.location.hash){
 else{
 	window.location.hash="#tab1";
 	pressed("Tab1");
+}
+
+function openWin()
+{
+popup = window.open("showmap.php",'remote','width=520 ,height=320');
+//popup = window.showModalDialog("showmap.php",'remote',"dialogWidth:500px; dialogHeight:500px");
 }
 </script>
