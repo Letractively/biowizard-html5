@@ -344,8 +344,14 @@ function myHandlerClust(){
 	
 function getClusterFeaturesById(index){
 	tempdoc = "";
-	for(j=0; j<clusters[index].articleList.length; j++){
+	if(isArray(clusters[index].articleList)){
+		for(j=0; j<clusters[index].articleList.length; j++){
+		
 						tempdoc = tempdoc+"<a>Id: "+ clusters[index].articleList[j].id + " Title: "+ clusters[index].articleList[j].title +" </a><br>";
+		}
+	}
+	else{
+		tempdoc = tempdoc+"<a>Id: "+ clusters[index].articleList.id + " Title: "+ clusters[index].articleList.title +" </a><br>";
 	}
     document.getElementById("textDocuments").innerHTML = tempdoc;
 	
