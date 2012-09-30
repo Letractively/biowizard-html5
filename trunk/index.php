@@ -16,7 +16,6 @@ session_destroy();
 @import url('css/buttons.css');
 @import url('css/LoadingBar.css');
 @import url('css/tabs.css');
-@import url('css/tabs.css');
 @import url('css/reveal.css');
 @import url('css/graphicElements.css');
 </style>

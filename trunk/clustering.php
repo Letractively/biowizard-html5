@@ -61,7 +61,7 @@ function pressed(tab){
 <section id="tab3">
 <h5>Legend:</h5>
 <div style="align:left;"> <img src="images/legend.png" /></div>
-<a data-reveal-id="modalView" data-closeonbackgroundclick="false"> <button id="showmap" class="button" style="float:right; width:110px; height:30px; margin-bottom:10px" onclick=showMap(1)> Show Map </button> </a>
+<a data-reveal-id="modalView" data-closeonbackgroundclick="false"> <button id="showmap" class="button" style="float:right; width:110px; height:30px; margin-bottom:10px" onclick="initLink(); showMap()"> Show Map </button> </a>
 
 </section>
 
@@ -84,12 +84,11 @@ function pressed(tab){
 <input type="button" class="buildButton" value="Refresh" onclick="refreshClustering()"/>
 </div>
 </div>
-<div id="modalView" class="reveal-modal">
-	 <input type="image" src="images/img.jpg" onclick="pauseGraph()">
+<div id="modalView" class="reveal-modal" >
      <a class="close-reveal-modal bt">&#215;</a>
-     <div style="height:500px" id="map"></div>
+     <div id="map" style="height:500px"></div>
 
-<a class="close-reveal-modal txt" href="#tab3" onclick=openWin()> click </a>
+<a class="close-reveal-modal txt" href="#tab3" onclick=openWin()> New_Window </a>
 </div>
 
 <script type="text/javascript">
@@ -103,9 +102,9 @@ else{
 	pressed("Tab1");
 }
 
-function openWin()
-{
-popup = window.open("showmap.php",'remote','width=520 ,height=320');
-//popup = window.showModalDialog("showmap.php",'remote',"dialogWidth:500px; dialogHeight:500px");
+function openWin(){
+var links=initLink();
+var newWindow = window.open("showmap.php",'','width=520 ,height=320,replace=false');
+newWindow.links=links;
 }
 </script>

@@ -1,10 +1,68 @@
-var links = new Array();
+var links;
 
-var pause=false;
+function initLink(){
 
-function pauseGraph(){
-	pause=!pause;
+links = new Array();
+
+// addlink("Protein", "Proteina2", "Gene", "Gene2", "checkedNegative"); //TEST
+// addlink("Protein", "Proteina2", "Gene", "Gene3", "checkedPositive"); 
+
+
+choicetype = document.getElementById('choicestep1').name;
+
+
+if(choicetype == 'disprotype'){
+	type1="Disease";
+	type2="Protein";
+
+}
+if(choicetype == 'proprotype'){
+	type1="Protein";
+
+	type2="Protein";
+}
+if(choicetype == 'disgentype'){
+	type1="Disease";
+
+	type2="Gene";
+}
+
+
+if(choicetype == 'gengentype'){
+	type1="Gene";
+	type2="Gene";
+
+}
+
+
+
+
+
+if(isArray(features))
+	for(i=0; i< features.length;i++){
+		if(isArray(features[i].featureList))
+
+			for(j=0;j< features[i].featureList.length; j++)
+				addlink(type1, features[i].name , type2, features[i].featureList[j].entry.name , features[i].featureList[j].association);				
+
+		else		
+				addlink(type1, features[i].name , type2, features[i].featureList.entry.name , features[i].featureList.association);
 	}
+
+else{
+	if(isArray(features.featureList))
+		for(j=0;j< features.featureList.length; j++)
+			addlink(type1, features.name , type2, features.featureList[j].entry.name , features.featureList[j].association);				
+	else		
+			addlink(type1, features.name , type2, features.featureList.entry.name , features.featureList.association);
+	
+}
+
+
+return links;
+
+}
+
 
 function addlink(typesource, namesource, typetarget, nametarget, typelink) {
 
@@ -24,77 +82,27 @@ else if (typetarget == "Gene")
 else 
 	t = "d/|" + nametarget;
 
-ty = typelink;
-if(ty == 'none'){
-	ty='unchecked';
-}
-if(ty == 'positive'){
+
+if (typelink == 'positive')
 	ty='checkedPositive';
-}
-if(ty == 'negative'){
+else if (typelink == 'negative')
 	ty='checkedNegative';
-}
+else
+	ty='unchecked';
+
 
 links.push({source: s, target: t, type: ty});
 
 }
 
 
-function showMap(inside){ 
+function showMap(){ 
 
 
-links = new Array();
-//addlink("Protein", "Proteina2", "Gene", "Gene3", "checkedNegative");  //DA SOSTITUIRE
-
-
-choicetype = document.getElementById('choicestep1').name;
-
-if(choicetype == 'disprotype'){
-	type1="Disease";
-	type2="Protein";
-}
-if(choicetype == 'proprotype'){
-	type1="Protein";
-	type2="Protein";
-}
-if(choicetype == 'disgentype'){
-	type1="Disease";
-	type2="Gene";
-}
-
-if(choicetype == 'gengentype'){
-	type1="Gene";
-	type2="Gene";
-}
-
-
-
-if(isArray(features))
-	for(i=0; i< features.length;i++){
-		if(isArray(features[i].featureList))
-			for(j=0;j< features[i].featureList.length; j++)
-				addlink(type1, features[i].name , type2, features[i].featureList[j].entry.name , features[i].featureList[j].association);				
-		else		
-				addlink(type1, features[i].name , type2, features[i].featureList.entry.name , features[i].featureList.association);
-	}
-
-else{
-	if(isArray(features.featureList))
-		for(j=0;j< features.featureList.length; j++)
-			addlink(type1, features.name , type2, features.featureList[j].entry.name , features.featureList[j].association);				
-	else		
-			addlink(type1, features.name , type2, features.featureList.entry.name , features.featureList.association);
-	
-}
-
-
-if (inside==1){ //da testare 
+//MISURE DA RIVEDERE 
   width = 800;
   height = 500;
-} else {
-  width = 500;
-  height = 300;
-}
+
 
 window.onresize = function() {
   width = document.documentElement.clientWidth-25;
@@ -102,7 +110,6 @@ window.onresize = function() {
   svg.attr("width", width);
   svg.attr("height", height);
 };
-
 
 var nodes = {};
 
@@ -112,6 +119,7 @@ var nodes = {};
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 
 });
+
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
@@ -123,16 +131,10 @@ var force = d3.layout.force()
     .start();
 
 d3.select("#map").selectAll("svg").remove();
-
-if (inside==1){
 var svg = d3.select("#map").append("svg")
     .attr("width", width)
     .attr("height", height);
-} else {
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-}
+
 
 // Per-type markers, as they don't inherit styles.
 svg.append("defs").selectAll("marker")
@@ -180,10 +182,12 @@ text.append("text")
     .text(function(d) { return d.name.split('|')[1]; });
 
 
+var cont = 0;
+
 function tick() {
-	
-  if (!pause){
-	 force.resume();
+
+ if (cont < 200){
+
   path.attr("d", function(d) { return "M" + d.source.x + "," + d.source.y + "A0,0 0 0,1 " + d.target.x + "," + d.target.y; });
 
   circle.attr("transform", function(d) {
@@ -194,11 +198,11 @@ function tick() {
     return "translate(" + d.x + "," + d.y + ")";
   });
 
-
+  cont++;
   }
 
   else {
-	
+
      force.stop();
      path.attr("d", function(d) {
      d.fixed = true;
