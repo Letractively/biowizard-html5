@@ -10,7 +10,7 @@
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text" id="textArticles" name="nome" class="elem required" style="width:360px" />
+    <input type="text" id="textArticles" name="nome" class="elem required" style="width:360px" autofocus="autofocus" />
     </td>
     </tr>
     <tr>

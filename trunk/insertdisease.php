@@ -11,7 +11,7 @@
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text" id="textDisease" name="nome" class="elem" style="width:360px" />
+    <input type="text" id="textDisease" name="nome" class="elem" style="width:360px"  autofocus="autofocus"/>
     </td>
     </tr>
     <tr>
@@ -58,7 +58,8 @@
 	</select>
     </td>
     <td>
-    <input type="checkbox" id="check1dis" name="checkSearch" class="elem" value="Search data within articles" /> <label for = "check1dis">Search data within articles</label>
+        <input type="checkbox" id="check2dis" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2dis">Overwrite previous data</label>
+   
     </td>
     </tr>
     </table>
@@ -68,15 +69,6 @@
     <td>
     </td>
     <td>
-    <table class="intraTable">
-    <tr>
-    <td style="width:100px">
-    </td>
-    <td>
-    <input type="checkbox" id="check2dis" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2dis">Overwrite previous data</label>
-    </td>
-    </tr>
-    </table>
     </td>
     <td>
     <input type="button" id="buildstep2" class="buildButton elem" value="Build Dictionary" onclick="buildDiseasesDictionary()" />

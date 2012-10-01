@@ -10,7 +10,7 @@
     <label> Query Terms: </label>
     </td>
     <td width="200">
-    <input type="text" id="textProtein" name="nome" class="elem" style="width:360px" />
+    <input type="text" id="textProtein" name="nome" class="elem" style="width:360px" autofocus="autofocus" />
     </td>
     </tr>
     <tr>

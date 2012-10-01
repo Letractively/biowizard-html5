@@ -2,7 +2,6 @@
 	$getDiseaseResponse = new stdClass();
 	session_start();	
     $n = utf8_encode($_GET['nome']);
-	$cs=($_GET['checkSearch']);
 	$cd=($_GET['checkData']);
 	$sMin=($_GET['sMin']);
 	$sMax=($_GET['sMax']);
