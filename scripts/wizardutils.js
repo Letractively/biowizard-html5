@@ -79,7 +79,7 @@ if(name == "step5"){
 	showstep6(type);
 }
 
-		document.getElementById("nextbutton").style.visibility = "";
+		//document.getElementById("nextbutton").style.visibility = "";
 }
 
 	
@@ -97,8 +97,7 @@ function prev(){
 			document.getElementsByClassName("navitem").item(i).style.color="#292929";
 			document.getElementsByClassName("navitem").item(i).style.fontWeight='normal';
 	}
-	
-	
+		
 if(name == "step2"){		
 		document.getElementById("nextbutton").name = "step1";
 		document.getElementById("prevbutton").name = "step1";
@@ -107,10 +106,8 @@ if(name == "step2"){
 			document.getElementsByClassName("1phase").item(i).style.color=selectednavcolor;	
 			document.getElementsByClassName("1phase").item(i).style.fontWeight='bold';	
 	}
-	
 	document.getElementById("articlestep2").style.display = "none";
-	document.getElementById("choicestep1").style.display = "";
-	
+	document.getElementById("choicestep1").style.display = "";	
 }
 
 if(name == "step3"){		
@@ -140,8 +137,7 @@ if(name == "step5"){
 		for(i=0;i< document.getElementsByClassName("4phase").length;i++){
 			document.getElementsByClassName("4phase").item(i).style.color=selectednavcolor;		
 			document.getElementsByClassName("4phase").item(i).style.fontWeight='bold';
-	}
-	
+	}	
 	showstep4(type);
 }
 	
@@ -174,20 +170,15 @@ function showstep3(type){
 }
 
 
-function showstep4(type){
-	
+function showstep4(type){	
 	if(type == "proprotype")
-		document.getElementById("association").style.display = "";
-		
+		document.getElementById("association").style.display = "";		
 	if(type == "disgentype")
-		document.getElementById("gene").style.display = "";
-		
+		document.getElementById("gene").style.display = "";		
 	if(type == "gengentype")
-		document.getElementById("association").style.display = "";
-		
+		document.getElementById("association").style.display = "";		
 	if(type == "disprotype")
-		document.getElementById("protein").style.display = "";
-	
+		document.getElementById("protein").style.display = "";	
 }
 
 
@@ -201,10 +192,7 @@ function showstep5(type){
 	}
 
 }
-
-
-function showstep6(type){
-	
+function showstep6(type){	
 	if(type == "disprotype" || type == "disgentype")
 		document.getElementById("clustering").style.display = "";
 		document.getElementById("nextbutton").style.visibility = "hidden";

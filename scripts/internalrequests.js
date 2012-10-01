@@ -2,7 +2,7 @@ var myRequest = null;
 var printingtype = null;
 var features = null;
 var clusters = null;
-var featuresforgraphics = null;
+var refreshflag = null;
 
 function CreateXmlHttpReq(handler) {
   var xmlhttp = null;
@@ -44,7 +44,7 @@ function myHandlerArt() {
 }
 
 function buildArticlesDictionary() {
-	featuresforgraphics = null;
+
     var nome = document.queryArticles.nome.value;
 	var fields = document.queryArticles.fields.options[document.queryArticles.fields.selectedIndex].value;
 	var sMin = document.queryArticles.spinnerMin.value;
@@ -142,7 +142,7 @@ function myHandlerDis() {
 }
 
 function buildDiseasesDictionary() {
-	featuresforgraphics = null;
+
     var nome = document.queryDisease.nome.value;
 	var fields = document.queryDisease.fields.options[document.queryDisease.fields.selectedIndex].value;
 	var sMin = document.queryDisease.spinnerMin.value;
@@ -198,7 +198,7 @@ function myHandlerGene() {
 }
 
 function buildGenesDictionary() {
-	featuresforgraphics = null;
+
     var nome = document.queryGene.nome.value;
 	var fields = document.queryGene.fields.options[document.queryGene.fields.selectedIndex].value;
 	var organism = document.queryGene.organism.value;
@@ -254,7 +254,6 @@ function myHandlerProt() {
     }
 }
 function buildProteinsDictionary() {
-	featuresforgraphics = null;
     var nome = document.queryProtein.nome.value;
 	var fields = document.queryProtein.fields.options[document.queryProtein.fields.selectedIndex].value;
 	var sMin = document.queryProtein.spinnerMin.value;
@@ -294,14 +293,13 @@ function myHandlerAsso() {
 		document.getElementById("lineAssociation").style.msAnimationPlayState="paused";
 		document.getElementById("loadedAssociation").innerHTML="Clustering Completed";
 		document.getElementById("resultlabelAssociation").style.display = "";
-		if((myRequest.responseText) != '0')
+		if((myRequest.responseText) != '0' && !refreshflag)
 			document.getElementById("nextbutton").style.visibility = "" ;
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;	
 		features = JSON.parse(myRequest.responseText);
-		if(featuresforgraphics == null)
-			featuresforgraphics = features;
+		refreshflag = false;
 		classInspector();
 		var temp=""
 		for(i=0; i<features.length; i++){
@@ -407,6 +405,7 @@ function associationFeatures(id){
 	}
 	
 function refreshClustering(){
+	refreshflag=true;
 	document.getElementById('textarea2').innerHTML ='';
 	document.getElementById('textarea4').innerHTML ='';
 	document.getElementById('textDocuments').innerHTML ='';
