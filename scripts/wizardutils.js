@@ -1,4 +1,12 @@
 var selectednavcolor = "#669900";
+var articlescheck = false;
+var diseasescheck = false;
+var genescheck = false;
+var proteinscheck=false;
+var associationcheck = false;
+
+
+
 function next(){
 	var name = document.getElementById("nextbutton").getAttribute("name");
 	var type = document.getElementById("choicestep1").name;	
@@ -17,6 +25,10 @@ function next(){
 		document.getElementById("prevbutton").name = "step2";
 		document.getElementById("prevbutton").style.display = "";
 		document.getElementById("nextbutton").style.visibility = "hidden";
+
+		if(!articlescheck)
+			document.getElementById("nextbutton").style.visibility = "hidden";
+		else document.getElementById("nextbutton").style.visibility = "";
 	
 		for(i=0;i< document.getElementsByClassName("2phase").length;i++){
 			document.getElementsByClassName("2phase").item(i).style.color=selectednavcolor;
@@ -29,8 +41,7 @@ function next(){
 
 if(name == "step2"){		
 		document.getElementById("nextbutton").name = "step3";
-		document.getElementById("prevbutton").name = "step3";
-		document.getElementById("nextbutton").style.visibility = "hidden";
+		document.getElementById("prevbutton").name = "step3";		
 		for(i=0;i< document.getElementsByClassName("3phase").length;i++){
 			document.getElementsByClassName("3phase").item(i).style.color=selectednavcolor;	
 			document.getElementsByClassName("3phase").item(i).style.fontWeight='bold';	
@@ -42,7 +53,6 @@ if(name == "step2"){
 if(name == "step3"){		
 		document.getElementById("nextbutton").name = "step4";
 		document.getElementById("prevbutton").name = "step4";
-		document.getElementById("nextbutton").style.visibility = "hidden";
 		for(i=0;i< document.getElementsByClassName("4phase").length;i++){
 			document.getElementsByClassName("4phase").item(i).style.color=selectednavcolor;
 			document.getElementsByClassName("4phase").item(i).style.fontWeight='bold';		
@@ -57,7 +67,6 @@ if(name == "step3"){
 if(name == "step4"){		
 		document.getElementById("nextbutton").name = "step5";
 		document.getElementById("prevbutton").name = "step5";
-		document.getElementById("nextbutton").style.visibility = "hidden";
 		for(i=0;i< document.getElementsByClassName("5phase").length;i++){
 			document.getElementsByClassName("5phase").item(i).style.color=selectednavcolor;	
 			document.getElementsByClassName("5phase").item(i).style.fontWeight='bold';
@@ -71,7 +80,6 @@ if(name == "step4"){
 if(name == "step5"){		
 		document.getElementById("nextbutton").name = "step6";
 		document.getElementById("prevbutton").name = "step6";
-		document.getElementById("nextbutton").style.visibility = "hidden";
 		for(i=0;i< document.getElementsByClassName("6phase").length;i++){
 			document.getElementsByClassName("6phase").item(i).style.color=selectednavcolor;	
 			document.getElementsByClassName("6phase").item(i).style.fontWeight='bold';	
@@ -85,7 +93,7 @@ if(name == "step5"){
 	
 function prev(){
 		
-	var name = document.getElementById("prevbutton").getAttribute("name");
+	var name = document.getElementById("prevbutton").getAttribute("name");	 
 	var type = document.getElementById("choicestep1").name;	
 	document.getElementById("nextbutton").style.visibility = "";
 	for(i=0;i< document.getElementsByClassName("result").length; i++)
@@ -160,38 +168,72 @@ function showstep3(type){
 		
 	if(type == "proprotype"){
 		document.getElementById("protein").style.display = "";
-	}
-	if(type == "disgentype" || type == "disprotype")
-		document.getElementById("disease").style.display = "";
+		if(proteinscheck){
+			alert(proteinscheck);
+		 document.getElementById("nextbutton").style.visibility = "";}
+		else document.getElementById("nextbutton").style.visibility = "hidden";
 		
-	if(type == "gengentype")
+	}
+	if(type == "disgentype" || type == "disprotype"){
+		document.getElementById("disease").style.display = "";
+		if(diseasescheck)
+			document.getElementById("nextbutton").style.visibility = "";
+		else document.getElementById("nextbutton").style.visibility = "hidden";
+	}
+		
+	if(type == "gengentype"){
 		document.getElementById("gene").style.display = "";
+		if(genescheck)
+		 document.getElementById("nextbutton").style.visibility = "";
+		else document.getElementById("nextbutton").style.visibility = "hidden";	
+	}
+								
+	
 
 }
 
-
 function showstep4(type){	
-	if(type == "proprotype")
-		document.getElementById("association").style.display = "";		
-	if(type == "disgentype")
-		document.getElementById("gene").style.display = "";		
-	if(type == "gengentype")
-		document.getElementById("association").style.display = "";		
-	if(type == "disprotype")
+	if(type == "proprotype"){
+		document.getElementById("association").style.display = "";
+		if(associationcheck)
+			document.getElementById("nextbutton").style.visibility = "";
+			else document.getElementById("nextbutton").style.visibility = "hidden";
+	}
+	if(type == "disgentype"){
+		document.getElementById("gene").style.display = "";
+		if(genescheck)
+		 document.getElementById("nextbutton").style.visibility = "";
+		else document.getElementById("nextbutton").style.visibility = "hidden";	
+	}
+	if(type == "gengentype"){
+		document.getElementById("association").style.display = "";
+		if(associationcheck)
+			document.getElementById("nextbutton").style.visibility = "";
+			else document.getElementById("nextbutton").style.visibility = "hidden";	
+		}	
+	if(type == "disprotype"){
 		document.getElementById("protein").style.display = "";	
+		if(proteinscheck)
+		 document.getElementById("nextbutton").style.visibility = "";
+		else document.getElementById("nextbutton").style.visibility = "hidden";	
+		
+	}
 }
 
 
 function showstep5(type){	
-
-	if(type == "disprotype" || type == "disgentype")
+	if(type == "disprotype" || type == "disgentype"){
 		document.getElementById("association").style.display = "";
+		if(associationcheck)
+			document.getElementById("nextbutton").style.visibility = "";
+			else document.getElementById("nextbutton").style.visibility = "hidden";
+	}
 	else{
 		document.getElementById("clustering").style.display = "";
 		document.getElementById("nextbutton").style.visibility = "hidden";
 	}
-
 }
+
 function showstep6(type){	
 	if(type == "disprotype" || type == "disgentype")
 		document.getElementById("clustering").style.display = "";

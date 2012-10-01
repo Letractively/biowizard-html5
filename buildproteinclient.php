@@ -24,19 +24,33 @@
 	
 	$client = new SoapClient("http://localhost:8080/BioWizard-ws/BioWizardWS?wsdl");
 	
+	
+		
+	
 	if($cd == 'true' || !isset($_SESSION['ProteinList'])){
+		if($cs == 'true') {
+			$getProteins->alist = $_SESSION['ArticleList'];
+			$getProteinResponse = ($client->getProteinsFromArticles($getProteins));
+		}
+		else{
 		$getProteinResponse = ($client->getProteins($getProteins));
-	if((count(@$getProteinResponse->return)) != 0){
-		$_SESSION['ProteinList'] = $getProteinResponse;
-		echo count($_SESSION['ProteinList']->return);
-	}
-	else
-		echo count(@$getProteinResponse->return);
+		if((count(@$getProteinResponse->return)) != 0){
+			$_SESSION['ProteinList'] = $getProteinResponse;
+			echo count($_SESSION['ProteinList']->return);
+		}
+		else
+			echo count(@$getProteinResponse->return);
+		}
 				
 	}
 	else{
- 	
-		$list = @$client->getProteins($getProteins)->return;
+		
+		if($cs == 'true') {
+			$getProteins->alist = $_SESSION['ArticleList'];
+			$list = @$client->getProteinsFromArticles($getProteins)->return;
+		}
+		else
+			$list = @$client->getProteins($getProteins)->return;
 		if(count($list)!= 0)
 			$_SESSION['ProteinList']->return=array_merge($_SESSION['ProteinList']->return,$list);  
 		echo count($_SESSION['ProteinList']->return);

@@ -36,6 +36,7 @@ function myHandlerArt() {
 		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
 			document.getElementById("editArticles").style.visibility = "" ;
+			articlescheck = true;
 		}
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
@@ -50,6 +51,7 @@ function buildArticlesDictionary() {
 	var sMin = document.queryArticles.spinnerMin.value;
 	var sMax = document.queryArticles.spinnerMax.value;
 	var check= document.queryArticles.checkData.checked;
+	associationcheck = false;
 	if(nome == ""){
 		//document.getElementById("textArticles").required="true";
 		//document.queryArticles.nome.focus();
@@ -109,6 +111,7 @@ function openDictionary(){
 function editDictionary(type){
 	var r = Math.random();
 	printingtype=type;
+	associationcheck = false;
     myRequest = CreateXmlHttpReq(openDictionary);
     myRequest.open("GET","printDictionary.php?type="+printingtype+"&rand="+r);
 	myRequest.send(null);
@@ -134,6 +137,8 @@ function myHandlerDis() {
 		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
 			document.getElementById("editDiseases").style.visibility = "" ;
+			diseasescheck = true;
+
 		}
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
@@ -147,8 +152,8 @@ function buildDiseasesDictionary() {
 	var fields = document.queryDisease.fields.options[document.queryDisease.fields.selectedIndex].value;
 	var sMin = document.queryDisease.spinnerMin.value;
 	var sMax = document.queryDisease.spinnerMax.value;
-	var checkSearch= document.queryDisease.checkSearch.checked;
 	var checkData= document.queryDisease.checkData.checked;
+	associationcheck = false;
 	if(nome == ""){
 		document.getElementById("textDisease").className="focus";
 		}
@@ -168,7 +173,7 @@ function buildDiseasesDictionary() {
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();
     myRequest = CreateXmlHttpReq(myHandlerDis);
-    myRequest.open("GET","builddiseaseclient.php?nome="+escape(nome)+"["+escape(fields)+"]&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
+    myRequest.open("GET","builddiseaseclient.php?nome="+escape(nome)+"["+escape(fields)+"]&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkData="+escape(checkData)+"&rand="+escape(r));
 	myRequest.send(null);
 }
 }
@@ -185,12 +190,14 @@ function myHandlerGene() {
 		document.getElementById("lineGene").style.msAnimationPlayState="paused";
 		document.getElementById("loadedGene").innerHTML="Completed";
 		document.getElementById("resultlabelGene").style.display = "";
-		
+						
 		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
 			document.getElementById("editGenes").style.visibility = "" ;
-		}
+			genescheck = true;
 
+		}
+		
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;
@@ -198,13 +205,15 @@ function myHandlerGene() {
 }
 
 function buildGenesDictionary() {
-
     var nome = document.queryGene.nome.value;
 	var fields = document.queryGene.fields.options[document.queryGene.fields.selectedIndex].value;
 	var organism = document.queryGene.organism.value;
 	var sMin = document.queryGene.spinnerMin.value;
 	var sMax = document.queryGene.spinnerMax.value;
 	var checkData= document.queryGene.checkData.checked;
+	var checkSearch= document.queryGene.checkSearch.checked;
+
+	associationcheck = false;
 	if(nome == ""){
 		document.getElementById("textGene").className="focus";
 		}
@@ -224,11 +233,10 @@ function buildGenesDictionary() {
 		document.getElementsByClassName('elem').item(i).disabled=true;
     var r = Math.random();
     myRequest = CreateXmlHttpReq(myHandlerGene);
-    myRequest.open("GET","buildgeneclient.php?nome="+escape(nome)+"["+escape(fields)+"]&organism="+escape(organism)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkData="+escape(checkData)+"&rand="+escape(r));
+    myRequest.open("GET","buildgeneclient.php?nome="+escape(nome)+"["+escape(fields)+"]&organism="+escape(organism)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
 	myRequest.send(null);
 }
 }
-
 
 
 function myHandlerProt() {
@@ -242,17 +250,17 @@ function myHandlerProt() {
 		document.getElementById("lineProtein").style.msAnimationPlayState="paused";
 		document.getElementById("loadedProtein").innerHTML="Completed";
 		document.getElementById("resultlabelProtein").style.display = "";
-		
 		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
 			document.getElementById("editProteins").style.visibility = "" ;
+			proteinscheck = true;
 		}
-
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 		document.getElementsByClassName('elem').item(i).disabled=false;		
     }
 }
+
 function buildProteinsDictionary() {
     var nome = document.queryProtein.nome.value;
 	var fields = document.queryProtein.fields.options[document.queryProtein.fields.selectedIndex].value;
@@ -260,6 +268,7 @@ function buildProteinsDictionary() {
 	var sMax = document.queryProtein.spinnerMax.value;
 	var checkSearch= document.queryProtein.checkSearch.checked;
 	var checkData= document.queryProtein.checkData.checked;
+	associationcheck = false;
 	if(nome == ""){
 		document.getElementById("textProtein").className="focus";
 		}
@@ -287,6 +296,7 @@ function buildProteinsDictionary() {
 function myHandlerAsso() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
+		associationcheck = true;
         document.getElementById("lineAssociation").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineAssociation").style.MozAnimationPlayState="paused";
 		document.getElementById("lineAssociation").style.oAnimationPlayState="paused";

@@ -1,6 +1,7 @@
 var links;
 var linksforpopup;
-var firstForce=true;
+var pause=false;
+var firstForce=false;
 
 
 function initLink() {	
@@ -100,15 +101,7 @@ function showMap() {
 
     //MISURE DA RIVEDERE 
     width = 800;
-    height = 480;
-
-
-    window.onresize = function () {
-        width = document.documentElement.clientWidth - 25;
-        height = document.documentElement.clientHeight - 20;
-        svg.attr("width", width);
-        svg.attr("height", height);
-    };
+    height = 500;
 
     var nodes = {};
 
@@ -127,7 +120,7 @@ function showMap() {
     var force = d3.layout.force()
         .nodes(d3.values(nodes))
         .links(links)
-        .size([width, height])
+        .size([width, height-10])
         .linkDistance(200)
         .charge(-400)
         .on("tick", tick)
@@ -228,6 +221,8 @@ function showMap() {
 		   d.fixed = false;
                 return "translate(" + d.x + "," + d.y + ")";
             });
+		firstForce=false;
+
 
         } else {
 
@@ -251,9 +246,10 @@ function showMap() {
 		   d.fixed = true;
                 return "translate(" + d.x + "," + d.y + ")";
             });
+		firstForce=false;
+
 
         }
-	firstForce=false;
     }
 
 }
