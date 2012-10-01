@@ -61,7 +61,7 @@ function pressed(tab){
 <section id="tab3">
 <h5>Legend:</h5>
 <div style="align:left;"> <img src="images/legend.png" /></div>
-<a data-reveal-id="modalView" data-closeonbackgroundclick="false"> <button id="showmap" class="button" style="float:right; width:110px; height:30px; margin-bottom:10px" onclick="initLink(); showMap()"> Show Map </button> </a>
+<a data-reveal-id="modalView" data-closeonbackgroundclick="false"> <button id="showmap" class="button" style="float:right; width:110px; height:30px; margin-bottom:10px" onclick="initLink()"> Show Map </button> </a>
 
 </section>
 
@@ -103,8 +103,10 @@ else{
 }
 
 function openWin(){
-var links=initLink();
+	
 var newWindow = window.open("showmap.php",'','width=520 ,height=320,replace=false');
-newWindow.links=links;
+newWindow.links=linksforpopup;
+
+
 }
 </script>
