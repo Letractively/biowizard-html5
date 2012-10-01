@@ -1,5 +1,6 @@
 var links;
 var linksforpopup;
+var firstForce=true;
 
 
 function initLink() {	
@@ -89,11 +90,17 @@ function addlink(typesource, namesource, typetarget, nametarget, typelink) {
 }
 
 
+function pauseGraph(){
+pause=!pause;
+firstForce=true;
+}
+
+
 function showMap() {
 
     //MISURE DA RIVEDERE 
     width = 800;
-    height = 500;
+    height = 480;
 
 
     window.onresize = function () {
@@ -197,44 +204,56 @@ function showMap() {
     });
 
 
-    var cont = 0;
-
     function tick() {
 
-        if (cont < 200) {
+        if (!pause) {
+
+	    if (firstForce)
+		force.resume;
 
             path.attr("d", function (d) {
+		if (firstForce)
+		   d.fixed = false;			
                 return "M" + d.source.x + "," + d.source.y + "A0,0 0 0,1 " + d.target.x + "," + d.target.y;
             });
 
             circle.attr("transform", function (d) {
+		if (firstForce)
+		   d.fixed = false;
                 return "translate(" + d.x + "," + d.y + ")";
             });
 
             text.attr("transform", function (d) {
+		if (firstForce)
+		   d.fixed = false;
                 return "translate(" + d.x + "," + d.y + ")";
             });
 
-            cont++;
         } else {
 
-            force.stop();
+	    if (firstForce)
+	        force.stop();
+
             path.attr("d", function (d) {
-                d.fixed = true;
+		if (firstForce)
+		   d.fixed = true;
                 return "M" + d.source.x + "," + d.source.y + "A0,0 0 0,1 " + d.target.x + "," + d.target.y;
             });
 
             circle.attr("transform", function (d) {
-                d.fixed = true;
+		if (firstForce)
+		   d.fixed = true;
                 return "translate(" + d.x + "," + d.y + ")";
             });
 
             text.attr("transform", function (d) {
-                d.fixed = true;
+		if (firstForce)
+		   d.fixed = true;
                 return "translate(" + d.x + "," + d.y + ")";
             });
 
         }
+	firstForce=false;
     }
 
 }

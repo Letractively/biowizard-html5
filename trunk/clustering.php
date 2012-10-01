@@ -89,6 +89,7 @@ function pressed(tab){
      <div id="map" style="height:500px"></div>
 
 <a class="close-reveal-modal txt" href="#tab3" onclick=openWin()> New_Window </a>
+<a href="#tab3" style="font-size:25px; position: absolute; bottom: 13px;" onclick=pauseGraph()> Pause </a>
 </div>
 
 <script type="text/javascript">
