@@ -29,7 +29,7 @@
 	
 	if($cd == 'true' || !isset($_SESSION['ProteinList'])){
 		if($cs == 'true') {
-			$getProteins->alist = $_SESSION['ArticleList'];
+			$getProteins->alist = $_SESSION['ArticleList']->return;
 			$getProteinResponse = ($client->getProteinsFromArticles($getProteins));
 		}
 		else{
@@ -46,7 +46,7 @@
 	else{
 		
 		if($cs == 'true') {
-			$getProteins->alist = $_SESSION['ArticleList'];
+			$getProteins->alist = $_SESSION['ArticleList']->return;
 			$list = @$client->getProteinsFromArticles($getProteins)->return;
 		}
 		else
