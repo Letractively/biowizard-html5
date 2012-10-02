@@ -81,7 +81,7 @@ function pressed(tab){
 <label>%</label>
 &nbsp;
 &nbsp;
-<input type="button" class="buildButton" value="Refresh" onclick="refreshClustering()"/>
+<input type="button" class="buildButton" value="Update Clustering" onclick="refreshClustering()"/>
 </div>
 </div>
 <div id="modalView" class="reveal-modal" >

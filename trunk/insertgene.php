@@ -81,13 +81,18 @@
     <label> Database: </label>
     </td>
     <td>
+    <table class="intraTable">
+    <tr>
+    <td style="width:125px">
     <select class="elem">
 		<option value="Entrez Gene" > Entrez Gene </option>
 	</select>
-    &nbsp
-    &nbsp
-    &nbsp
+    </td>
+    <td>
      <input type="checkbox" id="check1dis" name="checkSearch" class="elem" value="Search data within articles" /> <label for = "check1dis">Search data within articles</label>
+    </td>
+    </tr>
+    </table>
     </td>
     </tr>
     <tr>
