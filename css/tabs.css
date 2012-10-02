@@ -1,7 +1,7 @@
 
 .textTab1{
 	height:256px;
-	width: 340px;
+	width: 360px;
 	resize: none;
 	border-color:#999;
 	border-width:medium;
@@ -11,7 +11,7 @@
 
 .textTab2{
 	height:125px;
-	width: 340px;
+	width: 360px;
 	resize: none;
 	border:2px;
 	border-color:#999;
@@ -21,7 +21,7 @@
 
 div#textDocuments{
 	height:110px;
-	width: 700px;
+	width: 740px;
 	resize:none;
 	border-color:#999;
 	background-color:#FFF;
@@ -161,7 +161,7 @@ position:relative;
 margin:-1px 0 0 0;
 padding:10px;
 height: 275px;
-width:700px;
+width:740px;
 font-size:15px;
 line-height:1.5;
 border:solid 3px;

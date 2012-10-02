@@ -51,8 +51,8 @@
     <td>
     <table class="intraTable">
     <tr>
-    <td style="width:100px" align="left">
-    <select  class="elem">
+    <td style="width:100px">
+    <select  class="elem" style="padding-left:1px">
 		<option value="Mesh"> UniProt </option>
 	</select>
     </td>
