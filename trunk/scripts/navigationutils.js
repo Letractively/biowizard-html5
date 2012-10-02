@@ -1,5 +1,6 @@
 function ProPro(){
-        
+      
+		associationcheck = false;
     document.getElementById("nextbutton").name = "step1";
     document.getElementById("prevbutton").name = "step1";
     document.getElementById("choicestep1").name = "proprotype";
@@ -24,7 +25,7 @@ function ProPro(){
 
 
 function DisPro(){
-
+		associationcheck = false;
     document.getElementById("nextbutton").name = "step1";
     document.getElementById("prevbutton").name = "step1";
     document.getElementById("choicestep1").name ="disprotype";
@@ -49,6 +50,8 @@ function DisPro(){
 
 
 function GenGen(){
+			associationcheck = false;
+
     
         document.getElementById("nextbutton").name = "step1";
         document.getElementById("prevbutton").name = "step1";
@@ -74,7 +77,8 @@ function GenGen(){
 
 
 function DisGen(){
-    
+		associationcheck = false;
+   
         document.getElementById("nextbutton").name = "step1";
         document.getElementById("prevbutton").name = "step1";    
         document.getElementById("choicestep1").name ="disgentype";
