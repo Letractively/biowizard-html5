@@ -169,7 +169,6 @@ function showstep3(type){
 	if(type == "proprotype"){
 		document.getElementById("protein").style.display = "";
 		if(proteinscheck){
-			alert(proteinscheck);
 		 document.getElementById("nextbutton").style.visibility = "";}
 		else document.getElementById("nextbutton").style.visibility = "hidden";
 		

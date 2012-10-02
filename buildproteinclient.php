@@ -1,7 +1,9 @@
-<?	
-	$getProteinResponse = new stdClass();
+<?php	
+
+
+        $getProteinResponse = new stdClass();
 	session_start();
-    $n = utf8_encode($_GET['nome']);
+    	$n = utf8_encode($_GET['nome']);
 	$cs=($_GET['checkSearch']);
 	$cd=($_GET['checkData']);
 	$sMin=($_GET['sMin']);
@@ -22,32 +24,38 @@
 	$getProteins->retstart = $sMin;
 	$getProteins->searchtype = $field;
 	
-	$client = new SoapClient("http://localhost:8080/BioWizard-ws/BioWizardWS?wsdl");
-	
-	
-		
-	
+	$client = new SoapClient("http://localhost:8080/BioWizard-ws/BioWizardWS?wsdl");	
 	if($cd == 'true' || !isset($_SESSION['ProteinList'])){
 		if($cs == 'true') {
+			$getProteinResponse = ($client->getProteins($getProteins));
 			$getProteins->alist = $_SESSION['ArticleList']->return;
-			$getProteinResponse = ($client->getProteinsFromArticles($getProteins));
+			$getProteinResponsetmp = ($client->getProteinsFromArticles($getProteins));
+			if($getProteinResponsetmp->return != null)
+				$getProteinResponse->return = array_merge($getProteinResponse->return,$getProteinResponsetmp->return);  
+			
 		}
-		else{
-		$getProteinResponse = ($client->getProteins($getProteins));
+		else
+		   $getProteinResponse = ($client->getProteins($getProteins));
+			
+
 		if((count(@$getProteinResponse->return)) != 0){
 			$_SESSION['ProteinList'] = $getProteinResponse;
 			echo count($_SESSION['ProteinList']->return);
 		}
 		else
-			echo count(@$getProteinResponse->return);
-		}
+			echo count($getProteinResponse->return);
+		
 				
 	}
 	else{
 		
-		if($cs == 'true') {
+		if($cs == 'true') {		
+			$list = $client->getProteins($getProteins)->return;
 			$getProteins->alist = $_SESSION['ArticleList']->return;
-			$list = @$client->getProteinsFromArticles($getProteins)->return;
+			$listtmp = @$client->getProteinsFromArticles($getProteins)->return;
+			if($listtmp!= null)
+				$list=array_merge($list,$listmp);
+			
 		}
 		else
 			$list = @$client->getProteins($getProteins)->return;
