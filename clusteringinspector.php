@@ -32,7 +32,7 @@ if(!isset($_GET['threshold']))
 				}
 		echo json_encode($finalresults);	
 	}	
-	else echo 'failed';
+	else echo 0;
 ?>	
 		
  

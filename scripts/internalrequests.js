@@ -303,20 +303,28 @@ function myHandlerAsso() {
 		document.getElementById("lineAssociation").style.msAnimationPlayState="paused";
 		document.getElementById("loadedAssociation").innerHTML="Clustering Completed";
 		document.getElementById("resultlabelAssociation").style.display = "";
-		if((myRequest.responseText) != '0' && !refreshflag)
-			document.getElementById("nextbutton").style.visibility = "" ;
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
-		document.getElementsByClassName('elem').item(i).disabled=false;	
+			document.getElementsByClassName('elem').item(i).disabled=false;	
+		/*mario = window.open();
+		mario.document.write(myRequest.responseText);
+		alert(myRequest.responseText);
+		alert(dump(myRequest.responseText));*/
+		if(myRequest.responseText == 0)
+			alert('Failed to retrieve associations.<br>Please retry with others Dictionaries');
+		else{
+		 if(!refreshflag)
+			document.getElementById("nextbutton").style.visibility = "" ;	
 		features = JSON.parse(myRequest.responseText);
 		refreshflag = false;
 		classInspector();
 		var temp=""
 		for(i=0; i<features.length; i++){
-			temp=temp+"<a style='cursor:pointer;' onclick=associationFeatures("+features[i].entryID+") >"+features[i].entryID+" Name:"+features[i].name+"</a><br/>";
+			temp=temp+"<a style='cursor:pointer; width=360px'  onclick=associationFeatures('"+features[i].entryID+"') ><div style='width:360;height:20px' id= "+features[i].entryID +" class = 'unselectedAsso' >"+features[i].entryID+" Name:"+features[i].name+"</div></a>";
 			}
 		document.getElementById("textarea1").innerHTML=temp;
-    }
+    	}
+	}
 }
 
 
@@ -330,29 +338,39 @@ function myHandlerClust(){
 		for(i=0; i<clusters.length; i++){
 			if(clusters[i].articleList!=null){
 				if(isArray(clusters[i].articleList)){
-					temp = temp+"<a onclick='getClusterFeaturesById("+ i +")'style='cursor:pointer;'>Cluster: "+ i + " ("+clusters[i].articleList.length+ " documents)</a><br/>";
+					temp = temp+"<a onclick='getClusterFeaturesById("+ i +")'style='cursor:pointer;'><div id="+i+" class='unselectedclust' style='width:360px; height:20px;' >Cluster: "+ i + " ("+clusters[i].articleList.length+ " documents)</div></a>";
 					}
 				else
 					{
-					temp= temp+"<a onclick='getClusterFeaturesById("+ i +")' style='cursor:pointer;' >Cluster: "+ i + " ( 1 document)</a><br/>";
+					temp= temp+"<a onclick='getClusterFeaturesById("+ i +")' style='cursor:pointer;' ><div id="+i+" class='unselectedclust' style='width:360px; height:20px;' >Cluster: "+ i + " ( 1 document)</div></a>";
 					}
 					}
 			else{
 				commands = 'document.getElementById("textDocuments").innerHTML="";document.getElementById("textarea4").innerHTML="";';
-				temp= temp+"<a onclick='"+commands+"' style='cursor:pointer;' >Cluster: "+ i + " ( 0 document)</a><br/>";
+				temp= temp+"<a onclick='"+commands+"' style='cursor:pointer;' ><div id="+i+" class='unselectedclust' style='width:360px; height:20px;' >Cluster: "+ i + " ( 0 document)</div></a>";
 				}
 			}
 		}
 		else{
-		temp = "<a style='cursor:pointer;' >Cluster: 0 ("+clusters[0].articleList.length+ " documents)</a>";
+		temp = "<a style='cursor:pointer;' onclick='switchColorsClust('emptyclust')' ><div id='emptyclust' class='unselectedclust' style='width:360px; height:20px;' >Cluster: 0 ("+clusters[0].articleList.length+ " documents)</a>";
 		}
 		document.getElementById("textarea3").innerHTML=temp;
 		}
 	}
 	
 	
+function switchColorsClust(index){
+	for(i=0; i < document.getElementsByClassName("unselectedclust").length ; i++)
+    	document.getElementsByClassName("unselectedclust").item(i).style.backgroundColor="#FFF";           
+    document.getElementById(index).style.backgroundColor="#ADFF2F";
+ 
+	
+}
+	
+	
 function getClusterFeaturesById(index){
 	tempdoc = "";
+	switchColorsClust(index);
 	if(isArray(clusters[index].articleList)){
 		for(j=0; j<clusters[index].articleList.length; j++){
 		
@@ -394,11 +412,16 @@ function classInspector(){
 	}
 
 
-function associationFeatures(id){
+function associationFeatures(index){
 	var temp="";
+	
+	for(i=0; i < document.getElementsByClassName("unselectedAsso").length ; i++)
+    	document.getElementsByClassName("unselectedAsso").item(i).style.backgroundColor="#FFF";           
+    document.getElementById(index).style.backgroundColor="#ADFF2F";
+ 
 	featureList=null;	
 	for(i=0; i<features.length; i++){
-		if(features[i].entryID == id){
+		if(features[i].entryID.value == index.value){
 			featureList = features[i].featureList;
 			}
 		}	
