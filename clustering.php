@@ -61,7 +61,7 @@ function pressed(tab){
 <section id="tab3">
 <h5>Legend:</h5>
 <div style="align:left;"> <img src="images/legend.png" /></div>
-<a data-reveal-id="modalView" data-closeonbackgroundclick="false"> <button id="showmap" class="button" style="float:right; width:110px; height:30px; margin-bottom:10px" onclick="initLink()"> Show Map </button> </a>
+<a data-reveal-id="modalView" data-closeonbackgroundclick="false"> <button id="showmap" class="button" style="margin-right:10px;margin-top:45px;float:right; width:110px; height:30px;" onclick="initLink()"> Show Map </button> </a>
 
 </section>
 
@@ -82,6 +82,9 @@ function pressed(tab){
 &nbsp;
 &nbsp;
 <input type="button" class="buildButton" value="Update Clustering" onclick="refreshClustering()"/>
+&nbsp;
+&nbsp;
+<label id='assnumber'></label>
 </div>
 </div>
 <div id="modalView" class="reveal-modal" >
@@ -108,7 +111,7 @@ else{
 }
 
 function openWin(){
-var newWindow = window.open("showmap.php",'','width=520 ,height=320,replace=false');
+var newWindow = window.open("showmap.php",'','width=550 ,height=350,replace=false');
 newWindow.links=linksforpopup;
 }
 
