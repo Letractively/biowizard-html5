@@ -87,13 +87,13 @@ function pressed(tab){
 <label id='assnumber'></label>
 </div>
 </div>
-<div id="modalView" class="reveal-modal" >
-     <div id="titlebar" class="titlebar">
-	<a style="float:left; font-size:25px">BioWizard - Graph</a>
+<div id="modalView" unselectable="on" class="reveal-modal" >
+     <div id="titlebar" unselectable="on" class="titlebar">
+	<a id="title" unselectable="on" style="float:left; font-size:25px">BioWizard - Graph</a>
 	<a class="close-reveal-modal bt" style="float:right">&#215;</a>
      </div>
-     <div id="map" style="height:520px"></div>
-     <div id="commands"> 
+     <div id="map" unselectable="on" style="height:520px"></div>
+     <div id="commands" unselectable="on" style="-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; -o-user-select: none; user-select: none;"> 
 	<button class="buttoncontrols txt" style="float:left" onclick=pauseGraph()>Stop Animation</button>
 	<button class="button close-reveal-modal txt" style="float:right" onclick=openWin()>New Window</button>
      </div>
@@ -116,6 +116,9 @@ newWindow.links=linksforpopup;
 }
 
 $(function() {
-	$( "#modalView" ).draggable();
+	$("#modalView").draggable({ handle: '#titlebar', containment: 'document' });
+	$("#modalView").disableSelection();
+	$("#titlebar").disableSelection();
+	$("#title").disableSelection();
 });
 </script>
