@@ -15,17 +15,20 @@
 
 </head>
 <body>
+<div id="mapSpace"> </div>
+
 <script type="text/javascript">
 
 var links;
 
   width = 500;
-  height = 300;
+  height = 400;
+  r=10;
 
 
 window.onresize = function() {
-  width = document.documentElement.clientWidth-25;
-  height = document.documentElement.clientHeight-20;
+  width = document.documentElement.clientWidth;
+  height = document.documentElement.clientHeight;
   svg.attr("width", width);
   svg.attr("height", height);
 };
@@ -33,10 +36,12 @@ window.onresize = function() {
 var nodes = {};
 
 // Compute the distinct nodes from the links.
+var i=0;
+var n=links.length;
   links.forEach(function(link) {
-  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
-  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
-
+  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source, x: (width/n*i), y: (width/n*i)});
+  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target, x: (width/n*i), y: (width/n*i)});
+  i++;
 });
 
 
@@ -44,13 +49,13 @@ var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(78)
-    .charge(-300)
+    .linkDistance(150)
+    .charge(-450)
     .on("tick", tick)
     .start();
 
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#mapSpace").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -104,16 +109,17 @@ var cont = 0;
 
 function tick() {
 
-  if (cont < 200){
+  if (cont < 300){
 
-  path.attr("d", function(d) { return "M" + d.source.x + "," + d.source.y + "A0,0 0 0,1 " + d.target.x + "," + d.target.y; });
+  path.attr("d", function(d) { 
+   return "M" + Math.max(r, Math.min(width - r, d.source.x)) + "," + Math.max(r, Math.min(height - r, d.source.y)) + "A0,0 0 0,1 " + Math.max(r, Math.min(width - r, d.target.x)) + "," + Math.max(r, Math.min(height - r, d.target.y)); });
 
   circle.attr("transform", function(d) {
-    return "translate(" + d.x + "," + d.y + ")";
+    return "translate(" + Math.max(r, Math.min(width - r, d.x)) + "," + Math.max(r, Math.min(height - r, d.y)) + ")";
   });
 
   text.attr("transform", function(d) {
-    return "translate(" + d.x + "," + d.y + ")";
+    return "translate(" + Math.max(r, Math.min(width - r, d.x)) + "," + Math.max(r, Math.min(height - r, d.y)) + ")";
   });
 
   cont++;
@@ -124,17 +130,17 @@ function tick() {
      force.stop();
      path.attr("d", function(d) {
      d.fixed = true;
-     return "M" + d.source.x + "," + d.source.y + "A0,0 0 0,1 " + d.target.x + "," + d.target.y;
+     return "M" + Math.max(r, Math.min(width - r, d.source.x)) + "," + Math.max(r, Math.min(height - r, d.source.y)) + "A0,0 0 0,1 " + Math.max(r, Math.min(width - r, d.target.x)) + "," + Math.max(r, Math.min(height - r, d.target.y));
   });
 
   circle.attr("transform", function(d) {
     d.fixed = true;
-    return "translate(" + d.x + "," + d.y + ")";
+    return "translate(" + Math.max(r, Math.min(width - r, d.x)) + "," + Math.max(r, Math.min(height - r, d.y)) + ")";
   });
 
   text.attr("transform", function(d) {
     d.fixed = true;
-    return "translate(" + d.x + "," + d.y + ")";
+    return "translate(" + Math.max(r, Math.min(width - r, d.x)) + "," + Math.max(r, Math.min(height - r, d.y)) + ")";
   });
 
   }

@@ -85,11 +85,15 @@ function pressed(tab){
 </div>
 </div>
 <div id="modalView" class="reveal-modal" >
-     <a class="close-reveal-modal bt">&#215;</a>
-     <div id="map" style="height:500px"></div>
-
-<a class="close-reveal-modal txt" href="#tab3" onclick=openWin()> New_Window </a>
-<a href="#tab3" style="font-size:25px; position: absolute; bottom: 13px;" onclick=pauseGraph()> Pause </a>
+     <div id="titlebar" class="titlebar">
+	<a style="float:left; font-size:25px">BioWizard - Graph</a>
+	<a class="close-reveal-modal bt" style="float:right">&#215;</a>
+     </div>
+     <div id="map" style="height:520px"></div>
+     <div id="commands"> 
+	<button class="buttoncontrols txt" style="float:left" onclick=pauseGraph()>Stop Animation</button>
+	<button class="button close-reveal-modal txt" style="float:right" onclick=openWin()>New Window</button>
+     </div>
 </div>
 
 <script type="text/javascript">
@@ -104,10 +108,11 @@ else{
 }
 
 function openWin(){
-	
 var newWindow = window.open("showmap.php",'','width=520 ,height=320,replace=false');
 newWindow.links=linksforpopup;
-
-
 }
+
+$(function() {
+	$( "#modalView" ).draggable();
+});
 </script>
