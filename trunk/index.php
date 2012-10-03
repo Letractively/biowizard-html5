@@ -26,6 +26,8 @@ session_destroy();
 <script type="text/javascript" src="scripts/jquery.reveal.js"> </script>
 <script type="text/javascript" src="scripts/d3.v2.js"> </script>
 <script type="text/javascript" src="scripts/map.js"> </script>
+<script type="text/javascript" src="scripts/ui.core.js"> </script>
+<script type="text/javascript" src="scripts/ui.draggable.js"> </script>
 <script type="text/javascript">
 
 $(document).ready(function(){

@@ -99,30 +99,43 @@ firstForce=true;
 
 function showMap() {
 
-    //MISURE DA RIVEDERE 
+    //MISURE DA CONTROLLARE 
     width = 800;
     height = 500;
+    r = 10;
+
+
+    window.onresize = function () {
+        width = document.documentElement.clientWidth;
+        height = document.documentElement.clientHeight;
+    };
 
     var nodes = {};
 
     // Compute the distinct nodes from the links.
+    var i=1;
+    var n=links.length;
     links.forEach(function (link) {
         link.source = nodes[link.source] || (nodes[link.source] = {
-            name: link.source
+            name: link.source,
+            x: (width/n*i),
+            y: (width/n*i)
         });
         link.target = nodes[link.target] || (nodes[link.target] = {
-            name: link.target
+            name: link.target,
+            x: (width/n*i),
+            y: (width/n*i)
         });
-
+        i++;
     });
 
 
     var force = d3.layout.force()
         .nodes(d3.values(nodes))
         .links(links)
-        .size([width, height-10])
-        .linkDistance(200)
-        .charge(-400)
+        .size([width, height])
+        .linkDistance(150)
+        .charge(-450)
         .on("tick", tick)
         .start();
 
@@ -199,57 +212,45 @@ function showMap() {
 
     function tick() {
 
-        if (!pause) {
 
-	    if (firstForce)
-		force.resume;
+	if (firstForce){
+	    if (!pause)
+	       force.resume;
+	    else
+	       force.stop();
+	}
 
-            path.attr("d", function (d) {
-		if (firstForce)
-		   d.fixed = false;			
-                return "M" + d.source.x + "," + d.source.y + "A0,0 0 0,1 " + d.target.x + "," + d.target.y;
-            });
+	path.attr("d", function (d) {
+		if (firstForce){
+		   if (!pause)
+		      d.fixed = false;
+		   else
+		      d.fixed = true;
+		}
+                return "M" + Math.max(r, Math.min(width - r, d.source.x)) + "," + Math.max(r, Math.min(height - r, d.source.y)) + "A0,0 0 0,1 " + Math.max(r, Math.min(width - r, d.target.x)) + "," + Math.max(r, Math.min(height - r, d.target.y));
+	});
 
-            circle.attr("transform", function (d) {
-		if (firstForce)
-		   d.fixed = false;
-                return "translate(" + d.x + "," + d.y + ")";
-            });
+	circle.attr("transform", function (d) {
+		if (firstForce){
+		   if (!pause)
+		      d.fixed = false;
+		   else
+		      d.fixed = true;
+		}
+	return "translate(" + Math.max(r, Math.min(width - r, d.x)) + "," + Math.max(r, Math.min(height - r, d.y)) + ")";
+	});
 
-            text.attr("transform", function (d) {
-		if (firstForce)
-		   d.fixed = false;
-                return "translate(" + d.x + "," + d.y + ")";
-            });
-		firstForce=false;
+	text.attr("transform", function (d) {
+		if (firstForce){
+		   if (!pause)
+		      d.fixed = false;
+		   else
+		      d.fixed = true;
+		}
+	return "translate(" + Math.max(r, Math.min(width - r, d.x)) + "," + Math.max(r, Math.min(height - r, d.y)) + ")";
+	});
 
-
-        } else {
-
-	    if (firstForce)
-	        force.stop();
-
-            path.attr("d", function (d) {
-		if (firstForce)
-		   d.fixed = true;
-                return "M" + d.source.x + "," + d.source.y + "A0,0 0 0,1 " + d.target.x + "," + d.target.y;
-            });
-
-            circle.attr("transform", function (d) {
-		if (firstForce)
-		   d.fixed = true;
-                return "translate(" + d.x + "," + d.y + ")";
-            });
-
-            text.attr("transform", function (d) {
-		if (firstForce)
-		   d.fixed = true;
-                return "translate(" + d.x + "," + d.y + ")";
-            });
-		firstForce=false;
-
-
-        }
+	firstForce=false;
     }
 
 }
