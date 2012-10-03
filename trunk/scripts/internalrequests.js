@@ -233,7 +233,7 @@ function buildGenesDictionary() {
     myRequest = CreateXmlHttpReq(myHandlerGene);
     myRequest.open("GET","buildgeneclient.php?nome="+escape(nome)+"["+escape(fields)+"]&organism="+escape(organism)+"&sMin="+escape(sMin)+"&sMax="+escape(sMax)+"&checkSearch="+escape(checkSearch)+"&checkData="+escape(checkData)+"&rand="+escape(r));
 	myRequest.send(null);
-}
+	}
 }
 
 
@@ -291,6 +291,29 @@ function buildProteinsDictionary() {
 }
 }
 
+
+
+function countFeatures(){	
+	count = 0;	
+	if(isArray(features))
+		for(i=0;i<features.length;i++)
+			if(isArray(features[i].featureList))
+				for(j=0;j<features[i].featureList.length;j++)
+					count++;
+			else
+				count++;
+	else
+		if(isArray(features.featureList))
+			for(j=0;j<features.featureList.length;j++)
+				count++;
+		else
+			count++;
+	
+	return count;			
+}
+
+
+
 function myHandlerAsso() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
@@ -303,18 +326,16 @@ function myHandlerAsso() {
 		document.getElementById("resultlabelAssociation").style.display = "";
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
-			document.getElementsByClassName('elem').item(i).disabled=false;	
-		/*mario = window.open();
-		mario.document.write(myRequest.responseText);
-		alert(myRequest.responseText);
-		alert(dump(myRequest.responseText));*/
+			document.getElementsByClassName('elem').item(i).disabled=false;
 		if(myRequest.responseText == 0)
 			alert('Failed to retrieve associations.<br>Please retry with others Dictionaries');
 		else{
 		 if(!refreshflag)
 			document.getElementById("nextbutton").style.visibility = "" ;	
 		features = JSON.parse(myRequest.responseText);
-		refreshflag = false;
+		var featuresnumber = countFeatures();
+		document.getElementById('assnumber').innerHTML = "<font style='font-size:16px'> Associations Found: "+featuresnumber+"</font>";
+		refreshflag = false; 
 		classInspector();
 		var temp=""
 		for(i=0; i<features.length; i++){
