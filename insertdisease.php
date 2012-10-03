@@ -91,7 +91,7 @@
 		</div>
 	</div>
      <br>
-    <div class="result" style="display:none; margin-top:15px; margin-left:5px">
+    <div class="result" style="display:none; margin-top:10px; margin-left:5px">
     <label id="resultlabelDisease" style="display:none"> </label>
 </div>
 </div>
