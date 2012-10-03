@@ -25,7 +25,7 @@ function myHandlerArt() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabel");
-		e.innerHTML =   "RESULT: \n Founded " + myRequest.responseText+" Articles";
+		e.innerHTML =   "<font style='font-size:16px'>Result: " + myRequest.responseText+" Articles </font>";
 		document.getElementById("line").style.webkitAnimationPlayState="paused";
 		document.getElementById("line").style.MozAnimationPlayState="paused";
 		document.getElementById("line").style.oAnimationPlayState="paused";
@@ -80,8 +80,6 @@ function buildArticlesDictionary() {
 
 function openDictionary(){
 	 if (myRequest.readyState == 4 && myRequest.status == 200) {
-	/*	var popEdit=window.open("temp.php","Dictionary","menubar=0,toolbar=0, width=500, height=400, resizable=0,scrollbars=1");
-		//popEdit.document.write('<input type="checkbox" value="ciao"/> ciao');	*/	
 		var localdictionary = JSON.parse(myRequest.responseText);
 		if(printingtype != 'article')
 			 document.getElementById('titlelabel').innerHTML="Name"; 
@@ -126,7 +124,7 @@ function myHandlerDis() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabelDisease");
-		e.innerHTML =   "RESULT: " + myRequest.responseText;
+		e.innerHTML =   "<font style='font-size:16px'>Result: " + myRequest.responseText+" Articles </font>";
 		document.getElementById("lineDisease").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineDisease").style.MozAnimationPlayState="paused";
 		document.getElementById("lineDisease").style.oAnimationPlayState="paused";
@@ -183,7 +181,7 @@ function myHandlerGene() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabelGene");
-		e.innerHTML =   "RESULT: " + myRequest.responseText;
+		e.innerHTML =   "<font style='font-size:16px'>Result: " + myRequest.responseText+" Articles </font>";
 		document.getElementById("lineGene").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineGene").style.MozAnimationPlayState="paused";
 		document.getElementById("lineGene").style.oAnimationPlayState="paused";
@@ -243,7 +241,7 @@ function myHandlerProt() {
 	var tmp;
     if (myRequest.readyState == 4 && myRequest.status == 200) {
         e = document.getElementById("resultlabelProtein");;
-		e.innerHTML =   "RESULT: " + myRequest.responseText;
+		e.innerHTML =   "<font style='font-size:16px'>Result: " + myRequest.responseText+" Articles </font>";
 		document.getElementById("lineProtein").style.webkitAnimationPlayState="paused";
 		document.getElementById("lineProtein").style.MozAnimationPlayState="paused";
 		document.getElementById("lineProtein").style.oAnimationPlayState="paused";
@@ -346,7 +344,7 @@ function myHandlerClust(){
 					}
 					}
 			else{
-				commands = 'document.getElementById("textDocuments").innerHTML="";document.getElementById("textarea4").innerHTML="";';
+				commands = 'document.getElementById("textDocuments").innerHTML="";document.getElementById("textarea4").innerHTML="";switchColorsClust("'+i+'")';
 				temp= temp+"<a onclick='"+commands+"' style='cursor:pointer;' ><div id="+i+" class='unselectedclust' style='width:360px; height:20px;' >Cluster: "+ i + " ( 0 document)</div></a>";
 				}
 			}
@@ -357,7 +355,6 @@ function myHandlerClust(){
 		document.getElementById("textarea3").innerHTML=temp;
 		}
 	}
-	
 	
 function switchColorsClust(index){
 	for(i=0; i < document.getElementsByClassName("unselectedclust").length ; i++)
@@ -421,7 +418,7 @@ function associationFeatures(index){
  
 	featureList=null;	
 	for(i=0; i<features.length; i++){
-		if(features[i].entryID.value == index.value){
+		if(features[i].entryID == index){
 			featureList = features[i].featureList;
 			}
 		}	

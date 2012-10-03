@@ -83,7 +83,7 @@
     <td>
     <table class="intraTable">
     <tr>
-    <td style="width:125px">
+    <td style="width:115px">
     <select class="elem">
 		<option value="Entrez Gene" > Entrez Gene </option>
 	</select>
@@ -101,7 +101,7 @@
     <td>
     <table class="intraTable">
     <tr>
-    <td style="width:125px">
+    <td style="width:115px">
     </td>
     <td>
       <input type="checkbox" id="check2dis" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2dis">Overwrite previous data</label>
@@ -132,7 +132,7 @@
 		</div>
 	</div>
      <br>
-    <div class="result" style="display:none; margin-top:15px; margin-left:5px">
+    <div class="result" style="display:none; margin-top:10px; margin-left:5px">
     <label id="resultlabelGene" style="display:none"> </label>
     </div>
 </div>
