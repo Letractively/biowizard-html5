@@ -77,7 +77,7 @@ function pressed(tab){
 &nbsp;
 &nbsp;
 <label>Feature threshold:</label>
-<input id = 'threshold' type="number" style="width:50px" value = "75"/>
+<input id = 'threshold' type="number" style="width:50px" value = "75" max=100/>
 <label>%</label>
 &nbsp;
 &nbsp;
@@ -92,7 +92,7 @@ function pressed(tab){
 	<a id="title" unselectable="on" style="float:left; font-size:25px">BioWizard - Graph</a>
 	<a class="close-reveal-modal bt" style="float:right">&#215;</a>
      </div>
-     <div id="map" unselectable="on" style="height:520px"></div>
+     <div id="map" unselectable="on" style="height:520px;-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; -o-user-select: none; user-select: none;"></div>
      <div id="commands" unselectable="on" style="-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; -o-user-select: none; user-select: none;"> 
 	<button class="buttoncontrols txt" style="float:left" onclick=pauseGraph()>Stop Animation</button>
 	<button class="button close-reveal-modal txt" style="float:right" onclick=openWin()>New Window</button>
