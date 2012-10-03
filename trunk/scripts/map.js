@@ -99,7 +99,7 @@ firstForce=true;
 
 function showMap() {
 
-    //MISURE DA CONTROLLARE 
+
     width = 800;
     height = 500;
     r = 10;

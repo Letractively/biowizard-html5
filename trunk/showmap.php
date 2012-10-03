@@ -29,8 +29,8 @@ var links;
 window.onresize = function() {
   width = document.documentElement.clientWidth;
   height = document.documentElement.clientHeight;
-  svg.attr("width", width);
-  svg.attr("height", height);
+  svg.attr("width", width-20);
+  svg.attr("height", height-20);
 };
 
 var nodes = {};
