@@ -90,13 +90,12 @@ function pressed(tab){
 <div id="modalView" unselectable="on" class="reveal-modal" >
      <div id="titlebar" unselectable="on" class="titlebar">
 	<a id="title" unselectable="on" style="float:left; font-size:25px">BioWizard - Graph</a>
-	<a class="close-reveal-modal bt" style="float:right">&#215;</a>
+	<img src="images/close.png" title="Close" class="close-reveal-modal" style="height:32px; width:32px; float:right; cursor:pointer" onclick="changeAnimation('true')" />
+	<a style="float:right">&nbsp</a>
+	<img src="images/new.png" class="close-reveal-modal" title="Open in new window" style="height:30px; width:30px; float:right; cursor:pointer" onclick="openWin(); changeAnimation('true')" />
      </div>
      <div id="map" unselectable="on" style="height:520px;-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; -o-user-select: none; user-select: none;"></div>
-     <div id="commands" unselectable="on" style="-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; -o-user-select: none; user-select: none;"> 
-	<button class="buttoncontrols txt" style="float:left" onclick=pauseGraph()>Stop Animation</button>
-	<button class="button close-reveal-modal txt" style="float:right" onclick=openWin()>New Window</button>
-     </div>
+     <img id="play-pause" title="Pause animation" src="images/pause.png" article="Pause animation" style="height:50px; width:50px; float:right; cursor:pointer" onclick="changeAnimation('false')" />
 </div>
 
 <script type="text/javascript">
@@ -111,8 +110,21 @@ else{
 }
 
 function openWin(){
-var newWindow = window.open("showmap.php",'','width=550 ,height=350,replace=false');
-newWindow.links=linksforpopup;
+	var newWindow = window.open("showmap.php",'','width=600, height=500, replace=false');
+	newWindow.links=linksforpopup;
+}
+
+function changeAnimation(reset){
+	pauseGraph();
+	var img=document.getElementById("play-pause");
+	if(img.title=="Pause animation"||reset=="true"){
+	img.src="images/play.png";
+	img.title="Resume animation";
+	}
+	else{
+	img.src="images/pause.png";
+	img.title="Pause animation";
+	}
 }
 
 $(function() {
