@@ -85,8 +85,9 @@ function showDetails(i){
   var h = 450;
   var l = Math.floor((screen.width-w)/2);
   var t = Math.floor((screen.height-h)/2);
-  tmpstring='<body style="background-color:#d9d9d9"><font face ="Myriad Pro"> Id: &nbsp;&nbsp;&nbsp;&nbsp;'+localdictionary[i].id +"<br><br>";
-  popup = window.open('','Details'+localdictionary[i].id,"width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
+ 
+  var tmpstring='<body style="background-color:#d9d9d9"><font face ="Myriad Pro"> Id: &nbsp;&nbsp;&nbsp;&nbsp;'+localdictionary[i].id +"<br><br>";
+  var popup = window.open('','Details'+localdictionary[i].id,"width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
 	if(printingtype == 'article')
 		tmpstring = tmpstring+'<div style="font-size:20px">Title:</div> <p>'+localdictionary[i].title+'</p><br><div style="font-size:20px">Abstract:</div><p>'+localdictionary[i].abstractText+'</p></font></body>';
 	else{
@@ -353,8 +354,10 @@ function myHandlerAsso() {
 		document.getElementById("prevbutton").style.visibility = "";
 		for(i=0;i< document.getElementsByClassName("elem").length; i++)
 			document.getElementsByClassName('elem').item(i).disabled=false;
-		if(myRequest.responseText == 0)
-			alert('Failed to retrieve associations.<br>Please retry with others Dictionaries');
+		if(myRequest.responseText == 0){
+			 associationcheck = false;
+			alert('Failed to retrieve associations.Please retry with others Dictionaries');
+		}
 		else{
 		 if(!refreshflag)
 			document.getElementById("nextbutton").style.visibility = "" ;	
