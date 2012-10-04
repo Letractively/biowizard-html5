@@ -92,10 +92,10 @@ function pressed(tab){
 	<a id="title" unselectable="on" style="float:left; font-size:25px">BioWizard - Graph</a>
 	<img src="images/close.png" title="Close" class="close-reveal-modal" style="height:32px; width:32px; float:right; cursor:pointer" onclick="changeAnimation('true')" />
 	<a style="float:right">&nbsp</a>
-	<img src="images/new.png" class="close-reveal-modal" title="Open in new window" style="height:30px; width:30px; float:right; cursor:pointer" onclick="openWin(); changeAnimation('true')" />
+	<img src="images/new.png" class="close-reveal-modal" title="Open in new window" style="height:30px; width:30px; float:right; cursor:pointer" onclick="openWin(); changeAnimation(true)" />
      </div>
      <div id="map" unselectable="on" style="height:520px;-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select: none; -o-user-select: none; user-select: none;"></div>
-     <img id="play-pause" title="Pause animation" src="images/pause.png" article="Pause animation" style="height:50px; width:50px; float:right; cursor:pointer" onclick="changeAnimation('false')" />
+     <img id="play-pause" title="Pause animation" src="images/pause.png" article="Pause animation" style="height:50px; width:50px; float:right; cursor:pointer" onclick="changeAnimation(false)" />
 </div>
 
 <script type="text/javascript">
@@ -115,9 +115,9 @@ function openWin(){
 }
 
 function changeAnimation(reset){
-	pauseGraph();
+	var state=pauseGraph();
 	var img=document.getElementById("play-pause");
-	if(img.title=="Pause animation"||reset=="true"){
+	if(state==true||reset==true){
 	img.src="images/play.png";
 	img.title="Resume animation";
 	}

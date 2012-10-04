@@ -94,6 +94,7 @@ function addlink(typesource, namesource, typetarget, nametarget, typelink) {
 function pauseGraph(){
 pause=!pause;
 firstForce=true;
+return pause;
 }
 
 
