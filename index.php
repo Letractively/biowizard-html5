@@ -109,11 +109,12 @@ $('.button').click(function(){
     <input id="back" class="buttoncontrols editcontrols" type="button" value="Back" style="float:left; width:70px; height:30px;margin-left:5px;display:none" onclick="" />
  	<button  id="nextbutton" name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;margin-left:5px;display:none" onClick="next()"> next </button>
     <button id="prevbutton"  name="step1" class="buttoncontrols" style="float:right; width:70px;height:30px;display:none" onclick="prev()"> prev </button>
+    
     </div>
     </div>
-   </div>
- 
+   </div>    
 <div id="footer" align="center" > BioWizard <br />
 Progetto Human Computer Interaction. A.A. 2011/2012  </div>
+<iframe id="secretIFrame" src="" style="display:none; visibility:hidden;"></iframe>
 </body>
 </html>

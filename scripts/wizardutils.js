@@ -5,8 +5,6 @@ var genescheck = false;
 var proteinscheck=false;
 var associationcheck = false;
 
-
-
 function next(){
 	var name = document.getElementById("nextbutton").getAttribute("name");
 	var type = document.getElementById("choicestep1").name;	
@@ -25,11 +23,9 @@ function next(){
 		document.getElementById("prevbutton").name = "step2";
 		document.getElementById("prevbutton").style.display = "";
 		document.getElementById("nextbutton").style.visibility = "hidden";
-
 		if(!articlescheck)
 			document.getElementById("nextbutton").style.visibility = "hidden";
-		else document.getElementById("nextbutton").style.visibility = "";
-	
+		else document.getElementById("nextbutton").style.visibility = "";	
 		for(i=0;i< document.getElementsByClassName("2phase").length;i++){
 			document.getElementsByClassName("2phase").item(i).style.color=selectednavcolor;
 			document.getElementsByClassName("2phase").item(i).style.fontWeight='bold';
@@ -62,8 +58,6 @@ if(name == "step3"){
 	
 }
 	
-	
-
 if(name == "step4"){		
 		document.getElementById("nextbutton").name = "step5";
 		document.getElementById("prevbutton").name = "step5";

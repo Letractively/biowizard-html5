@@ -84,6 +84,7 @@
     &nbsp
     &nbsp
     <input type="checkbox" id="check1art" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check1art">Overwrite previous data</label>
+	    
     </td> 
     </tr>
     <tr>
@@ -94,6 +95,7 @@
     </td>
     <td>
     <input type="button" id="editArticles" class="buildButton elem editbutton" value="Edit Dictionary" onclick="editDictionary('article')" style="visibility:hidden" />
+
     </td>
     </tr>
     </table>
@@ -111,6 +113,9 @@
      <br>
     <div class="result" style="display:none; margin-top:10px; margin-left:5px">
     <label id="resultlabel" style="display:none"> </label>
+</div>
+<div style="position:relative;float:right;top:30px;">
+<img  style="height:35px;width:35px;display:none" src="images/downloadicon.png" id="saveArticles" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Article')"/>
 </div>
 </div>
 </html>

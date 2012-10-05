@@ -101,6 +101,9 @@
     <div class="result" style="display:none; margin-top:10px; margin-left:5px">
     <label id="resultlabelProtein" style="display:none">  </label>
     </div>
+    <div style="position:relative;float:right;top:30px;">
+<img  style="height:35px;width:35px;display:none" src="images/downloadicon.png" id="saveProteins" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Protein')"/>
+</div>
 </div>
 </html>
 
