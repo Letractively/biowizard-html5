@@ -22,9 +22,12 @@ if ($cd == 'true' || !isset($_SESSION['GeneList'])) {
         $getGeneResponse  = ($client->getGenes($getGenes));
         $getGenes->alist  = $_SESSION['ArticleList']->return;
         $getGeneResponse2 = ($client->getGenesFromArticles($getGenes));
-        if ($getGeneResponse2->return != null)
-            $getGeneResponse->return = array_merge($getGeneResponse->return, $getGeneResponse2->return);
-        
+        if ($getGeneResponse2->return != null){
+			if(is_array($getGeneResponse2->return))
+            	$getGeneResponse->return = array_merge($getGeneResponse->return, $getGeneResponse2->return);
+			else 
+			    $getGeneResponse->return[] = $getGeneResponse2->return;
+		}
     } else
         $getGeneResponse = ($client->getGenes($getGenes));
     if ((count(@$getGeneResponse->return)) != 0) {
@@ -39,7 +42,9 @@ if ($cd == 'true' || !isset($_SESSION['GeneList'])) {
         $getGenes->alist = $_SESSION['ArticleList']->return;
         $listtmp         = @$client->getGenesFromArticles($getGenes)->return;
         if ($listtmp != null)
-            $list = array_merge($list, $listmp);
+			if(is_array($listtmp))
+            	$list = array_merge($list, $listtmp);
+			else $list[] = $listtmp;
     } else
         $list = @$client->getGenes($getGenes)->return;
     if (count($list) != 0)
