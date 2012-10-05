@@ -135,5 +135,8 @@
     <div class="result" style="display:none; margin-top:10px; margin-left:5px">
     <label id="resultlabelGene" style="display:none"> </label>
     </div>
+    <div style="position:relative;float:right;top:0px;">
+<img  style="height:35px;width:35px;display:none" src="images/downloadicon.png" id="saveGenes" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Gene')"/>
+</div>
 </div>
 </html>

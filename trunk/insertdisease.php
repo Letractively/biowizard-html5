@@ -60,7 +60,7 @@
     <td>
         <input type="checkbox" id="check2dis" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2dis">Overwrite previous data</label>
    
-    </td>
+    </td> 
     </tr>
     </table>
     </td> 
@@ -93,6 +93,9 @@
      <br>
     <div class="result" style="display:none; margin-top:10px; margin-left:5px">
     <label id="resultlabelDisease" style="display:none"> </label>
+</div>
+<div style="position:relative;float:right;top:27px;">
+<img  style="height:35px;width:35px;display:none" src="images/downloadicon.png" id="saveDiseases" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Disease')"/>
 </div>
 </div>
 </html>

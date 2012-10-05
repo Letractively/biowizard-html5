@@ -4,6 +4,7 @@ var features = null;
 var clusters = null;
 var refreshflag = null;
 var localdictionary = null;
+var kind = null;
 
 function CreateXmlHttpReq(handler) {
   var xmlhttp = null;
@@ -32,11 +33,11 @@ function myHandlerArt() {
 		document.getElementById("line").style.oAnimationPlayState="paused";
 		document.getElementById("line").style.msAnimationPlayState="paused";
 		document.getElementById("loaded").innerHTML="Completed";
-		document.getElementById("resultlabel").style.display = "";
-		
+		document.getElementById("resultlabel").style.display = "";		
 		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
 			document.getElementById("editArticles").style.visibility = "" ;
+			document.getElementById("saveArticles").style.display = "";
 			articlescheck = true;
 		}
 		document.getElementById("prevbutton").style.visibility = "";
@@ -60,6 +61,8 @@ function buildArticlesDictionary() {
 		}
 		else{
 		document.getElementById("textArticles").className="elem";
+		document.getElementById("saveArticles").style.display = "none";
+
 		for(i=0;i< document.getElementsByClassName("result").length; i++)
 			document.getElementsByClassName('result').item(i).style.display = "";
 		document.getElementById("nextbutton").style.visibility = "hidden";
@@ -85,7 +88,6 @@ function showDetails(i){
   var h = 450;
   var l = Math.floor((screen.width-w)/2);
   var t = Math.floor((screen.height-h)/2);
- 
   var tmpstring='<body style="background-color:#d9d9d9"><font face ="Myriad Pro"> Id: &nbsp;&nbsp;&nbsp;&nbsp;'+localdictionary[i].id +"<br><br>";
   var popup = window.open('','Details'+localdictionary[i].id,"width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
 	if(printingtype == 'article')
@@ -162,6 +164,7 @@ function myHandlerDis() {
 		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
 			document.getElementById("editDiseases").style.visibility = "" ;
+			document.getElementById("saveDiseases").style.display = "";
 			diseasescheck = true;
 
 		}
@@ -178,6 +181,8 @@ function buildDiseasesDictionary() {
 	var sMin = document.queryDisease.spinnerMin.value;
 	var sMax = document.queryDisease.spinnerMax.value;
 	var checkData= document.queryDisease.checkData.checked;
+	document.getElementById("saveDiseases").style.display = "none";
+
 	associationcheck = false;
 	if(nome == ""){
 		document.getElementById("textDisease").className="focus";
@@ -219,6 +224,7 @@ function myHandlerGene() {
 		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
 			document.getElementById("editGenes").style.visibility = "" ;
+			document.getElementById("saveGenes").style.display = "";
 			genescheck = true;
 
 		}
@@ -237,6 +243,7 @@ function buildGenesDictionary() {
 	var sMax = document.queryGene.spinnerMax.value;
 	var checkData= document.queryGene.checkData.checked;
 	var checkSearch= document.queryGene.checkSearch.checked;
+	document.getElementById("saveGenes").style.display = "none";
 
 	associationcheck = false;
 	if(nome == ""){
@@ -278,6 +285,7 @@ function myHandlerProt() {
 		if((myRequest.responseText) != '0'){
 			document.getElementById("nextbutton").style.visibility = "" ;
 			document.getElementById("editProteins").style.visibility = "" ;
+			document.getElementById("saveProteins").style.display = "";
 			proteinscheck = true;
 		}
 		document.getElementById("prevbutton").style.visibility = "";
@@ -293,6 +301,7 @@ function buildProteinsDictionary() {
 	var sMax = document.queryProtein.spinnerMax.value;
 	var checkSearch= document.queryProtein.checkSearch.checked;
 	var checkData= document.queryProtein.checkData.checked;
+	document.getElementById("saveProteins").style.display = "none";
 	associationcheck = false;
 	if(nome == ""){
 		document.getElementById("textProtein").className="focus";
@@ -614,6 +623,17 @@ if (obj.constructor.toString().indexOf("Array") == -1)
 else
 	return true;
 }
+
+/////////savincg dict
+function saveDictionary(kind){
+	$("#secretIFrame").attr("src","savedictionaries.php?Type="+kind);
+}
+
+
+
+
+
+
 
 
 
