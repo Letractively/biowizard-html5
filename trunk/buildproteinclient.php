@@ -56,10 +56,9 @@
 			$getProteins->alist = $_SESSION['ArticleList']->return;
 			$listtmp = @$client->getProteinsFromArticles($getProteins)->return;
 			if($listtmp!= null)
-				if(is_array($listtmp)
+				if(is_array($listtmp))
 					$list=array_merge($list,$listtmp);
 				else $list[] = $listtmp;
-			
 		}
 		else
 			$list = @$client->getProteins($getProteins)->return;
