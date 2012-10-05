@@ -31,7 +31,9 @@
 			$getProteins->alist = $_SESSION['ArticleList']->return;
 			$getProteinResponsetmp = ($client->getProteinsFromArticles($getProteins));
 			if($getProteinResponsetmp->return != null)
-				$getProteinResponse->return = array_merge($getProteinResponse->return,$getProteinResponsetmp->return);  
+				if(is_array($getProteinResponsetmp->return))
+					$getProteinResponse->return = array_merge($getProteinResponse->return,$getProteinResponsetmp->return); 
+				else  $getProteinResponse->return[] = $getProteinResponsetmp->return;
 			
 		}
 		else
@@ -54,7 +56,9 @@
 			$getProteins->alist = $_SESSION['ArticleList']->return;
 			$listtmp = @$client->getProteinsFromArticles($getProteins)->return;
 			if($listtmp!= null)
-				$list=array_merge($list,$listmp);
+				if(is_array($listtmp)
+					$list=array_merge($list,$listtmp);
+				else $list[] = $listtmp;
 			
 		}
 		else
