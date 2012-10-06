@@ -7,7 +7,7 @@
 
 	<table class="panelForm">
     <tr>
-    <td width="150">
+    <td width="120">
     <label> Query Terms: </label>
     </td>
     <td width="200">
@@ -117,6 +117,9 @@
     <td>
     <input type="button" id="editGenes" class="buildButton elem editbutton" value="Edit Dictionary" onclick="editDictionary('gene')" style="visibility:hidden" />
     </td>
+    <td>
+    <img  style="height:35px;width:35px;display:none;cursor:pointer;" src="images/downloadicon.png" id="saveGenes" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Gene')"/>
+    </td>
     </tr>
     </table>
 
@@ -124,7 +127,7 @@
 	<br>
     <br>
 	<div class="result" id="loadingBar" style="display:none; margin-left:5px">
-		<div class="amount green" style="width: 94%">
+		<div class="amount green" style="width: 96%">
 			<div id="loadedGene" class="loaded" >
 				Please Wait ...
 			</div>
@@ -135,8 +138,5 @@
     <div class="result" style="display:none; margin-top:10px; margin-left:5px">
     <label id="resultlabelGene" style="display:none"> </label>
     </div>
-    <div style="position:relative;float:right;top:0px;">
-<img  style="height:35px;width:35px;display:none" src="images/downloadicon.png" id="saveGenes" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Gene')"/>
-</div>
 </div>
 </html>
