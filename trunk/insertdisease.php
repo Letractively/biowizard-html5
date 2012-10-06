@@ -7,7 +7,7 @@
 
 	<table class="panelForm">
     <tr>
-    <td width="150">
+    <td width="120">
     <label> Query Terms: </label>
     </td>
     <td width="200">
@@ -59,8 +59,7 @@
     </td>
     <td>
         <input type="checkbox" id="check2dis" name="checkData" class="elem" value="Overwrite previous data" /> <label for = "check2dis">Overwrite previous data</label>
-   
-    </td> 
+   	</td> 
     </tr>
     </table>
     </td> 
@@ -76,6 +75,9 @@
     <td>
     <input type="button" id="editDiseases" class="buildButton elem editbutton" value="Edit Dictionary" onclick="editDictionary('disease')" style="visibility:hidden" />
     </td>
+    <td>
+    <img  style="height:35px;width:35px;display:none;cursor:pointer;" src="images/downloadicon.png" id="saveDiseases" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Disease')"/>
+    </td>
     </tr>
     </table>
 
@@ -83,7 +85,7 @@
 	<br>
     <br>
 	<div class="result" id="loadingBar" style="display:none; margin-left:5px">
-		<div class="amount green" style="width: 94%">
+		<div class="amount green" style="width: 96%">
 			<div id="loadedDisease" class="loaded" >
 				Please Wait ...
 			</div>
@@ -93,9 +95,6 @@
      <br>
     <div class="result" style="display:none; margin-top:10px; margin-left:5px">
     <label id="resultlabelDisease" style="display:none"> </label>
-</div>
-<div style="position:relative;float:right;top:27px;">
-<img  style="height:35px;width:35px;display:none" src="images/downloadicon.png" id="saveDiseases" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Disease')"/>
 </div>
 </div>
 </html>
