@@ -10,6 +10,12 @@ session_destroy();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="title" content="BioWizard" />
+<meta name="description" content="BioWizard is a knowledge discovery tool that extracts uncovered
+        relations between diseases, genes and proteins by mining Pubmed Abstracts and
+        Oxford Journals Articles and validates such associations against high throughput
+        genomics experiments, such as Microarrays." />
+<link rel="image_src" href="images/genev3.png" / >
 <title>BioWizard</title>
 <style type="text/css">
 @import url('css/theme.css'); 
@@ -113,8 +119,7 @@ $('.button').click(function(){
     </div>
     </div>
    </div>    
-<div id="footer" align="center" > BioWizard <br />
-Progetto Human Computer Interaction. A.A. 2011/2012  </div>
+<?php include('footer.php'); ?>
 <iframe id="secretIFrame" src="" style="display:none; visibility:hidden;"></iframe>
 </body>
 </html>

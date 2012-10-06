@@ -90,7 +90,7 @@ function pressed(tab){
 <div id="modalView" unselectable="on" class="reveal-modal" >
      <div id="titlebar" unselectable="on" class="titlebar">
 	<a id="title" unselectable="on" style="float:left; font-size:25px">BioWizard - Graph</a>
-	<img src="images/close.png" title="Close" class="close-reveal-modal" style="height:32px; width:32px; float:right; cursor:pointer" onclick="changeAnimation('true')" />
+	<img src="images/close.png" title="Close" class="close-reveal-modal" style="height:32px; width:32px; float:right; cursor:pointer" onclick="changeAnimation(true)" />
 	<a style="float:right">&nbsp</a>
 	<img src="images/new.png" class="close-reveal-modal" title="Open in new window" style="height:30px; width:30px; float:right; cursor:pointer" onclick="openWin(); changeAnimation(true)" />
      </div>
@@ -117,14 +117,15 @@ function openWin(){
 function changeAnimation(reset){
 	var state=pauseGraph();
 	var img=document.getElementById("play-pause");
-	if(state==true||reset==true){
-	img.src="images/play.png";
-	img.title="Resume animation";
-	}
-	else{
+	if(state==false||reset==true){
 	img.src="images/pause.png";
 	img.title="Pause animation";
 	}
+	else{
+	img.src="images/play.png";
+	img.title="Resume animation";
+	}
+
 }
 
 $(function() {
