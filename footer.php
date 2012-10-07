@@ -1,3 +1,15 @@
+<style type="text/css">
+#contact:link {
+		text-decoration:none;
+	}
+
+#contact:hover{
+	text-decoration:underline;
+}
+
+
+</style>
+
 <center>
     <div id="footer-container" style="font-family:'Myriad Pro'; padding-top:20px; width:1200px">
       <div style="height:180px; width:300px; float:left">
@@ -55,6 +67,9 @@
       <a href="https://twitter.com/share" class="twitter-share-button" data-lang="it" style="margin-top:5px"	>Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
+      </div>
+      <div style="float:left; color:#d9d9d9">
+      <small> Developed by <a id="contact" href="https://groups.google.com/groups/hci-hml5bw" style="color:#d9d9d9"> hci-html5bw </a> </small> 
       </div>
       
       
