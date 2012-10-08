@@ -118,4 +118,16 @@
    border-top-color: #1b435e;
    background: #1b435e;
    }
+   
+/*style="height:35px;width:35px;display:none;cursor:pointer;"*/
 
+img.downloadbutton{
+	height:35px;
+	width:35px;
+	cursor:pointer;
+	}
+
+img.downloadbutton:hover {
+	height:40px;
+	width:40px;
+	}
