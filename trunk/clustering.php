@@ -77,7 +77,7 @@ function pressed(tab){
 &nbsp;
 &nbsp;
 <label>Feature threshold:</label>
-<input id = 'threshold' type="number" style="width:50px" value = "75" max=100/>
+<input id = 'threshold' type="number" style="width:50px" value = "75" max="100" min="1"/>
 <label>%</label>
 &nbsp;
 &nbsp;

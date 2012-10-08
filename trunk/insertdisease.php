@@ -40,7 +40,7 @@
     &nbsp
     <label> Max: </label>
     
-    <input type="number" name="spinnerMax" id="spinnerMax" class="elem" min="0" max="10000" step="1" value="100" style="width:50px"/>
+    <input type="number" name="spinnerMax" id="spinnerMax" class="elem" min="2" max="10000" step="1" value="100" style="width:50px"/>
     &nbsp
     &nbsp
     </td>
