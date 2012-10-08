@@ -103,7 +103,6 @@ function showDetails(i){
 		tmpstring=tmpstring+'</p></font></body>';
 	 	
 	}
-		
 		popup.document.write(tmpstring);	
 }
 
@@ -116,16 +115,16 @@ function openDictionary(){
 		for(i=0;i<localdictionary.length;i++){
 			if(i%2==1){
 				if(printingtype == 'article'){
-					temphtml = temphtml + "<tr><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' onclick='showDetails("+i+")' style='cursor:pointer;'>" + localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
+					temphtml = temphtml + "<tr><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='120'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' onclick='showDetails("+i+")' style='cursor:pointer;'>" + localdictionary[i].title + "</td><td style='display:none;' class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
 				}else{
-					temphtml = temphtml + "<tr><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' onclick='showDetails("+i+")' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
+					temphtml = temphtml + "<tr><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='120'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' onclick='showDetails("+i+")' style='cursor:pointer;'>"+ localdictionary[i].name + "</td></tr>";
 				}
 			}
 			else{
 			if(printingtype == 'article'){
-				temphtml = temphtml + "<tr style='color:#009900;'><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' style='cursor:pointer;' onclick='showDetails("+i+")'>"+ localdictionary[i].title +"</td><td style='display:none;'class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
+				temphtml = temphtml + "<tr style='color:#009900;'><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='120'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' style='cursor:pointer;' onclick='showDetails("+i+")'>"+ localdictionary[i].title +"</td><td style='display:none;'class='abstractText'>" + localdictionary[i].abstractText+"</td></tr>";
 			}else{
-				temphtml = temphtml + "<tr style='color:#009900;'><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='100'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' style='cursor:pointer;' onclick='showDetails("+i+")'>"+ localdictionary[i].name + "</td></tr>";
+				temphtml = temphtml + "<tr style='color:#009900;'><td><input type=checkbox id="+localdictionary[i].id+" name="+localdictionary[i].id+" class='checkEdit' /></td><td width='120'><label for="+localdictionary[i].id+">" + localdictionary[i].id + "</label></td><td width='2600' class='titleText' style='cursor:pointer;' onclick='showDetails("+i+")'>"+ localdictionary[i].name + "</td></tr>";
 			}
 				}
 		}
@@ -395,21 +394,21 @@ function myHandlerClust(){
 		for(i=0; i<clusters.length; i++){
 			if(clusters[i].articleList!=null){
 				if(isArray(clusters[i].articleList)){
-					temp = temp+"<a onclick='getClusterFeaturesById("+ i +")'style='cursor:pointer;'><div id="+i+" class='unselectedclust' style='width:360px; height:20px;' >Cluster: "+ i + " ("+clusters[i].articleList.length+ " documents)</div></a>";
+					temp = temp+"<a onclick='getClusterFeaturesById("+ i +")'style='cursor:pointer;'><div id="+i+" class='unselectedclust' style='width:340px; height:20px;' >Cluster: "+ i + " ("+clusters[i].articleList.length+ " documents)</div></a>";
 					}
 				else
 					{
-					temp= temp+"<a onclick='getClusterFeaturesById("+ i +")' style='cursor:pointer;' ><div id="+i+" class='unselectedclust' style='width:360px; height:20px;' >Cluster: "+ i + " ( 1 document)</div></a>";
+					temp= temp+"<a onclick='getClusterFeaturesById("+ i +")' style='cursor:pointer;' ><div id="+i+" class='unselectedclust' style='width:340px; height:20px;' >Cluster: "+ i + " ( 1 document)</div></a>";
 					}
 					}
 			else{
 				commands = 'document.getElementById("textDocuments").innerHTML="";document.getElementById("textarea4").innerHTML="";switchColorsClust("'+i+'")';
-				temp= temp+"<a onclick='"+commands+"' style='cursor:pointer;' ><div id="+i+" class='unselectedclust' style='width:360px; height:20px;' >Cluster: "+ i + " ( 0 document)</div></a>";
+				temp= temp+"<a onclick='"+commands+"' style='cursor:pointer;' ><div id="+i+" class='unselectedclust' style='width:340px; height:20px;' >Cluster: "+ i + " ( 0 document)</div></a>";
 				}
 			}
 		}
 		else{
-		temp = "<a style='cursor:pointer;' onclick='switchColorsClust('emptyclust')' ><div id='emptyclust' class='unselectedclust' style='width:360px; height:20px;' >Cluster: 0 ("+clusters[0].articleList.length+ " documents)</a>";
+		temp = "<a style='cursor:pointer;' onclick='switchColorsClust('emptyclust')' ><div id='emptyclust' class='unselectedclust' style='width:340px; height:20px;' >Cluster: 0 ("+clusters[0].articleList.length+ " documents)</a>";
 		}
 		document.getElementById("textarea3").innerHTML=temp;
 		}
@@ -430,11 +429,11 @@ function getClusterFeaturesById(index){
 	if(isArray(clusters[index].articleList)){
 		for(j=0; j<clusters[index].articleList.length; j++){
 		
-						tempdoc = tempdoc+"<a>Id: "+ clusters[index].articleList[j].id + " Title: "+ clusters[index].articleList[j].title +" </a><br>";
+						tempdoc = tempdoc+"<a><div style='width:1600px;height:20px;'>Id: "+ clusters[index].articleList[j].id + " Title: "+ clusters[index].articleList[j].title +" </div></a>";
 		}
 	}
 	else{
-		tempdoc = tempdoc+"<a>Id: "+ clusters[index].articleList.id + " Title: "+ clusters[index].articleList.title +" </a><br>";
+		tempdoc = tempdoc+"<a><div style='width:1600px;height:20px;'>Id: "+ clusters[index].articleList.id + " Title: "+ clusters[index].articleList.title +" </div></a>";
 	}
     document.getElementById("textDocuments").innerHTML = tempdoc;
 	
@@ -452,8 +451,8 @@ function ClusterFeatureHandler(){
 		clusterfeatures = JSON.parse(myRequest.responseText)
 		if(isArray(clusterfeatures))
 		for(i=0; i<clusterfeatures.length; i++)
-		  list = list + "id: "+ clusterfeatures[i].entry.id +"; Name: "+clusterfeatures[i].entry.name+ "; Frequency:"+clusterfeatures[i].frequence+"<br>";
-		else list = list + "id: "+ clusterfeatures.entry.id +"; Name: "+clusterfeatures.entry.name+ "; Frequency:"+clusterfeatures.frequence+"<br>";
+		  list = list + "<div style='width:500px;height:20px;'>Id: "+ clusterfeatures[i].entry.id +"; Name: "+clusterfeatures[i].entry.name+ "; Frequency:"+clusterfeatures[i].frequence+"</div>";
+		else list = list + "<div style='width:500px;height:20px;'>Id: "+ clusterfeatures.entry.id +"; Name: "+clusterfeatures.entry.name+ "; Frequency:"+clusterfeatures.frequence+"</div>";
 		
 		document.getElementById("textarea4").innerHTML = list;
 		
@@ -483,10 +482,10 @@ function associationFeatures(index){
 		}	
 	if(isArray(featureList))
 		for(i=0; i<featureList.length; i++){
-				temp=temp+"<a>ID: "+featureList[i].entry.id+" Name: "+ featureList[i].entry.name +" Frequence: "+featureList[i].frequence+"</a><br>";
+				temp=temp+"<a><div style='width:500px;'>ID: "+featureList[i].entry.id+" Name: "+ featureList[i].entry.name +" Frequence: "+featureList[i].frequence+"</div></a>";
 			}
 	else {
-		temp = temp + "<a>ID: "+featureList.entry.id+" Name: "+ featureList.entry.name +" Frequence: "+featureList.frequence+"</a><br>";
+		temp = temp + "<a><div style='width:500px;'>ID: "+featureList.entry.id+" Name: "+ featureList.entry.name +" Frequence: "+featureList.frequence+"</div></a>";
 	}
 		
 	document.getElementById('textarea2').innerHTML=temp;	

@@ -96,8 +96,8 @@
     <td>
     <input type="button" id="editArticles" class="buildButton elem editbutton" value="Edit Dictionary" onclick="editDictionary('article')" style="visibility:hidden" />
     </td>
-    <td>
-    <img  style="height:35px;width:35px;display:none;cursor:pointer;" src="images/downloadicon.png" id="saveArticles" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Article')"/>
+    <td height="40px">
+    <img  style="display:none" src="images/downloadicon.png" id="saveArticles" class="downloadbutton" title="Save as XML" value="SaveasXML" onclick="saveDictionary('Article')"/>
     </td>
     </tr>
     </table>
