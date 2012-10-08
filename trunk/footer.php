@@ -11,41 +11,53 @@
 </style>
 
 <center>
-    <div id="footer-container" style="font-family:'Myriad Pro'; padding-top:20px; width:1200px">
-      <div style="height:180px; width:300px; float:left">
+    <div id="footer-container" style="font-family:'Myriad Pro'; padding-top:15px; width:1200px;background-color:#d9d9d9;margin-top:8px">
+      <div style="height:120px; width:200px; float:left">
         <table>
           <tr>
-            <td>Universit&aacute; Degli Studi di Catania</td>
+            <td style="font-size:12px">Universit&aacute; Degli Studi di Catania</td>
           </tr>
           <tr>
             <td>
               <center>
-                <a href="http://www.unict.it/"><img src="images/unict.png" style="height:130px;width:130px; margin-top:20px" /></a>
+                <a href="http://www.unict.it/"><img src="images/unict.png" style="height:80px;width:80px; margin-top:10px" /></a>
               </center>
             </td>
           </tr>
         </table>
       </div>
       
-       <div style="height:180px; width:850px;float:left;padding-top:25px"align="left" >
-        <h3>About:</h3>The increasing number of hidden information in scientific
+       <div style="height:90px; width:980px;float:left;font-size:14px;padding-right:20px;padding-top:30px"align="left" >
+       
+        <font size="+1">About:</font><br />The increasing number of hidden information in scientific
         literature, has led to a new kind of information retrieval tools based on
         Text-Mining. BioWizard is a knowledge discovery tool that extracts uncovered
-        relations between diseases, genes and proteins by mining Pubmed Abstracts and
-        Oxford Journals Articles and validates such associations against high throughput
-        genomics experiments, such as Microarrays. The experimental results report a good
-        capability of exploration and exploitation of the proposed system.
+        relations between diseases, genes and proteins by mining Pubmed Abstracts.
+    
       </div>
+      <div style="clear:both"></div>
       </div>
-      <div align="center" style="height:50px;font-size:12px;width:100%; background-color:#d9d9d9;">
+      
+      
+      
+      
+      
+      <div align="center" style="height:40px;font-size:12px;width:100%; background-color:#d9d9d9;">
+       
         BioWizard<br />
         Progetto Human Computer Interaction. A.A. 2011/2012
-      </div>
+      </div> 
       </center>
+      
+      
+      
+      
+      
+      
       <div style="float:right; margin-top:5px;margin-bottom:30px">
 <script>
     function fbs_click() {
-        u=location.href;
+        u=location.href;	
         t=document.title;
         window.open('http://www.facebook.com/sharer.php?u=' +
              encodeURIComponent(u) +

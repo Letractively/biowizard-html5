@@ -53,14 +53,6 @@ body {
 	height:580px;
    }
    
-   div#footer-container{
-	   height:200px;
- 	   width:100%;
-	   background-color:#d9d9d9;
-	   position:relative;
-	   margin-top:8px;
-	   padding-top:5px;
-} 	 
  
  div#containerframe{
 	overflow: auto;
