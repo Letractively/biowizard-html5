@@ -81,7 +81,7 @@
 
       </div>
       <div style="float:left; color:#d9d9d9">
-      <small> Developed by <a id="contact" href="https://groups.google.com/groups/hci-hml5bw" style="color:#d9d9d9"> hci-html5bw </a> </small> 
+      <small> Developed by <a id="contact" href="https://code.google.com/p/biowizard-html5/" style="color:#d9d9d9"> hci-html5bw </a> </small> 
       </div>
       
       
